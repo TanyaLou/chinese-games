@@ -107,7 +107,53 @@
           {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
           {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
           {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
-        ]}]
+          ]}
+        ]
+      },
+      {
+        "name": "第二册",
+        "units": [{"name": "全册12课", "lessons": [
+          {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+          {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+          {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+          ]}
+        ]
+      },
+      {
+        "name": "第三册",
+        "units": [{"name": "全册12课", "lessons": [
+          {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+          {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+          {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+          ]}
+        ]
+      },
+      {
+        "name": "第四册",
+        "units": [{"name": "全册12课", "lessons": [
+          {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+          {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+          {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+          ]}
+        ]
+      },
+      {
+        "name": "第五册",
+        "units": [{"name": "全册12课", "lessons": [
+          {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+          {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+          {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+          ]}
+        ]
+      },
+      {
+        "name": "第六册",
+        "units": [{"name": "全册12课", "lessons": [
+          {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+          {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+          {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"｝
+         ]}
+        ]
       }
     ]
   },
