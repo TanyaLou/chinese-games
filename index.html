@@ -492,7 +492,11 @@
                                 {
                                     "name": "第四单元",
                                     "lessons": [
-                                        {"name": "第五课","topic": "你是哪国人"}, {"name": "第六课","topic": "你吃什么"}, {"name": "第七课","topic": "在做什么"}, {"name": "第八课","topic": "拼音复习2"}
+                                        {"name": "第五课","topic": "你是哪国人"}, {"name": "第六课","topic": "你吃什么"}, {"name": "第七课","topic": "在做什么", "games": [
+        {
+          "name": "Quizlet单词卡",
+          "url": "https://quizlet.com/ie/1088089621/%E7%AC%AC%E5%9B%9B%E5%8D%95%E5%85%83-%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%8B%BC%E9%9F%B32-7%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88-flash-cards/?i=3vrcho&x=1jqt",
+          "type": "单词记忆"}, {"name": "第八课","topic": "拼音复习2"}
                                     ]
                                 }
                             ]
@@ -1151,6 +1155,20 @@
                 });
             }
 
+            document.querySelectorAll('.lesson-header').forEach(header => {
+  if (header.querySelector('.games-toggle')) {
+    header.addEventListener('click', () => {
+      const container = header.nextElementSibling;
+      const toggle = header.querySelector('.games-toggle');
+      
+      if (container) {
+        container.classList.toggle('expanded');
+        toggle.classList.toggle('rotated');
+      }
+    });
+  }
+});
+
             // 搜索功能
             function setupSearch() {
                 const searchInput = document.getElementById('searchInput');
@@ -1262,4 +1280,5 @@
     </script>
 </body>
 </html>
+
 
