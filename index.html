@@ -1,59 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Li Zhong Chinese-Irish Culture Centre</title>
-  <style>
-    body {
-      font-family: "Noto Sans", Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      background-color: #b30000; /* 中国红 */
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 0.3em;
-    }
-    h2 {
-      font-size: 1.4em;
-      margin-bottom: 1.5em;
-      color: #ffe680;
-    }
-    a {
-      background-color: #fff;
-      color: #b30000;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1.1em;
-      text-decoration: none;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    a:hover {
-      background-color: #ffe680;
-      color: #800000;
-    }
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9em;
-      color: #ffd9b3;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利中中爱文化中心教学资源</title>
+<style>
+  body {
+    font-family: "Noto Sans SC", Arial, sans-serif;
+    background-color: #fff8f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    color: #b30000;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  h2 {
+    text-align: center;
+    color: #d48806;
+    margin-top: 0;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  details {
+    margin: 10px 0;
+    background-color: #fff3f3;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #b30000;
+  }
+  ul {
+    list-style: none;
+    padding-left: 20px;
+  }
+  li {
+    padding: 5px 0;
+  }
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #777;
+  }
+</style>
 </head>
 <body>
-  <h1>利中中爱文化中心欢迎你 🇨🇳🇮🇪</h1>
-  <h2>Welcome to Li Zhong Chinese-Irish Culture Centre</h2>
+  <h1>利中中爱文化中心欢迎你</h1>
+  <h2>Li Zhong Chinese-Irish Culture Centre</h2>
+  <div class="container" id="content">加载中...</div>
 
-  <a href="grouping_game.html">🎮 Start: Food & Drinks Grouping Game</a>
+  <div class="footer">
+    © 2025 利中中爱文化中心 | 由 Tanya Lou 设计
+  </div>
 
-  <footer>Created by Tanya Lou · Hosted on GitHub Pages</footer>
+<script>
+async function loadData() {
+  const response = await fetch('data.json');
+  const data = await response.json();
+  const container = document.getElementById('content');
+  container.innerHTML = "";
+
+  data.forEach(version => {
+    const versionEl = document.createElement('details');
+    versionEl.innerHTML = `<summary>📚 ${version.name}</summary>`;
+    version.volumes.forEach(volume => {
+      const volumeEl = document.createElement('details');
+      volumeEl.innerHTML = `<summary>📘 ${volume.name}</summary>`;
+      volume.units.forEach(unit => {
+        const unitEl = document.createElement('details');
+        unitEl.innerHTML = `<summary>🧩 ${unit.name}</summary>`;
+        const lessonsList = document.createElement('ul');
+        unit.lessons.forEach(lesson => {
+          const li = document.createElement('li');
+          li.innerHTML = lesson.link
+            ? `<a href="${lesson.link}" target="_blank">${lesson.name}</a>`
+            : lesson.name;
+          lessonsList.appendChild(li);
+        });
+        unitEl.appendChild(lessonsList);
+        volumeEl.appendChild(unitEl);
+      });
+      versionEl.appendChild(volumeEl);
+    });
+    container.appendChild(versionEl);
+  });
+}
+loadData();
+</script>
 </body>
 </html>
