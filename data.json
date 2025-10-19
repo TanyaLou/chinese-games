@@ -1,0 +1,106 @@
+[
+  {
+    "name": "中文（小学·欧洲版）",
+    "volumes": [
+      {
+        "name": "第一册",
+        "units": [
+          {"name": "第一单元（无课文）", "lessons": []},
+          {"name": "第二单元（无课文）", "lessons": []},
+          {"name": "第三单元", "lessons": [
+            {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+          ]},
+          {"name": "第四单元", "lessons": [
+            {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+          ]}
+        ]
+      },
+      {
+        "name": "第二册",
+        "units": [
+          {"name": "第一单元（无课文）", "lessons": []},
+          {"name": "第二单元", "lessons": [
+            {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+          ]},
+          {"name": "第三单元（无课文）", "lessons": []},
+          {"name": "第四单元", "lessons": [
+            {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+          ]}
+        ]
+      },
+      {
+        "name": "第三册",
+        "units": [
+          {"name": "第一单元", "lessons": [
+            {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+          ]},
+          {"name": "第二单元", "lessons": [
+            {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+          ]},
+          {"name": "第三单元", "lessons": [
+            {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+          ]},
+          {"name": "第四单元", "lessons": [
+            {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+          ]}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "YCT标准教程",
+    "volumes": [
+      {
+        "name": "第一册",
+        "units": [{"name": "全册12课", "lessons": [
+          {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+          {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+          {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+        ]}]
+      }
+    ]
+  },
+  {
+    "name": "中文（小学·暨南大学版）",
+    "volumes": [
+      {"name": "第一册", "units": [
+        {"name": "第一单元", "lessons": [{"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}]},
+        {"name": "第二单元", "lessons": [{"name": "第四课"}, {"name": "第五课"}, {"name": "第六课"}]},
+        {"name": "第三单元", "lessons": [{"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}]},
+        {"name": "第四单元", "lessons": [{"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}]}
+      ]}
+    ]
+  },
+  {
+    "name": "华文（小学·北京华文学院版）",
+    "volumes": [
+      {"name": "第一册", "units": [
+        {"name": "第一单元", "lessons": [
+          {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}, {"name": "第五课"}
+        ]}
+      ]}
+    ]
+  },
+  {
+    "name": "幼儿汉语",
+    "volumes": [
+      {"name": "第一册", "units": [{"name": "全册10课", "lessons": [
+        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+        {"name": "Lesson 9"}, {"name": "Lesson 10"}
+      ]}]}
+    ]
+  },
+  {
+    "name": "汉语拼音",
+    "volumes": [
+      {"name": "拼音课程", "units": [{"name": "全册18课", "lessons": [
+        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+        {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"},
+        {"name": "Lesson 13"}, {"name": "Lesson 14"}, {"name": "Lesson 15"}, {"name": "Lesson 16"},
+        {"name": "Lesson 17"}, {"name": "Lesson 18"}
+      ]}]}
+    ]
+  }
+]
