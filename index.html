@@ -1,111 +1,400 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>利中中爱文化中心教学资源</title>
-<style>
-  body {
-    font-family: "Noto Sans SC", Arial, sans-serif;
-    background-color: #fff8f0;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-  }
-  h1 {
-    text-align: center;
-    color: #b30000;
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  h2 {
-    text-align: center;
-    color: #d48806;
-    margin-top: 0;
-  }
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
-  details {
-    margin: 10px 0;
-    background-color: #fff3f3;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: #b30000;
-  }
-  ul {
-    list-style: none;
-    padding-left: 20px;
-  }
-  li {
-    padding: 5px 0;
-  }
-  a {
-    color: #0066cc;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  .footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 13px;
-    color: #777;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中文教学游戏资源库</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }
+        :root {
+            --primary: #3498db; --primary-dark: #2980b9; --secondary: #2ecc71; --accent: #e74c3c;
+            --light: #f8f9fa; --dark: #2c3e50; --gray: #95a5a6; --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: var(--dark); line-height: 1.6; min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; padding: 30px; background: rgba(255, 255, 255, 0.95); border-radius: 15px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+        header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); }
+        h1 { color: var(--dark); margin-bottom: 10px; font-size: 2.8rem; font-weight: 700; }
+        .subtitle { color: var(--gray); font-size: 1.3rem; margin-bottom: 20px; }
+        .search-container { max-width: 600px; margin: 0 auto; position: relative; }
+        #searchInput { width: 100%; padding: 15px 20px; border: 2px solid #e1e8ed; border-radius: 50px; font-size: 1.1rem; transition: var(--transition); }
+        #searchInput:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); }
+        .filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 25px 0; }
+        .filter-btn { padding: 10px 20px; background: white; border: 2px solid #e1e8ed; border-radius: 30px; cursor: pointer; transition: var(--transition); font-weight: 600; color: var(--dark); }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .textbooks-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
+        .textbook-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        .textbook-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); }
+        .textbook-header { background: var(--primary); color: white; padding: 20px; position: relative; }
+        .textbook-header h2 { font-size: 1.5rem; margin-bottom: 5px; }
+        .textbook-count { font-size: 0.9rem; opacity: 0.9; }
+        .textbook-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 2.5rem; opacity: 0.2; }
+        .volumes-container { padding: 20px; max-height: 400px; overflow-y: auto; }
+        .volume-item { margin-bottom: 15px; border: 1px solid #e1e8ed; border-radius: 10px; overflow: hidden; }
+        .volume-header { background: #f8f9fa; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: var(--transition); }
+        .volume-header:hover { background: #e9ecef; }
+        .volume-header h3 { font-size: 1.1rem; color: var(--dark); }
+        .volume-toggle { transition: var(--transition); }
+        .volume-toggle.rotated { transform: rotate(180deg); }
+        .units-container { padding: 0 15px; max-height: 0; overflow: hidden; transition: var(--transition); }
+        .units-container.expanded { max-height: 1000px; padding: 15px; }
+        .unit-item { margin-bottom: 12px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+        .unit-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .unit-name { font-weight: 600; color: var(--dark); }
+        .lessons-count { font-size: 0.8rem; color: var(--gray); background: white; padding: 3px 8px; border-radius: 20px; }
+        .lessons-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 8px; }
+        .lesson-item { background: white; padding: 8px 5px; text-align: center; border-radius: 6px; font-size: 0.85rem; transition: var(--transition); cursor: pointer; border: 1px solid #e1e8ed; }
+        .lesson-item:hover { background: var(--primary); color: white; transform: scale(1.05); }
+        .empty-lessons { text-align: center; color: var(--gray); font-style: italic; padding: 10px; }
+        footer { text-align: center; margin-top: 50px; padding: 20px; color: var(--gray); font-size: 0.9rem; }
+        .loading, .no-results { text-align: center; padding: 40px; font-size: 1.2rem; color: var(--gray); }
+        .no-results { grid-column: 1 / -1; }
+        @media (max-width: 768px) {
+            .textbooks-container { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2rem; }
+            .filter-container { flex-direction: column; align-items: center; }
+            .filter-btn { width: 100%; max-width: 250px; }
+        }
+    </style>
 </head>
 <body>
-  <h1>利中中爱文化中心欢迎你</h1>
-  <h2>Li Zhong Chinese-Irish Culture Centre</h2>
-  <div class="container" id="content">加载中...</div>
+    <div class="container">
+        <header>
+            <h1>中文教学游戏资源库</h1>
+            <p class="subtitle">为不同教材定制的互动学习游戏</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="搜索教材、单元或课程...">
+            </div>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">全部教材</button>
+                <button class="filter-btn" data-filter="欧洲版">中文（小学·欧洲版）</button>
+                <button class="filter-btn" data-filter="YCT">YCT标准教程</button>
+                <button class="filter-btn" data-filter="暨南大学版">中文（小学·暨南大学版）</button>
+                <button class="filter-btn" data-filter="华文">华文（小学·北京华文学院版）</button>
+                <button class="filter-btn" data-filter="幼儿汉语">幼儿汉语</button>
+                <button class="filter-btn" data-filter="汉语拼音">汉语拼音</button>
+            </div>
+        </header>
+        <main class="textbooks-container" id="textbooksContainer">
+            <div class="loading"><i class="fas fa-spinner fa-spin"></i> 加载教材数据中...</div>
+        </main>
+        <footer><p>© 2023 中文教学游戏资源库 | 让中文学习更有趣</p></footer>
+    </div>
 
-  <div class="footer">
-    © 2025 利中中爱文化中心 | 由 Tanya Lou 设计
-  </div>
+    <script>
+        // 从外部JSON文件加载数据
+        async function loadTextbooksData() {
+            try {
+                // 尝试从外部JSON文件加载
+                const response = await fetch('data.json');
+                if (response.ok) {
+                    return await response.json();
+                }
+            } catch (error) {
+                console.log('无法加载外部数据文件，使用内置数据');
+            }
+            
+            // 如果外部文件加载失败，使用内置数据
+            return [
+                {
+                    "name": "中文（小学·欧洲版）",
+                    "icon": "fas fa-globe-europe",
+                    "volumes": [
+                        {
+                            "name": "第一册",
+                            "units": [
+                                {"name": "第一单元", "lessons": [], "note": "暂无课文"},
+                                {"name": "第二单元", "lessons": [], "note": "暂无课文"},
+                                {"name": "第三单元", "lessons": [
+                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                ]},
+                                {"name": "第四单元", "lessons": [
+                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                ]}
+                            ]
+                        },
+                        {
+                            "name": "第二册",
+                            "units": [
+                                {"name": "第一单元", "lessons": [], "note": "暂无课文"},
+                                {"name": "第二单元", "lessons": [
+                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                ]},
+                                {"name": "第三单元", "lessons": [], "note": "暂无课文"},
+                                {"name": "第四单元", "lessons": [
+                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                ]}
+                            ]
+                        },
+                        {
+                            "name": "第三册",
+                            "units": [
+                                {"name": "第一单元", "lessons": [
+                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                ]},
+                                {"name": "第二单元", "lessons": [
+                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                ]},
+                                {"name": "第三单元", "lessons": [
+                                    {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                ]},
+                                {"name": "第四单元", "lessons": [
+                                    {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+                                ]}
+                            ]
+                        },
+                        {
+                            "name": "第四册",
+                            "units": [
+                                {"name": "第一单元", "lessons": [
+                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                ]},
+                                {"name": "第二单元", "lessons": [
+                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                ]},
+                                {"name": "第三单元", "lessons": [
+                                    {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                ]},
+                                {"name": "第四单元", "lessons": [
+                                    {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+                                ]}
+                            ]
+                        },
+                        {
+                            "name": "第五册",
+                            "units": [
+                                {"name": "第一单元", "lessons": [
+                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                ]},
+                                {"name": "第二单元", "lessons": [
+                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                ]},
+                                {"name": "第三单元", "lessons": [
+                                    {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                ]},
+                                {"name": "第四单元", "lessons": [
+                                    {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+                                ]}
+                            ]
+                        },
+                        {
+                            "name": "第六册",
+                            "units": [
+                                {"name": "第一单元", "lessons": [
+                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                ]},
+                                {"name": "第二单元", "lessons": [
+                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                ]},
+                                {"name": "第三单元", "lessons": [
+                                    {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                ]},
+                                {"name": "第四单元", "lessons": [
+                                    {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+                                ]}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "YCT标准教程",
+                    "icon": "fas fa-graduation-cap",
+                    "volumes": [
+                        {
+                            "name": "第一册",
+                            "units": [
+                                {"name": "全册12课", "lessons": [
+                                    {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                    {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                    {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+                                ]}
+                            ]
+                        }
+                    ]
+                }
+            ];
+        }
 
-<script>
-async function loadData() {
-  const response = await fetch('data.json');
-  const data = await response.json();
-  const container = document.getElementById('content');
-  container.innerHTML = "";
+        // 渲染教材卡片
+        function renderTextbooks(data) {
+            const container = document.getElementById('textbooksContainer');
+            
+            if (data.length === 0) {
+                container.innerHTML = '<div class="no-results">没有找到匹配的教材</div>';
+                return;
+            }
+            
+            container.innerHTML = data.map(textbook => {
+                const totalVolumes = textbook.volumes.length;
+                const totalLessons = textbook.volumes.reduce((sum, volume) => {
+                    return sum + volume.units.reduce((unitSum, unit) => unitSum + unit.lessons.length, 0);
+                }, 0);
+                
+                return `
+                    <div class="textbook-card" data-textbook="${textbook.name}">
+                        <div class="textbook-header">
+                            <h2>${textbook.name}</h2>
+                            <div class="textbook-count">${totalVolumes}册 ${totalLessons}课</div>
+                            <i class="${textbook.icon} textbook-icon"></i>
+                        </div>
+                        <div class="volumes-container">
+                            ${textbook.volumes.map(volume => {
+                                const volumeLessons = volume.units.reduce((sum, unit) => sum + unit.lessons.length, 0);
+                                
+                                return `
+                                    <div class="volume-item">
+                                        <div class="volume-header">
+                                            <h3>${volume.name}</h3>
+                                            <span class="volume-toggle"><i class="fas fa-chevron-down"></i></span>
+                                        </div>
+                                        <div class="units-container">
+                                            ${volume.units.map(unit => {
+                                                return `
+                                                    <div class="unit-item">
+                                                        <div class="unit-header">
+                                                            <span class="unit-name">${unit.name}</span>
+                                                            <span class="lessons-count">${unit.lessons.length}课</span>
+                                                        </div>
+                                                        ${unit.lessons.length > 0 ? 
+                                                            `<div class="lessons-container">
+                                                                ${unit.lessons.map(lesson => 
+                                                                    `<div class="lesson-item">${lesson.name}</div>`
+                                                                ).join('')}
+                                                            </div>` : 
+                                                            `<div class="empty-lessons">${unit.note || '暂无课程内容'}</div>`
+                                                        }
+                                                    </div>
+                                                `;
+                                            }).join('')}
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // 添加卷的展开/收起功能
+            document.querySelectorAll('.volume-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const container = header.nextElementSibling;
+                    const toggle = header.querySelector('.volume-toggle');
+                    
+                    container.classList.toggle('expanded');
+                    toggle.classList.toggle('rotated');
+                });
+            });
+        }
 
-  data.forEach(version => {
-    const versionEl = document.createElement('details');
-    versionEl.innerHTML = `<summary>📚 ${version.name}</summary>`;
-    version.volumes.forEach(volume => {
-      const volumeEl = document.createElement('details');
-      volumeEl.innerHTML = `<summary>📘 ${volume.name}</summary>`;
-      volume.units.forEach(unit => {
-        const unitEl = document.createElement('details');
-        unitEl.innerHTML = `<summary>🧩 ${unit.name}</summary>`;
-        const lessonsList = document.createElement('ul');
-        unit.lessons.forEach(lesson => {
-          const li = document.createElement('li');
-          li.innerHTML = lesson.link
-            ? `<a href="${lesson.link}" target="_blank">${lesson.name}</a>`
-            : lesson.name;
-          lessonsList.appendChild(li);
+        // 搜索功能
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                if (searchTerm === '') {
+                    renderTextbooks(window.textbooksData);
+                    return;
+                }
+                
+                const filteredData = window.textbooksData.map(textbook => {
+                    if (textbook.name.toLowerCase().includes(searchTerm)) {
+                        return textbook;
+                    }
+                    
+                    const filteredVolumes = textbook.volumes.map(volume => {
+                        if (volume.name.toLowerCase().includes(searchTerm)) {
+                            return volume;
+                        }
+                        
+                        const filteredUnits = volume.units.map(unit => {
+                            if (unit.name.toLowerCase().includes(searchTerm)) {
+                                return unit;
+                            }
+                            
+                            const filteredLessons = unit.lessons.filter(lesson => 
+                                lesson.name.toLowerCase().includes(searchTerm)
+                            );
+                            
+                            if (filteredLessons.length > 0) {
+                                return {...unit, lessons: filteredLessons};
+                            }
+                            
+                            return null;
+                        }).filter(unit => unit !== null);
+                        
+                        if (filteredUnits.length > 0) {
+                            return {...volume, units: filteredUnits};
+                        }
+                        
+                        return null;
+                    }).filter(volume => volume !== null);
+                    
+                    if (filteredVolumes.length > 0) {
+                        return {...textbook, volumes: filteredVolumes};
+                    }
+                    
+                    return null;
+                }).filter(textbook => textbook !== null);
+                
+                renderTextbooks(filteredData);
+            });
+        }
+
+        // 筛选功能
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    if (filter === 'all') {
+                        renderTextbooks(window.textbooksData);
+                    } else {
+                        let filteredData = [];
+                        
+                        switch(filter) {
+                            case '欧洲版':
+                                filteredData = window.textbooksData.filter(t => t.name.includes('欧洲版'));
+                                break;
+                            case 'YCT':
+                                filteredData = window.textbooksData.filter(t => t.name.includes('YCT'));
+                                break;
+                            case '暨南大学版':
+                                filteredData = window.textbooksData.filter(t => t.name.includes('暨南大学版'));
+                                break;
+                            case '华文':
+                                filteredData = window.textbooksData.filter(t => t.name.includes('华文'));
+                                break;
+                            case '幼儿汉语':
+                                filteredData = window.textbooksData.filter(t => t.name.includes('幼儿汉语'));
+                                break;
+                            case '汉语拼音':
+                                filteredData = window.textbooksData.filter(t => t.name.includes('汉语拼音'));
+                                break;
+                        }
+                        
+                        renderTextbooks(filteredData);
+                    }
+                });
+            });
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', async () => {
+            window.textbooksData = await loadTextbooksData();
+            renderTextbooks(window.textbooksData);
+            setupSearch();
+            setupFilters();
         });
-        unitEl.appendChild(lessonsList);
-        volumeEl.appendChild(unitEl);
-      });
-      versionEl.appendChild(volumeEl);
-    });
-    container.appendChild(versionEl);
-  });
-}
-loadData();
-</script>
+    </script>
 </body>
 </html>
