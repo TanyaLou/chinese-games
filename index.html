@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中文教学游戏资源库</title>
+    <title>利中中爱文化中心 - LIZHONG Chinese-Irish Culture Centre</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }
         :root {
@@ -13,11 +14,200 @@
             --transition: all 0.3s ease;
         }
         body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: var(--dark); line-height: 1.6; min-height: 100vh; padding: 20px; }
+        
+        /* 欢迎动画样式 */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #de2910 0%, #169b62 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+        
+        .welcome-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .welcome-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            max-width: 90%;
+        }
+        
+        .chinese-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 4rem;
+            color: #ffde59;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            animation: fadeInUp 1.5s ease;
+        }
+        
+        .english-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: fadeInUp 2s ease;
+        }
+        
+        .cultural-elements {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            animation: fadeIn 2.5s ease;
+        }
+        
+        .dragon {
+            font-size: 4rem;
+            color: #ffde59;
+            margin: 0 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .shamrock {
+            font-size: 4rem;
+            color: #ffffff;
+            margin: 0 20px;
+            animation: float 3s ease-in-out infinite 0.5s;
+        }
+        
+        .enter-button {
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            animation: fadeIn 3s ease;
+        }
+        
+        .enter-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        
+        /* 主网站样式 */
         .container { max-width: 1200px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 40px; padding: 30px; background: rgba(255, 255, 255, 0.95); border-radius: 15px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
-        header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); }
-        h1 { color: var(--dark); margin-bottom: 10px; font-size: 2.8rem; font-weight: 700; }
-        .subtitle { color: var(--gray); font-size: 1.3rem; margin-bottom: 20px; }
+        
+        /* 网站头部信息样式 */
+        .site-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            flex-wrap: wrap;
+        }
+        
+        .time-info {
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .visitor-count {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .visitor-count i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        header { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            padding: 30px; 
+            background: rgba(255, 255, 255, 0.95); 
+            border-radius: 15px; 
+            box-shadow: var(--shadow); 
+            position: relative; 
+            overflow: hidden; 
+        }
+        header::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 5px; 
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); 
+        }
+        
+        /* 更新标题样式 */
+        .site-header {
+            margin-bottom: 15px;
+        }
+        
+        .site-chinese-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #de2910;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-english-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.8rem;
+            color: #169b62;
+            margin-bottom: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle { 
+            color: var(--gray); 
+            font-size: 1.3rem; 
+            margin-bottom: 20px; 
+        }
+        
         .search-container { max-width: 600px; margin: 0 auto; position: relative; }
         #searchInput { width: 100%; padding: 15px 20px; border: 2px solid #e1e8ed; border-radius: 50px; font-size: 1.1rem; transition: var(--transition); }
         #searchInput:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); }
@@ -53,26 +243,64 @@
         .no-results { grid-column: 1 / -1; }
         @media (max-width: 768px) {
             .textbooks-container { grid-template-columns: 1fr; }
-            h1 { font-size: 2.2rem; }
+            .site-chinese-title { font-size: 2.2rem; }
+            .site-english-title { font-size: 1.4rem; }
+            .chinese-title { font-size: 2.5rem; }
+            .english-title { font-size: 1.5rem; }
+            .dragon, .shamrock { font-size: 2.5rem; }
             .filter-container { flex-direction: column; align-items: center; }
             .filter-btn { width: 100%; max-width: 250px; }
+            .site-info {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- 欢迎动画 -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-content">
+            <h1 class="chinese-title">利中中爱文化中心</h1>
+            <h2 class="english-title">LIZHONG Chinese-Irish Culture Centre</h2>
+            <div class="cultural-elements">
+                <div class="dragon">🐉</div>
+                <div class="shamrock">☘️</div>
+            </div>
+            <button class="enter-button" id="enterButton">进入网站</button>
+        </div>
+    </div>
+
+    <!-- 主网站内容 -->
+    <div class="container" id="mainContent" style="display: none;">
+        <!-- 网站信息栏 -->
+        <div class="site-info">
+            <div class="time-info">
+                <i class="fas fa-clock"></i>
+                <span id="currentTime">正在加载时间...</span>
+            </div>
+            <div class="visitor-count">
+                <i class="fas fa-users"></i>
+                网站访问人数: <span id="visitorCount">0</span>
+            </div>
+        </div>
+        
         <header>
-            <h1>中文教学游戏资源库</h1>
-            <p class="subtitle">为不同教材定制的互动学习游戏</p>
+            <div class="site-header">
+                <h1 class="site-chinese-title">利中中爱文化中心</h1>
+                <h2 class="site-english-title">LIZHONG Chinese-Irish Culture Centre</h2>
+            </div>
+            <p class="subtitle">中文教学游戏资源库</p>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="搜索教材、单元或课程...">
             </div>
             <div class="filter-container">
                 <button class="filter-btn active" data-filter="all">全部教材</button>
                 <button class="filter-btn" data-filter="欧洲版">中文（小学·欧洲版）</button>
-                <button class="filter-btn" data-filter="YCT">YCT标准教程</button>
                 <button class="filter-btn" data-filter="暨南大学版">中文（小学·暨南大学版）</button>
                 <button class="filter-btn" data-filter="华文">华文（小学·北京华文学院版）</button>
+                <button class="filter-btn" data-filter="YCT">YCT标准教程</button>
                 <button class="filter-btn" data-filter="幼儿汉语">幼儿汉语</button>
                 <button class="filter-btn" data-filter="汉语拼音">汉语拼音</button>
             </div>
@@ -80,24 +308,82 @@
         <main class="textbooks-container" id="textbooksContainer">
             <div class="loading"><i class="fas fa-spinner fa-spin"></i> 加载教材数据中...</div>
         </main>
-        <footer><p>© 2023 中文教学游戏资源库 | 让中文学习更有趣</p></footer>
+        <footer>
+            <p>© 2023 利中中爱文化中心 | 中文教学游戏资源库</p>
+        </footer>
     </div>
 
     <script>
-        // 从外部JSON文件加载数据
-        async function loadTextbooksData() {
-            try {
-                // 尝试从外部JSON文件加载
-                const response = await fetch('data.json');
-                if (response.ok) {
-                    return await response.json();
+        // 欢迎动画控制
+        document.addEventListener('DOMContentLoaded', function() {
+            const welcomeOverlay = document.getElementById('welcomeOverlay');
+            const enterButton = document.getElementById('enterButton');
+            const mainContent = document.getElementById('mainContent');
+            
+            // 点击进入按钮
+            enterButton.addEventListener('click', function() {
+                welcomeOverlay.classList.add('hidden');
+                setTimeout(function() {
+                    mainContent.style.display = 'block';
+                    // 初始化主网站内容
+                    initMainWebsite();
+                }, 1000);
+            });
+            
+            // 5秒后自动进入网站
+            setTimeout(function() {
+                if (!welcomeOverlay.classList.contains('hidden')) {
+                    enterButton.click();
                 }
-            } catch (error) {
-                console.log('无法加载外部数据文件，使用内置数据');
+            }, 5000);
+        });
+        
+        // 更新时间和日期
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                weekday: 'long',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+            const dateTimeStr = now.toLocaleDateString('zh-CN', options);
+            document.getElementById('currentTime').textContent = dateTimeStr;
+        }
+        
+        // 更新访问人数
+        function updateVisitorCount() {
+            // 从localStorage获取访问次数
+            let visitCount = localStorage.getItem('siteVisitCount');
+            
+            if (!visitCount) {
+                visitCount = 1;
+            } else {
+                visitCount = parseInt(visitCount) + 1;
             }
             
-            // 如果外部文件加载失败，使用内置数据
-            return [
+            // 保存到localStorage
+            localStorage.setItem('siteVisitCount', visitCount);
+            
+            // 显示访问人数
+            document.getElementById('visitorCount').textContent = visitCount;
+        }
+        
+        // 初始化主网站
+        function initMainWebsite() {
+            // 更新时间和访问人数
+            updateDateTime();
+            updateVisitorCount();
+            
+            // 每秒更新时间
+            setInterval(updateDateTime, 1000);
+            
+            // 完整的教材数据 - YCT标准教程已移到华文后面
+            const completeTextbooksData = [
                 {
                     "name": "中文（小学·欧洲版）",
                     "icon": "fas fa-globe-europe",
@@ -107,93 +393,408 @@
                             "units": [
                                 {"name": "第一单元", "lessons": [], "note": "暂无课文"},
                                 {"name": "第二单元", "lessons": [], "note": "暂无课文"},
-                                {"name": "第三单元", "lessons": [
-                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
-                                ]},
-                                {"name": "第四单元", "lessons": [
-                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
-                                ]}
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                    ]
+                                }
                             ]
                         },
                         {
                             "name": "第二册",
                             "units": [
                                 {"name": "第一单元", "lessons": [], "note": "暂无课文"},
-                                {"name": "第二单元", "lessons": [
-                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
-                                ]},
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                    ]
+                                },
                                 {"name": "第三单元", "lessons": [], "note": "暂无课文"},
-                                {"name": "第四单元", "lessons": [
-                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
-                                ]}
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                    ]
+                                }
                             ]
                         },
                         {
                             "name": "第三册",
                             "units": [
-                                {"name": "第一单元", "lessons": [
-                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
-                                ]},
-                                {"name": "第二单元", "lessons": [
-                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
-                                ]},
-                                {"name": "第三单元", "lessons": [
-                                    {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
-                                ]},
-                                {"name": "第四单元", "lessons": [
-                                    {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
-                                ]}
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+                                    ]
+                                }
                             ]
                         },
                         {
                             "name": "第四册",
                             "units": [
-                                {"name": "第一单元", "lessons": [
-                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
-                                ]},
-                                {"name": "第二单元", "lessons": [
-                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
-                                ]},
-                                {"name": "第三单元", "lessons": [
-                                    {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
-                                ]},
-                                {"name": "第四单元", "lessons": [
-                                    {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
-                                ]}
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+                                    ]
+                                }
                             ]
                         },
                         {
                             "name": "第五册",
                             "units": [
-                                {"name": "第一单元", "lessons": [
-                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
-                                ]},
-                                {"name": "第二单元", "lessons": [
-                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
-                                ]},
-                                {"name": "第三单元", "lessons": [
-                                    {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
-                                ]},
-                                {"name": "第四单元", "lessons": [
-                                    {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
-                                ]}
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+                                    ]
+                                }
                             ]
                         },
                         {
                             "name": "第六册",
                             "units": [
-                                {"name": "第一单元", "lessons": [
-                                    {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
-                                ]},
-                                {"name": "第二单元", "lessons": [
-                                    {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
-                                ]},
-                                {"name": "第三单元", "lessons": [
-                                    {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
-                                ]},
-                                {"name": "第四单元", "lessons": [
-                                    {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
-                                ]}
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}, {"name": "第十六课"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "中文（小学·暨南大学版）",
+                    "icon": "fas fa-university",
+                    "volumes": [
+                        {
+                            "name": "第一册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第四课"}, {"name": "第五课"}, {"name": "第六课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第二册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第四课"}, {"name": "第五课"}, {"name": "第六课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第三册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第四课"}, {"name": "第五课"}, {"name": "第六课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第四册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第四课"}, {"name": "第五课"}, {"name": "第六课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第五册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第四课"}, {"name": "第五课"}, {"name": "第六课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第六册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第四课"}, {"name": "第五课"}, {"name": "第六课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第四单元",
+                                    "lessons": [
+                                        {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "华文（小学·北京华文学院版）",
+                    "icon": "fas fa-school",
+                    "volumes": [
+                        {
+                            "name": "第一册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}, {"name": "第五课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}, {"name": "第十课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第十一课"}, {"name": "第十二课"}, {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第二册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}, {"name": "第五课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}, {"name": "第十课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第十一课"}, {"name": "第十二课"}, {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第三册",
+                            "units": [
+                                {
+                                    "name": "第一单元",
+                                    "lessons": [
+                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"}, {"name": "第五课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第二单元",
+                                    "lessons": [
+                                        {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"}, {"name": "第九课"}, {"name": "第十课"}
+                                    ]
+                                },
+                                {
+                                    "name": "第三单元",
+                                    "lessons": [
+                                        {"name": "第十一课"}, {"name": "第十二课"}, {"name": "第十三课"}, {"name": "第十四课"}, {"name": "第十五课"}
+                                    ]
+                                }
                             ]
                         }
                     ]
@@ -205,196 +806,344 @@
                         {
                             "name": "第一册",
                             "units": [
-                                {"name": "全册12课", "lessons": [
-                                    {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
-                                    {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
-                                    {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
-                                ]}
+                                {
+                                    "name": "全册12课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第二册",
+                            "units": [
+                                {
+                                    "name": "全册12课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第三册",
+                            "units": [
+                                {
+                                    "name": "全册12课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第四册",
+                            "units": [
+                                {
+                                    "name": "全册12课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第五册",
+                            "units": [
+                                {
+                                    "name": "全册12课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第六册",
+                            "units": [
+                                {
+                                    "name": "全册12课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "幼儿汉语",
+                    "icon": "fas fa-child",
+                    "volumes": [
+                        {
+                            "name": "第一册",
+                            "units": [
+                                {
+                                    "name": "全册10课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第二册",
+                            "units": [
+                                {
+                                    "name": "全册10课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "第三册",
+                            "units": [
+                                {
+                                    "name": "全册10课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "汉语拼音",
+                    "icon": "fas fa-language",
+                    "volumes": [
+                        {
+                            "name": "拼音课程",
+                            "units": [
+                                {
+                                    "name": "全册18课",
+                                    "lessons": [
+                                        {"name": "Lesson 1"}, {"name": "Lesson 2"}, {"name": "Lesson 3"}, {"name": "Lesson 4"},
+                                        {"name": "Lesson 5"}, {"name": "Lesson 6"}, {"name": "Lesson 7"}, {"name": "Lesson 8"},
+                                        {"name": "Lesson 9"}, {"name": "Lesson 10"}, {"name": "Lesson 11"}, {"name": "Lesson 12"},
+                                        {"name": "Lesson 13"}, {"name": "Lesson 14"}, {"name": "Lesson 15"}, {"name": "Lesson 16"},
+                                        {"name": "Lesson 17"}, {"name": "Lesson 18"}
+                                    ]
+                                }
                             ]
                         }
                     ]
                 }
             ];
-        }
 
-        // 渲染教材卡片
-        function renderTextbooks(data) {
-            const container = document.getElementById('textbooksContainer');
-            
-            if (data.length === 0) {
-                container.innerHTML = '<div class="no-results">没有找到匹配的教材</div>';
-                return;
+            // 从外部JSON文件加载数据
+            async function loadTextbooksData() {
+                try {
+                    // 尝试从外部JSON文件加载
+                    const response = await fetch('data.json');
+                    if (response.ok) {
+                        return await response.json();
+                    }
+                } catch (error) {
+                    console.log('无法加载外部数据文件，使用内置数据');
+                }
+                
+                // 如果外部文件加载失败，使用完整的内置数据
+                return completeTextbooksData;
             }
-            
-            container.innerHTML = data.map(textbook => {
-                const totalVolumes = textbook.volumes.length;
-                const totalLessons = textbook.volumes.reduce((sum, volume) => {
-                    return sum + volume.units.reduce((unitSum, unit) => unitSum + unit.lessons.length, 0);
-                }, 0);
-                
-                return `
-                    <div class="textbook-card" data-textbook="${textbook.name}">
-                        <div class="textbook-header">
-                            <h2>${textbook.name}</h2>
-                            <div class="textbook-count">${totalVolumes}册 ${totalLessons}课</div>
-                            <i class="${textbook.icon} textbook-icon"></i>
-                        </div>
-                        <div class="volumes-container">
-                            ${textbook.volumes.map(volume => {
-                                const volumeLessons = volume.units.reduce((sum, unit) => sum + unit.lessons.length, 0);
-                                
-                                return `
-                                    <div class="volume-item">
-                                        <div class="volume-header">
-                                            <h3>${volume.name}</h3>
-                                            <span class="volume-toggle"><i class="fas fa-chevron-down"></i></span>
-                                        </div>
-                                        <div class="units-container">
-                                            ${volume.units.map(unit => {
-                                                return `
-                                                    <div class="unit-item">
-                                                        <div class="unit-header">
-                                                            <span class="unit-name">${unit.name}</span>
-                                                            <span class="lessons-count">${unit.lessons.length}课</span>
-                                                        </div>
-                                                        ${unit.lessons.length > 0 ? 
-                                                            `<div class="lessons-container">
-                                                                ${unit.lessons.map(lesson => 
-                                                                    `<div class="lesson-item">${lesson.name}</div>`
-                                                                ).join('')}
-                                                            </div>` : 
-                                                            `<div class="empty-lessons">${unit.note || '暂无课程内容'}</div>`
-                                                        }
-                                                    </div>
-                                                `;
-                                            }).join('')}
-                                        </div>
-                                    </div>
-                                `;
-                            }).join('')}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // 添加卷的展开/收起功能
-            document.querySelectorAll('.volume-header').forEach(header => {
-                header.addEventListener('click', () => {
-                    const container = header.nextElementSibling;
-                    const toggle = header.querySelector('.volume-toggle');
-                    
-                    container.classList.toggle('expanded');
-                    toggle.classList.toggle('rotated');
-                });
-            });
-        }
 
-        // 搜索功能
-        function setupSearch() {
-            const searchInput = document.getElementById('searchInput');
-            
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase();
+            // 渲染教材卡片
+            function renderTextbooks(data) {
+                const container = document.getElementById('textbooksContainer');
                 
-                if (searchTerm === '') {
-                    renderTextbooks(window.textbooksData);
+                if (data.length === 0) {
+                    container.innerHTML = '<div class="no-results">没有找到匹配的教材</div>';
                     return;
                 }
                 
-                const filteredData = window.textbooksData.map(textbook => {
-                    if (textbook.name.toLowerCase().includes(searchTerm)) {
-                        return textbook;
+                container.innerHTML = data.map(textbook => {
+                    const totalVolumes = textbook.volumes.length;
+                    const totalLessons = textbook.volumes.reduce((sum, volume) => {
+                        return sum + volume.units.reduce((unitSum, unit) => unitSum + unit.lessons.length, 0);
+                    }, 0);
+                    
+                    return `
+                        <div class="textbook-card" data-textbook="${textbook.name}">
+                            <div class="textbook-header">
+                                <h2>${textbook.name}</h2>
+                                <div class="textbook-count">${totalVolumes}册 ${totalLessons}课</div>
+                                <i class="${textbook.icon} textbook-icon"></i>
+                            </div>
+                            <div class="volumes-container">
+                                ${textbook.volumes.map(volume => {
+                                    const volumeLessons = volume.units.reduce((sum, unit) => sum + unit.lessons.length, 0);
+                                    
+                                    return `
+                                        <div class="volume-item">
+                                            <div class="volume-header">
+                                                <h3>${volume.name}</h3>
+                                                <span class="volume-toggle"><i class="fas fa-chevron-down"></i></span>
+                                            </div>
+                                            <div class="units-container">
+                                                ${volume.units.map(unit => {
+                                                    return `
+                                                        <div class="unit-item">
+                                                            <div class="unit-header">
+                                                                <span class="unit-name">${unit.name}</span>
+                                                                <span class="lessons-count">${unit.lessons.length}课</span>
+                                                            </div>
+                                                            ${unit.lessons.length > 0 ? 
+                                                                `<div class="lessons-container">
+                                                                    ${unit.lessons.map(lesson => 
+                                                                        `<div class="lesson-item">${lesson.name}</div>`
+                                                                    ).join('')}
+                                                                </div>` : 
+                                                                `<div class="empty-lessons">${unit.note || '暂无课程内容'}</div>`
+                                                            }
+                                                        </div>
+                                                    `;
+                                                }).join('')}
+                                            </div>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+                // 添加卷的展开/收起功能
+                document.querySelectorAll('.volume-header').forEach(header => {
+                    header.addEventListener('click', () => {
+                        const container = header.nextElementSibling;
+                        const toggle = header.querySelector('.volume-toggle');
+                        
+                        container.classList.toggle('expanded');
+                        toggle.classList.toggle('rotated');
+                    });
+                });
+            }
+
+            // 搜索功能
+            function setupSearch() {
+                const searchInput = document.getElementById('searchInput');
+                
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase();
+                    
+                    if (searchTerm === '') {
+                        renderTextbooks(window.textbooksData);
+                        return;
                     }
                     
-                    const filteredVolumes = textbook.volumes.map(volume => {
-                        if (volume.name.toLowerCase().includes(searchTerm)) {
-                            return volume;
+                    const filteredData = window.textbooksData.map(textbook => {
+                        if (textbook.name.toLowerCase().includes(searchTerm)) {
+                            return textbook;
                         }
                         
-                        const filteredUnits = volume.units.map(unit => {
-                            if (unit.name.toLowerCase().includes(searchTerm)) {
-                                return unit;
+                        const filteredVolumes = textbook.volumes.map(volume => {
+                            if (volume.name.toLowerCase().includes(searchTerm)) {
+                                return volume;
                             }
                             
-                            const filteredLessons = unit.lessons.filter(lesson => 
-                                lesson.name.toLowerCase().includes(searchTerm)
-                            );
+                            const filteredUnits = volume.units.map(unit => {
+                                if (unit.name.toLowerCase().includes(searchTerm)) {
+                                    return unit;
+                                }
+                                
+                                const filteredLessons = unit.lessons.filter(lesson => 
+                                    lesson.name.toLowerCase().includes(searchTerm)
+                                );
+                                
+                                if (filteredLessons.length > 0) {
+                                    return {...unit, lessons: filteredLessons};
+                                }
+                                
+                                return null;
+                            }).filter(unit => unit !== null);
                             
-                            if (filteredLessons.length > 0) {
-                                return {...unit, lessons: filteredLessons};
+                            if (filteredUnits.length > 0) {
+                                return {...volume, units: filteredUnits};
                             }
                             
                             return null;
-                        }).filter(unit => unit !== null);
+                        }).filter(volume => volume !== null);
                         
-                        if (filteredUnits.length > 0) {
-                            return {...volume, units: filteredUnits};
+                        if (filteredVolumes.length > 0) {
+                            return {...textbook, volumes: filteredVolumes};
                         }
                         
                         return null;
-                    }).filter(volume => volume !== null);
+                    }).filter(textbook => textbook !== null);
                     
-                    if (filteredVolumes.length > 0) {
-                        return {...textbook, volumes: filteredVolumes};
-                    }
-                    
-                    return null;
-                }).filter(textbook => textbook !== null);
-                
-                renderTextbooks(filteredData);
-            });
-        }
-
-        // 筛选功能
-        function setupFilters() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    
-                    const filter = button.getAttribute('data-filter');
-                    
-                    if (filter === 'all') {
-                        renderTextbooks(window.textbooksData);
-                    } else {
-                        let filteredData = [];
-                        
-                        switch(filter) {
-                            case '欧洲版':
-                                filteredData = window.textbooksData.filter(t => t.name.includes('欧洲版'));
-                                break;
-                            case 'YCT':
-                                filteredData = window.textbooksData.filter(t => t.name.includes('YCT'));
-                                break;
-                            case '暨南大学版':
-                                filteredData = window.textbooksData.filter(t => t.name.includes('暨南大学版'));
-                                break;
-                            case '华文':
-                                filteredData = window.textbooksData.filter(t => t.name.includes('华文'));
-                                break;
-                            case '幼儿汉语':
-                                filteredData = window.textbooksData.filter(t => t.name.includes('幼儿汉语'));
-                                break;
-                            case '汉语拼音':
-                                filteredData = window.textbooksData.filter(t => t.name.includes('汉语拼音'));
-                                break;
-                        }
-                        
-                        renderTextbooks(filteredData);
-                    }
+                    renderTextbooks(filteredData);
                 });
-            });
-        }
+            }
 
-        // 初始化
-        document.addEventListener('DOMContentLoaded', async () => {
-            window.textbooksData = await loadTextbooksData();
+            // 筛选功能
+            function setupFilters() {
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        
+                        const filter = button.getAttribute('data-filter');
+                        
+                        if (filter === 'all') {
+                            renderTextbooks(window.textbooksData);
+                        } else {
+                            let filteredData = [];
+                            
+                            switch(filter) {
+                                case '欧洲版':
+                                    filteredData = window.textbooksData.filter(t => t.name.includes('欧洲版'));
+                                    break;
+                                case '暨南大学版':
+                                    filteredData = window.textbooksData.filter(t => t.name.includes('暨南大学版'));
+                                    break;
+                                case '华文':
+                                    filteredData = window.textbooksData.filter(t => t.name.includes('华文'));
+                                    break;
+                                case 'YCT':
+                                    filteredData = window.textbooksData.filter(t => t.name.includes('YCT'));
+                                    break;
+                                case '幼儿汉语':
+                                    filteredData = window.textbooksData.filter(t => t.name.includes('幼儿汉语'));
+                                    break;
+                                case '汉语拼音':
+                                    filteredData = window.textbooksData.filter(t => t.name.includes('汉语拼音'));
+                                    break;
+                            }
+                            
+                            renderTextbooks(filteredData);
+                        }
+                    });
+                });
+            }
+
+            // 初始化主网站
+            window.textbooksData = completeTextbooksData;
             renderTextbooks(window.textbooksData);
             setupSearch();
             setupFilters();
-        });
+        }
     </script>
 </body>
 </html>
