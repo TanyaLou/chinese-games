@@ -255,7 +255,7 @@
         }
 
         .games-container.expanded {
-            max-height: none; /* 改为自动高度 */
+            max-height: none;
             padding: 8px;
             opacity: 1;
         }
@@ -306,8 +306,38 @@
         .filter-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 25px 0; }
         .filter-btn { padding: 10px 20px; background: white; border: 2px solid #e1e8ed; border-radius: 30px; cursor: pointer; transition: var(--transition); font-weight: 600; color: var(--dark); }
         .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-        .textbooks-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
-        .textbook-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        
+        /* 动态调整教材容器布局 */
+        .textbooks-container { 
+            display: grid; 
+            gap: 25px; 
+            transition: var(--transition);
+        }
+        
+        /* 默认：显示全部教材时的布局（3列） */
+        .textbooks-container.all-textbooks {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+        
+        /* 显示较少教材时的布局（2列，更宽） */
+        .textbooks-container.few-textbooks {
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        }
+        
+        /* 显示单个教材时的布局（1列，最宽） */
+        .textbooks-container.single-textbook {
+            grid-template-columns: 1fr;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .textbook-card { 
+            background: white; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow); 
+            transition: var(--transition); 
+        }
         .textbook-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); }
         .textbook-header { background: var(--primary); color: white; padding: 20px; position: relative; }
         .textbook-header h2 { font-size: 1.5rem; margin-bottom: 5px; }
@@ -321,7 +351,7 @@
         .volume-toggle { transition: var(--transition); }
         .volume-toggle.rotated { transform: rotate(180deg); }
         .units-container { padding: 0 15px; max-height: 0; overflow: hidden; transition: var(--transition); }
-        .units-container.expanded { max-height: none; padding: 15px; } /* 改为自动高度 */
+        .units-container.expanded { max-height: none; padding: 15px; }
         .unit-item { margin-bottom: 12px; padding: 10px; background: #f8f9fa; border-radius: 8px; }
         .unit-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
         .unit-name { font-weight: 600; color: var(--dark); }
@@ -334,7 +364,11 @@
         .loading, .no-results { text-align: center; padding: 40px; font-size: 1.2rem; color: var(--gray); }
         .no-results { grid-column: 1 / -1; }
         @media (max-width: 768px) {
-            .textbooks-container { grid-template-columns: 1fr; }
+            .textbooks-container.all-textbooks,
+            .textbooks-container.few-textbooks,
+            .textbooks-container.single-textbook {
+                grid-template-columns: 1fr;
+            }
             .site-chinese-title { font-size: 2.2rem; }
             .site-english-title { font-size: 1.4rem; }
             .chinese-title { font-size: 2.5rem; }
@@ -397,7 +431,7 @@
                 <button class="filter-btn" data-filter="汉语拼音">汉语拼音</button>
             </div>
         </header>
-        <main class="textbooks-container" id="textbooksContainer">
+        <main class="textbooks-container all-textbooks" id="textbooksContainer">
             <div class="loading"><i class="fas fa-spinner fa-spin"></i> 加载教材数据中...</div>
         </main>
         <footer>
@@ -463,6 +497,24 @@
             
             // 显示访问人数
             document.getElementById('visitorCount').textContent = visitCount;
+        }
+        
+        // 调整教材容器布局
+        function adjustTextbooksLayout(data) {
+            const container = document.getElementById('textbooksContainer');
+            const textbookCount = data.length;
+            
+            // 移除所有布局类
+            container.classList.remove('all-textbooks', 'few-textbooks', 'single-textbook');
+            
+            // 根据教材数量应用不同的布局
+            if (textbookCount >= 4) {
+                container.classList.add('all-textbooks'); // 3列布局
+            } else if (textbookCount >= 2) {
+                container.classList.add('few-textbooks'); // 2列布局
+            } else {
+                container.classList.add('single-textbook'); // 1列布局
+            }
         }
         
         // 初始化主网站
@@ -1138,6 +1190,9 @@
             // 渲染教材卡片
             function renderTextbooks(data) {
                 const container = document.getElementById('textbooksContainer');
+                
+                // 先调整布局
+                adjustTextbooksLayout(data);
                 
                 if (data.length === 0) {
                     container.innerHTML = '<div class="no-results">没有找到匹配的教材</div>';
