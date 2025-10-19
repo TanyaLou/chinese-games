@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinese Vocabulary Grouping Game</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; background-color: #f9f9f9; }
+  h1 { color: #e63946; }
+  .container { display: flex; justify-content: center; margin-top: 20px; }
+  .column { width: 45%; margin: 10px; padding: 10px; border: 2px dashed #ccc; border-radius: 10px; background-color: #fff; }
+  .word { background-color: #f1faee; margin: 5px; padding: 8px; border-radius: 5px; cursor: grab; }
+  .word.dragging { opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<h1>🍜 Chinese Food & Drink Grouping Game 🍹</h1>
+<p>Drag each word to the correct group: <b>Food 🍚</b> or <b>Drink ☕</b></p>
+
+<div class="container">
+  <div class="column" id="food"><h2>Food 🍚</h2></div>
+  <div class="column" id="drink"><h2>Drink ☕</h2></div>
+</div>
+
+<h3>Words to sort:</h3>
+<div id="words">
+  <div class="word" draggable="true">吃 chī - to eat</div>
+  <div class="word" draggable="true">喝 hē - to drink</div>
+  <div class="word" draggable="true">米饭 mǐfàn - rice</div>
+  <div class="word" draggable="true">面条 miàntiáo - noodles</div>
+  <div class="word" draggable="true">水果 shuǐguǒ - fruit</div>
+  <div class="word" draggable="true">汉堡 hànbǎo - hamburger</div>
+  <div class="word" draggable="true">比萨 bǐsà - pizza</div>
+  <div class="word" draggable="true">牛奶 niúnǎi - milk</div>
+  <div class="word" draggable="true">茶 chá - tea</div>
+  <div class="word" draggable="true">咖啡 kāfēi - coffee</div>
+  <div class="word" draggable="true">水 shuǐ - water</div>
+  <div class="word" draggable="true">果汁 guǒzhī - juice</div>
+</div>
+
+<script>
+const words = document.querySelectorAll('.word');
+const columns = document.querySelectorAll('.column');
+
+words.forEach(word => {
+  word.addEventListener('dragstart', () => word.classList.add('dragging'));
+  word.addEventListener('dragend', () => word.classList.remove('dragging'));
+});
+
+columns.forEach(column => {
+  column.addEventListener('dragover', e => {
+    e.preventDefault();
+    const dragging = document.querySelector('.dragging');
+    column.appendChild(dragging);
+  });
+});
+</script>
+
+</body>
+</html>
