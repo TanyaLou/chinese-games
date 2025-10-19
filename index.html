@@ -207,6 +207,13 @@
             font-size: 1.3rem; 
             margin-bottom: 20px; 
         }
+
+        .lesson-title {
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            margin-top: 3px;
+            font-style: italic;
+        }
         
         .search-container { max-width: 600px; margin: 0 auto; position: relative; }
         #searchInput { width: 100%; padding: 15px 20px; border: 2px solid #e1e8ed; border-radius: 50px; font-size: 1.1rem; transition: var(--transition); }
@@ -1010,7 +1017,10 @@
                                                             ${unit.lessons.length > 0 ? 
                                                                 `<div class="lessons-container">
                                                                     ${unit.lessons.map(lesson => 
-                                                                        `<div class="lesson-item">${lesson.name}</div>`
+                                                                        `<div class="lesson-item">
+                                                                          <div class="lesson-name">${lesson.name}</div>
+                                                                          ${lesson.topic ? `<div class="lesson-title">${lesson.topic}</div>` : ''}
+                                                                        </div>`
                                                                     ).join('')}
                                                                 </div>` : 
                                                                 `<div class="empty-lessons">${unit.note || '暂无课程内容'}</div>`
@@ -1147,3 +1157,4 @@
     </script>
 </body>
 </html>
+
