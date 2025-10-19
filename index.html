@@ -1083,13 +1083,16 @@ ${unit.topic ? `<div class="unit-topic">${unit.topic}</div>` : ''}`
                             }
                             
                             const filteredUnits = volume.units.map(unit => {
-                                if (unit.name.toLowerCase().includes(searchTerm)) {
-                                    return unit;
-                                }
+                                if (unit.name.toLowerCase().includes(searchTerm) || 
+    (unit.topic && unit.topic.toLowerCase().includes(searchTerm))) {
+  return unit;
+}
                                 
-                                const filteredLessons = unit.lessons.filter(lesson => 
-                                    lesson.name.toLowerCase().includes(searchTerm)
-                                );
+                                const filteredLessons = unit.lessons.filter(lesson => {
+  const lessonMatch = lesson.name.toLowerCase().includes(searchTerm);
+  const topicMatch = lesson.topic && lesson.topic.toLowerCase().includes(searchTerm);
+  return lessonMatch || topicMatch;
+});
                                 
                                 if (filteredLessons.length > 0) {
                                     return {...unit, lessons: filteredLessons};
@@ -1168,6 +1171,7 @@ ${unit.topic ? `<div class="unit-topic">${unit.topic}</div>` : ''}`
     </script>
 </body>
 </html>
+
 
 
 
