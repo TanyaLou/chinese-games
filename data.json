@@ -9,89 +9,70 @@
           {
             "name": "第一单元",
             "topic": "有趣的象形字",
-            "lessons": [
+            "games": [
               {
-                "name": "第一课",
-                "topic": "早",
-                "games": [
-                  {
-                    "name": "词语练习",
-                    "url": "https://quizlet.com/ie/1087700000/%E7%AC%AC%E4%B8%80%E5%8D%95%E5%85%83-%E6%9C%89%E8%B6%A3%E7%9A%84%E8%B1%A1%E5%BD%A2%E5%AD%97-flash-cards/?i=3vrcho&x=1qqt",
-                    "type": "Quizlet"
-                  },
-                  {
-                    "name": "这是什么字",
-                    "url": "https://wordwall.net/resource/87856709",
-                    "type": "Wordwall"
-                  },
-                  {
-                    "name": "笔画",
-                    "url": "https://wordwall.net/resource/87738606",
-                    "type": "Wordwall"
-                  },
-                  {
-                    "name": "字词理解",
-                    "url": "https://wordwall.net/resource/87739382",
-                    "type": "Wordwall"
-                  },
-                  {
-                    "name": "词语积累",
-                    "url": "https://wordwall.net/resource/87740092",
-                    "type": "Wordwall"
-                  },
-                  {
-                    "name": "听力练习1",
-                    "url": "https://wordwall.net/resource/100234018",
-                    "type": "Wordwall"
-                  },
-                  {
-                    "name": "听力练习2",
-                    "url": "https://wordwall.net/resource/100234150",
-                    "type": "Wordwall"
-                  }
-                ]
+                "name": "词语练习",
+                "url": "https://quizlet.com/ie/1087700000/%E7%AC%AC%E4%B8%80%E5%8D%95%E5%85%83-%E6%9C%89%E8%B6%A3%E7%9A%84%E8%B1%A1%E5%BD%A2%E5%AD%97-flash-cards/?i=3vrcho&x=1qqt",
+                "type": "Quizlet"
               },
               {
-                "name": "第二课",
-                "topic": "你好",
-                "games": [
-                  {
-                    "name": "词语练习",
-                    "url": "https://quizlet.com/ie/1087721030/%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83-%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BC%9A%E6%84%8F%E5%AD%97-flash-cards/?i=3vrcho&x=1jqt",
-                    "type": "Quizlet"
-                  },
-                  {
-                    "name": "这是什么字",
-                    "url": "https://wordwall.net/resource/99039464",
-                    "type": "Wordwall"
-                  },
-                  {
-                    "name": "词语积累",
-                    "url": "https://wordwall.net/resource/100233091",
-                    "type": "Wordwall"
-                  },
-                  {
-                    "name": "听力练习",
-                    "url": "https://wordwall.net/resource/100232531",
-                    "type": "Wordwall"
-                  }
-                ]
+                "name": "这是什么字",
+                "url": "https://wordwall.net/resource/87856709",
+                "type": "Wordwall"
               },
               {
-                "name": "第三课",
-                "topic": "你几岁了",
-                "games": []
+                "name": "笔画",
+                "url": "https://wordwall.net/resource/87738606",
+                "type": "Wordwall"
               },
               {
-                "name": "第四课",
-                "topic": "拼音复习1",
-                "games": []
+                "name": "字词理解",
+                "url": "https://wordwall.net/resource/87739382",
+                "type": "Wordwall"
+              },
+              {
+                "name": "词语积累",
+                "url": "https://wordwall.net/resource/87740092",
+                "type": "Wordwall"
+              },
+              {
+                "name": "听力练习1",
+                "url": "https://wordwall.net/resource/100234018",
+                "type": "Wordwall"
+              },
+              {
+                "name": "听力练习2",
+                "url": "https://wordwall.net/resource/100234150",
+                "type": "Wordwall"
               }
-            ]
+            ],
+            "lessons": []
           },
           {
             "name": "第二单元",
             "topic": "有趣的会意字",
+            "games": [
+              {
+                "name": "词语练习",
+                "url": "https://quizlet.com/ie/1087721030/%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83-%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BC%9A%E6%84%8F%E5%AD%97-flash-cards/?i=3vrcho&x=1jqt",
+                "type": "Quizlet"
+              },
+              {
+                "name": "这是什么字",
+                "url": "https://wordwall.net/resource/99039464",
+                "type": "Wordwall"
+              },
+              {
+                "name": "词语积累",
+                "url": "https://wordwall.net/resource/100233091",
+                "type": "Wordwall"
+              },
+              {
+                "name": "听力练习",
+                "url": "https://wordwall.net/resource/100232531",
+                "type": "Wordwall"
+              }
+            ],
             "lessons": []
           },
           {
@@ -209,17 +190,18 @@
           {
             "name": "第一单元",
             "topic": "有趣的形声字",
+            "games": [
+              {
+                "name": "词语练习",
+                "url": "https://quizlet.com/ie/1092476560/%E4%BA%8C%E7%AC%AC%E4%B8%80%E5%8D%95%E5%85%83-flash-cards/?i=3vrcho&x=1jqt",
+                "type": "Quizlet"
+              }
+            ],
             "lessons": [
               {
                 "name": "第一课",
                 "topic": "我的一家",
-                "games": [
-                  {
-                    "name": "词语练习",
-                    "url": "https://quizlet.com/ie/1092476560/%E4%BA%8C%E7%AC%AC%E4%B8%80%E5%8D%95%E5%85%83-flash-cards/?i=3vrcho&x=1jqt",
-                    "type": "Quizlet"
-                  }
-                ]
+                "games": []
               },
               {
                 "name": "第二课",
