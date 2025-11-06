@@ -605,7 +605,7 @@
         </section>
         
         <footer>
-            <p>© 2025 利中中爱文化中心 | LIZHONG Chinese-Irish Cultural Centre | 爱尔兰利默里克 | Limerick, Ireland</p>
+            <p>© 2023 利中中爱文化中心 | LIZHONG Chinese-Irish Cultural Centre | 中文教学游戏资源库</p>
         </footer>
     </div>
 
@@ -689,24 +689,8 @@
             }
         }
         
-        // 新增：从 data.json 加载数据的函数
-        async function loadTextbooksData() {
-            try {
-                const response = await fetch('data.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                console.log('成功从 data.json 加载数据');
-                return data;
-            } catch (error) {
-                console.warn('无法从 data.json 加载数据，使用内置数据:', error.message);
-                return null; // 返回 null 表示加载失败
-            }
-        }
-
         // 初始化主网站
-        async function initMainWebsite() {
+        function initMainWebsite() {
             // 更新时间和访问人数
             updateDateTime();
             updateVisitorCount();
@@ -1788,14 +1772,8 @@
                 });
             }
 
-            // 修改：先尝试从 data.json 加载数据，如果失败则使用内置数据
-            const externalData = await loadTextbooksData();
-            if (externalData) {
-                window.textbooksData = externalData;
-            } else {
-                window.textbooksData = completeTextbooksData;
-            }
-            
+            // 初始化主网站
+            window.textbooksData = completeTextbooksData;
             renderTextbooks(window.textbooksData);
             setupSearch();
             setupFilters();
