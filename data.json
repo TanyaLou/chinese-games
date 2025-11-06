@@ -167,92 +167,13 @@
                     "name": "字词认读",
                     "url": "https://quizlet.com/ie/1088089621/%E7%AC%AC%E5%9B%9B%E5%8D%95%E5%85%83-%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%8B%BC%E9%9F%B32-7%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88-flash-cards/?i=3vrcho&x=1jqt",
                     "type": "Quizlet"
-                  },
-                  {
-                    "name": "Quizlet词卡",
-                    "url": "https://quizlet.com/ie/1088089621/%E7%AC%AC%E5%9B%9B%E5%8D%95%E5%85%83-%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%8B%BC%E9%9F%B32-7%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88-flash-cards/?i=3vrcho&x=1jqt",
-                    "type": "词语记忆"
                   }
                 ]
               },
               {
                 "name": "第八课",
                 "topic": "拼音复习2",
-                "games": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "第二册",
-        "units": [
-          {
-            "name": "第一单元",
-            "topic": "有趣的形声字",
-            "games": [
-              {
-                "name": "词语练习",
-                "url": "https://quizlet.com/ie/1092476560/%E4%BA%8C%E7%AC%AC%E4%B8%80%E5%8D%95%E5%85%83-flash-cards/?i=3vrcho&x=1jqt",
-                "type": "Quizlet"
-              }
-            ],
-            "lessons": [
-              {
-                "name": "第一课",
-                "topic": "我的一家",
-                "games": []
-              },
-              {
-                "name": "第二课",
-                "topic": "欢迎来我家",
-                "games": []
-              },
-              {
-                "name": "第三课",
-                "topic": "好多玩具",
-                "games": []
-              },
-              {
-                "name": "第四课",
-                "topic": "我能出去玩吗",
-                "games": []
-              }
-            ]
-          },
-          {
-            "name": "第二单元",
-            "topic": "我的家庭",
-            "lessons": []
-          },
-          {
-            "name": "第三单元",
-            "topic": "我的学校",
-            "lessons": []
-          },
-          {
-            "name": "第四单元",
-            "topic": "我的生活",
-            "lessons": [
-              {
-                "name": "第五课",
-                "topic": "今天星期几",
-                "games": []
-              },
-              {
-                "name": "第六课",
-                "topic": "动物和我们",
-                "games": []
-              },
-              {
-                "name": "第七课",
-                "topic": "好吃吗",
-                "games": []
-              },
-              {
-                "name": "第八课",
-                "topic": "东西南北",
-                "games": []
+                "games": [] 
               }
             ]
           }
