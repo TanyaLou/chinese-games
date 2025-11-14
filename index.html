@@ -698,7 +698,7 @@
             // 每秒更新时间
             setInterval(updateDateTime, 1000);
             
-            // 完整的教材数据 - 已修正语法错误
+            // 完整的教材数据 - 保留所有原有课程，只添加新的游戏链接
             const completeTextbooksData = [
                 {
                     "name": "中文（小学·欧洲版）",
@@ -1095,7 +1095,17 @@
                                                 {"name": "句子练习", "url": "https://wordwall.net/resource/82280042", "type": "Wordwall"}
                                             ]
                                         },
-                                        {"name": "第二课"}, 
+                                        {
+                                            "name": "第二课",
+                                            "topic": "颐和园",
+                                            "games": [
+                                                {"name": "词语学习", "url": "https://quizlet.com/ie/1105562236/%E5%9B%9B2%E9%A2%90%E5%92%8C%E5%9B%AD-flash-cards/?i=3vrcho&x=1jqt", "type": "Quizlet"},
+                                                {"name": "听力练习", "url": "https://wordwall.net/resource/83438411", "type": "Wordwall"},
+                                                {"name": "词语理解", "url": "https://wordwall.net/resource/83454721", "type": "Wordwall"},
+                                                {"name": "打字练习", "url": "https://play.blooket.com/play?hwId=691653a74c780360ee7e2c34", "type": "Blooket"},
+                                                {"name": "句子练习", "url": "https://wordwall.net/resource/83925389", "type": "Wordwall"}
+                                            ]
+                                        },
                                         {"name": "第三课"}
                                     ]
                                 },
