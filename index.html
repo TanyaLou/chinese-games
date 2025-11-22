@@ -698,7 +698,7 @@
             // 每秒更新时间
             setInterval(updateDateTime, 1000);
             
-            // 完整的教材数据 - 在暨南大学版第四册第九课中添加新游戏链接
+            // 完整的教材数据
             const completeTextbooksData = [
                 {
                     "name": "中文（小学·欧洲版）",
@@ -1530,9 +1530,44 @@
                                 {
                                     "name": "全册12课",
                                     "lessons": [
-                                        {"name": "第一课"}, {"name": "第二课"}, {"name": "第三课"}, {"name": "第四课"},
-                                        {"name": "第五课"}, {"name": "第六课"}, {"name": "第七课"}, {"name": "第八课"},
-                                        {"name": "第九课"}, {"name": "第十课"}, {"name": "第十一课"}, {"name": "第十二课"}
+                                        {
+                                            "name": "第一课",
+                                            "topic": "你好！",
+                                            "games": [
+                                                {"name": "Pinyin studying", "url": "https://quizlet.com/ie/1112022676/%E4%B8%801%E4%BD%A0%E5%A5%BD%E6%8B%BC%E9%9F%B3-flash-cards/?i=3vrcho&x=1jqt", "type": "Quizlet"},
+                                                {"name": "Words studying", "url": "https://quizlet.com/ie/1112022133/%E4%B8%801%E4%BD%A0%E5%A5%BD%E8%8B%B1%E8%AF%AD%E8%A7%A3%E9%87%8A-flash-cards/?i=3vrcho&x=1jqt", "type": "Quizlet"},
+                                                {"name": "听力练习", "url": "https://wordwall.net/resource/86361339", "type": "Wordwall"},
+                                                {"name": "字词理解1", "url": "https://wordwall.net/resource/86361545", "type": "Wordwall"},
+                                                {"name": "字词理解2", "url": "https://play.blooket.com/play?hwId=6921e8b503dd86384d43c403", "type": "Blooket"},
+                                                {"name": "数字理解", "url": "https://wordwall.net/resource/102681365", "type": "Wordwall"},
+                                                {"name": "句子搭配", "url": "https://wordwall.net/resource/86361632", "type": "Wordwall"},
+                                                {"name": "打字练习", "url": "https://play.blooket.com/play?hwId=6921e8b503dd86384d43c403", "type": "Blooket"}
+                                            ]
+                                        },
+                                        {"name": "第二课"},
+                                        {"name": "第三课"},
+                                        {"name": "第四课"},
+                                        {"name": "第五课"},
+                                        {"name": "第六课"},
+                                        {"name": "第七课"},
+                                        {"name": "第八课"},
+                                        {"name": "第九课"},
+                                        {"name": "第十课"},
+                                        {
+                                            "name": "第十一课",
+                                            "topic": "你吃什么？",
+                                            "games": [
+                                                {"name": "Pinyin studying", "url": "https://quizlet.com/ie/1112022676/%E4%B8%801%E4%BD%A0%E5%A5%BD%E6%8B%BC%E9%9F%B3-flash-cards/?i=3vrcho&x=1jqt", "type": "Quizlet"},
+                                                {"name": "Words studying", "url": "https://quizlet.com/ie/1112022133/%E4%B8%801%E4%BD%A0%E5%A5%BD%E8%8B%B1%E8%AF%AD%E8%A7%A3%E9%87%8A-flash-cards/?i=3vrcho&x=1jqt", "type": "Quizlet"},
+                                                {"name": "听力练习", "url": "https://wordwall.net/resource/102683598", "type": "Wordwall"},
+                                                {"name": "字词理解1", "url": "https://wordwall.net/resource/100024217", "type": "Wordwall"},
+                                                {"name": "字词理解2", "url": "https://wordwall.net/resource/100024688", "type": "Wordwall"},
+                                                {"name": "字词理解3", "url": "https://play.blooket.com/play?hwId=6921ea7cce49ce7fcef85ed5", "type": "Blooket"},
+                                                {"name": "打字练习", "url": "https://play.blooket.com/play?hwId=6921ea9d229622ce88cca46a", "type": "Blooket"},
+                                                {"name": "句子搭配", "url": "https://wordwall.net/resource/102683136", "type": "Wordwall"}
+                                            ]
+                                        },
+                                        {"name": "第十二课"}
                                     ]
                                 }
                             ]
@@ -1983,7 +2018,3 @@
     </script>
 </body>
 </html>
-
-
-
-
