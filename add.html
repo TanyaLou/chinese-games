@@ -208,8 +208,15 @@
     </footer>
 </div>
 
-<script src="data.js"></script>
-<script src="links.js"></script>
+<!-- 加载时自动带时间戳，避免浏览器 / CDN 读到缓存的旧版本；
+     本地双击打开（file://）时行为不变 -->
+<script>
+(function () {
+    var bust = (location.protocol === 'file:') ? '' : ('?t=' + Date.now());
+    document.write('<script src="data.js' + bust + '"><\/script>');
+    document.write('<script src="links.js' + bust + '"><\/script>');
+})();
+</script>
 <script>
 /* ============================================================
    工具脚本：读取 data.js（教材目录）+ links.js（链接），

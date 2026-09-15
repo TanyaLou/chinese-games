@@ -608,38 +608,27 @@
         
         <footer>
             <p>© 2023 利中中爱文化中心 | LiZhong Chinese-Irish Cultural Centre | 中文教学游戏资源库</p>
-            <p style="margin-top:8px;">
-                <a href="add.html" style="color:#2980b9;text-decoration:none;">＋ 添加新的练习链接</a>
-            </p>
         </footer>
     </div>
 
     <!-- ==================== 数据文件 ==================== -->
-    <!-- data.js  ：教材目录（册 / 单元 / 课），一般不需要修改 -->
-    <script src="data.js"></script>
-    <!-- links.js ：全部练习链接，你平时只需要改这一个文件 -->
-    <script src="links.js"></script>
+    <!-- data.js ：教材目录（册 / 单元 / 课），一般不需要修改 -->
+    <!-- links.js：全部练习链接，你平时只需要改这一个文件 -->
+    <!-- 加载时自动带一个时间戳参数，避免浏览器 / CDN 读到缓存里的旧版本。
+         效果：改完 links.js 上传后，刷新页面就能看到最新内容，不用等缓存过期。
+         本地双击打开（file://）时自动不带参数，行为跟以前完全一样。 -->
+    <script>
+    (function () {
+        var bust = (location.protocol === 'file:') ? '' : ('?t=' + Date.now());
+        document.write('<script src="data.js' + bust + '"><\/script>');
+        document.write('<script src="links.js' + bust + '"><\/script>');
+    })();
+    </script>
 
     <style>
         .link-count { font-size: 1.1rem; color: #e67e22; font-weight: 600; }
         .link-count i { margin-right: 5px; color: #e67e22; }
-        .add-link-fab {
-            position: fixed; right: 24px; bottom: 24px; z-index: 999;
-            background: linear-gradient(135deg, #16a085, #2ecc71);
-            color: #fff; text-decoration: none; padding: 12px 20px;
-            border-radius: 50px; box-shadow: 0 6px 18px rgba(0, 0, 0, .2);
-            font-weight: 600; font-size: .95rem; transition: all .3s ease;
-        }
-        .add-link-fab:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 0, .28); }
-        .add-link-fab i { margin-right: 6px; }
-        @media (max-width: 768px) {
-            .add-link-fab { right: 12px; bottom: 12px; padding: 10px 14px; font-size: .85rem; }
-        }
     </style>
-
-    <a href="add.html" target="_blank" class="add-link-fab">
-        <i class="fas fa-plus"></i> 添加链接
-    </a>
 
     <script>
         // 欢迎动画控制
