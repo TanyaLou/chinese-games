@@ -13,7 +13,7 @@
 
    本网站目前的教材：
        · 中文（小学·暨南大学版）（81 条链接）
-       · YCT标准教程（100 条链接）
+       · YCT标准教程（105 条链接）
        · 幼儿汉语（26 条链接）
        · 汉语拼音（0 条链接）
 
@@ -123,7 +123,7 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第五册|第一单元|第一课|打字练习|Blooket|https://play.blooket.com/play?hwId=6a99726bcd8be9a5246e1c68
 
 // ---------------------------------------------------------
-// YCT标准教程（100 条）
+// YCT标准教程（105 条）
 // ---------------------------------------------------------
 YCT标准教程|第一册|全册12课|第一课|字词学习|Quizlet|https://quizlet.com/ie/1112022676/%E4%B8%801%E4%BD%A0%E5%A5%BD%E6%8B%BC%E9%9F%B3-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第一课|听力练习|Wordwall|https://wordwall.net/resource/86361339
@@ -231,12 +231,17 @@ YCT标准教程|第三册|全册12课|第一课|句子练习|Wordwall|https://wo
 YCT标准教程|第三册|全册12课|第一课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ab14fed69142c7d6542622a
 YCT标准教程|第三册|全册12课|第二课|@主题|你喜欢什么运动
 YCT标准教程|第三册|全册12课|第二课|字词学习|Quizlet|https://quizlet.com/ie/1210382110/%E4%B8%892%E4%BD%A0%E5%96%9C%E6%AC%A2%E4%BB%80%E4%B9%88%E8%BF%90%E5%8A%A8-flash-cards/?i=3vrcho&x=1jqt
+YCT标准教程|第三册|全册12课|第二课|字词理解|Wordwall|https://wordwall.net/resource/119893760
 YCT标准教程|第三册|全册12课|第三课|@主题|我在画画儿呢
 YCT标准教程|第三册|全册12课|第三课|字词学习|Quizlet|https://quizlet.com/ie/1210383540/%E4%B8%893%E6%88%91%E5%9C%A8%E7%94%BB%E7%94%BB%E5%84%BF%E5%91%A2-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第三册|全册12课|第四课|@主题|喂，您好
 YCT标准教程|第三册|全册12课|第四课|字词学习|Quizlet|https://quizlet.com/ie/1210734519/%E4%B8%894%E5%96%82%E6%82%A8%E5%A5%BD-flash-cards/?i=3vrcho&x=1qqt
 YCT标准教程|第三册|全册12课|第五课|@主题|再吃几个
 YCT标准教程|第三册|全册12课|第五课|字词学习|Quizlet|https://quizlet.com/ie/1210741175/%E4%B8%895%E5%86%8D%E5%90%83%E5%87%A0%E4%B8%AA-flash-cards/?i=3vrcho&x=1jqt
+YCT标准教程|第三册|全册12课|第五课|字词理解|Wordwall|https://wordwall.net/resource/119894756
+YCT标准教程|第三册|全册12课|第五课|听力练习|Wordwall|https://wordwall.net/resource/119894842
+YCT标准教程|第三册|全册12课|第五课|句子练习|Wordwall|https://wordwall.net/resource/119895384
+YCT标准教程|第三册|全册12课|第五课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ab6507108787c6fd9dbe82d
 
 // ---------------------------------------------------------
 // 幼儿汉语（26 条）
