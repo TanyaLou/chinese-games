@@ -12,8 +12,8 @@
    · 以 // 开头的行是说明文字，会被忽略。
 
    本网站目前的教材：
-       · 中文（小学·暨南大学版）（88 条链接）
-       · YCT标准教程（112 条链接）
+       · 中文（小学·暨南大学版）（92 条链接）
+       · YCT标准教程（116 条链接）
        · 幼儿汉语（26 条链接）
        · 汉语拼音（0 条链接）
 
@@ -24,7 +24,7 @@
 const LINK_DATA = `
 
 // ---------------------------------------------------------
-// 中文（小学·暨南大学版）（88 条）
+// 中文（小学·暨南大学版）（92 条）
 // ---------------------------------------------------------
 中文（小学·暨南大学版）|第一册|第一单元|第一课|@主题|识字（一）
 中文（小学·暨南大学版）|第一册|第一单元|第一课|词语学习|Quizlet|https://quizlet.com/ie/1185045722/%E4%B8%801%E8%AF%86%E5%AD%97%E4%B8%80%E8%8B%B1%E8%AF%AD%E8%A7%A3%E9%87%8A-flash-cards/?i=3vrcho&x=1jqt
@@ -49,6 +49,11 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第一册|第二单元|第四课|字词理解|Wordwall|https://wordwall.net/resource/119376294
 中文（小学·暨南大学版）|第一册|第二单元|第四课|方位练习2|Wordwall|https://wordwall.net/resource/119378018
 中文（小学·暨南大学版）|第一册|第二单元|第四课|打字练习|Blooket|https://play.blooket.com/play?hwId=6aad673a81d876ad83e91b0e
+中文（小学·暨南大学版）|第一册|第二单元|第五课|@主题|识字（五）
+中文（小学·暨南大学版）|第一册|第二单元|第五课|词语学习|Quizlet|https://quizlet.com/ie/1220065839/%E4%B8%805%E8%AF%86%E5%AD%97%E4%BA%94-flash-cards/?i=3vrcho&x=1qqt
+中文（小学·暨南大学版）|第一册|第二单元|第五课|字词理解|Wordwall|https://wordwall.net/resource/120972853
+中文（小学·暨南大学版）|第一册|第二单元|第五课|听力练习|Wordwall|https://wordwall.net/resource/120975612
+中文（小学·暨南大学版）|第一册|第二单元|第五课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ac8cdf21aa80a64f337a33d
 中文（小学·暨南大学版）|第二册|第一单元|第一课|@主题|在中文学校
 中文（小学·暨南大学版）|第二册|第一单元|第一课|字词学习|Quizlet|https://quizlet.com/ie/1203330992/%E4%BA%8C1%E5%9C%A8%E4%B8%AD%E6%96%87%E5%AD%A6%E6%A0%A1-flash-cards/?i=3vrcho&x=1qqt
 中文（小学·暨南大学版）|第二册|第一单元|第一课|字词理解|Wordwall|https://wordwall.net/resource/118167210
@@ -131,14 +136,15 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第五册|第一单元|第二课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ac516160e77297cabe5325b
 
 // ---------------------------------------------------------
-// YCT标准教程（112 条）
+// YCT标准教程（116 条）
 // ---------------------------------------------------------
 YCT标准教程|第一册|全册12课|第一课|字词学习|Quizlet|https://quizlet.com/ie/1112022676/%E4%B8%801%E4%BD%A0%E5%A5%BD%E6%8B%BC%E9%9F%B3-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第一课|听力练习|Wordwall|https://wordwall.net/resource/86361339
 YCT标准教程|第一册|全册12课|第一课|字词理解|Wordwall|https://wordwall.net/resource/86361545
 YCT标准教程|第一册|全册12课|第一课|数字理解|Wordwall|https://wordwall.net/resource/102681365
 YCT标准教程|第一册|全册12课|第一课|句子搭配|Wordwall|https://wordwall.net/resource/86361632
-YCT标准教程|第一册|全册12课|第一课|打字练习|Blooket|https://play.blooket.com/play?hwId=6921e8b503dd86384d43c403
+YCT标准教程|第一册|全册12课|第一课|字词理解|Blooket|https://play.blooket.com/play?hwId=6921e8b503dd86384d43c403
+YCT标准教程|第一册|全册12课|第一课|打字练习|Blooket|https://play.blooket.com/play?hwId=6acbcc2ba9d525a300b990e6
 YCT标准教程|第一册|全册12课|第二课|字词学习|Quizlet|https://quizlet.com/ie/1129311034/%E4%B8%802%E4%BD%A0%E5%8F%AB%E4%BB%80%E4%B9%88-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第二课|词语理解|Wordwall|https://wordwall.net/resource/87636444
 YCT标准教程|第一册|全册12课|第二课|听力训练|Wordwall|https://wordwall.net/resource/87636407
@@ -149,18 +155,21 @@ YCT标准教程|第一册|全册12课|第三课|字词学习|Quizlet|https://qui
 YCT标准教程|第一册|全册12课|第三课|听力练习|Wordwall|https://wordwall.net/resource/87638392
 YCT标准教程|第一册|全册12课|第三课|词语理解|Wordwall|https://wordwall.net/resource/108316816
 YCT标准教程|第一册|全册12课|第三课|句子练习|Wordwall|https://wordwall.net/resource/108316973
+YCT标准教程|第一册|全册12课|第三课|打字练习|Blooket|https://play.blooket.com/play?hwId=6acbc95e1d71b8b6b4fc887c
 YCT标准教程|第一册|全册12课|第四课|@主题|我家有四口人
 YCT标准教程|第一册|全册12课|第四课|字词学习|Quizlet|https://quizlet.com/ie/1167235341/%E4%B8%804%E6%88%91%E5%AE%B6%E6%9C%89%E5%9B%9B%E5%8F%A3%E4%BA%BA-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第四课|Chinese Monopoly|Wordwall|https://wordwall.net/resource/86715156
 YCT标准教程|第一册|全册12课|第四课|词语理解|Wordwall|https://wordwall.net/resource/86716060
 YCT标准教程|第一册|全册12课|第四课|Card Game|Wordwall|https://wordwall.net/resource/86715270
 YCT标准教程|第一册|全册12课|第四课|句子练习|Wordwall|https://wordwall.net/resource/111188351
+YCT标准教程|第一册|全册12课|第四课|打字练习|Blooket|https://play.blooket.com/play?hwId=6acbcae7cabc428223a0c884
 YCT标准教程|第一册|全册12课|第五课|@主题|我6岁
 YCT标准教程|第一册|全册12课|第五课|字词学习|Quizlet|https://quizlet.com/ie/1166737446/%E4%B8%805%E6%88%916%E5%B2%81-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第五课|词语理解1|Wordwall|https://wordwall.net/resource/111186407
 YCT标准教程|第一册|全册12课|第五课|词语理解2|Wordwall|https://wordwall.net/resource/111186069
 YCT标准教程|第一册|全册12课|第五课|听力练习|Wordwall|https://wordwall.net/resource/111187279
 YCT标准教程|第一册|全册12课|第五课|句子练习|Wordwall|https://wordwall.net/resource/111188204
+YCT标准教程|第一册|全册12课|第五课|打字练习|Blooket|https://play.blooket.com/play?hwId=6acbe616704a47998ae08bc1
 YCT标准教程|第一册|全册12课|第七课|字词学习|Quizlet|https://quizlet.com/ie/1115899341/%E4%B8%807%E8%BF%99%E6%98%AF%E8%B0%81%E7%9A%84%E7%8B%97-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第七课|字词理解|Wordwall|https://wordwall.net/resource/105314671
 YCT标准教程|第一册|全册12课|第七课|听力练习|Wordwall|https://wordwall.net/resource/105314371
