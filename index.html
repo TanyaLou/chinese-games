@@ -117,6 +117,36 @@
         }
         .placeholder-content i { margin-right: 10px; color: #b0bec5; font-size: 1.2rem; }
 
+        /* ===== 已填好内容的正文块（欢迎词 / 学校简介） ===== */
+        .intro-content {
+            background: #f8f9fa;
+            border: 1px solid #e1e8ed;
+            border-left: 4px solid var(--secondary);
+            border-radius: 10px;
+            padding: 24px 26px;
+            text-align: left;
+        }
+        .intro-content p { font-style: normal; margin: 0; }
+        /* 中文：黑色楷体 */
+        .intro-content p.cn {
+            font-family: 'KaiTi', 'Kaiti SC', 'STKaiti', '楷体', '楷体_GB2312', serif;
+            color: #000000;
+            font-size: 1.25rem;
+            line-height: 2;
+            text-align: justify;
+            margin-bottom: 6px;
+        }
+        /* 英文：与栏目下 "Welcome Message" / "School Introduction" 那行完全一致的字体与颜色 */
+        .intro-content p.en {
+            font-family: inherit;
+            color: var(--gray);
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .intro-content p:last-child { margin-bottom: 0; }
+
         /* ===== 学校成员 ===== */
         .members-group { margin-bottom: 30px; }
         .members-group:last-child { margin-bottom: 0; }
@@ -327,11 +357,11 @@
         <section class="section-card" id="welcome-message">
             <h2 class="section-title"><i class="fas fa-comment-dots"></i> 欢迎词</h2>
             <div class="section-subtitle">Welcome Message</div>
-            <div class="placeholder-content">
-                <i class="fas fa-pen-fancy"></i> 欢迎来到语言与文化的世界！
-Welcome to a World of Language and Culture!
-在这里，我们学习中文，连接中爱文化，在交流中相互理解，让不同的文化彼此靠近。
-Here, we learn Mandarin, bridge Chinese and Irish cultures, and grow in mutual understanding. Every conversation brings our cultures closer.
+            <div class="intro-content">
+                <p class="cn">欢迎来到语言与文化的世界！</p>
+                <p class="en">Welcome to a World of Language and Culture!</p>
+                <p class="cn">在这里，我们学习中文，连接中爱文化，在交流中相互理解，让不同的文化彼此靠近。</p>
+                <p class="en">Here, we learn Mandarin, bridge Chinese and Irish cultures, and grow in mutual understanding. Every conversation brings our cultures closer.</p>
             </div>
         </section>
 
@@ -339,9 +369,9 @@ Here, we learn Mandarin, bridge Chinese and Irish cultures, and grow in mutual u
         <section class="section-card" id="school-intro">
             <h2 class="section-title"><i class="fas fa-school"></i> 学校简介</h2>
             <div class="section-subtitle">School Introduction</div>
-            <div class="placeholder-content">
-                <i class="fas fa-pen-fancy"></i> 利中中爱文化中心位于爱尔兰利默里克，致力于中文教育、中爱文化交流与相互理解。我们为儿童、青少年和成人提供中文学习、中华文化体验及跨文化交流机会。我们相信，语言不仅是沟通的工具，更是连接人与文化的桥梁。通过学习、分享与交流，我们希望帮助人们认识彼此的文化，在相互理解与尊重中建立更紧密的联系。
-                Based in Limerick, Ireland, LiZhong Chinese-Irish Cultural Centre promotes Mandarin education, cultural exchange and mutual understanding between China and Ireland. We offer Mandarin classes, Chinese cultural experiences and opportunities for intercultural learning for children, teenagers and adults. We believe language is more than a means of communication — it is a bridge between people and cultures. Through learning, sharing and dialogue, we aim to foster mutual understanding, respect and meaningful connections between our communities.
+            <div class="intro-content">
+                <p class="cn">利中中爱文化中心位于爱尔兰利默里克，致力于中文教育、中爱文化交流与相互理解。我们为儿童、青少年和成人提供中文学习、中华文化体验及跨文化交流机会。我们相信，语言不仅是沟通的工具，更是连接人与文化的桥梁。通过学习、分享与交流，我们希望帮助人们认识彼此的文化，在相互理解与尊重中建立更紧密的联系。</p>
+                <p class="en">Based in Limerick, Ireland, LiZhong Chinese-Irish Cultural Centre promotes Mandarin education, cultural exchange and mutual understanding between China and Ireland. We offer Mandarin classes, Chinese cultural experiences and opportunities for intercultural learning for children, teenagers and adults. We believe language is more than a means of communication — it is a bridge between people and cultures. Through learning, sharing and dialogue, we aim to foster mutual understanding, respect and meaningful connections between our communities.</p>
             </div>
         </section>
 
