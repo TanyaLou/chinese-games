@@ -232,6 +232,29 @@
         .textbook-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 2.5rem; opacity: 0.2; }
         .volumes-container { padding: 20px; max-height: 400px; overflow-y: auto; }
         .volume-item { margin-bottom: 15px; border: 1px solid #e1e8ed; border-radius: 10px; overflow: hidden; }
+
+        /* ===== 特殊条目：课本点读版（详见页面底部 SPECIAL_VOLUMES 设置） ===== */
+        .volume-item.special-volume {
+            border: 2px solid var(--secondary);
+            background: linear-gradient(135deg, #f2fbf6 0%, #ffffff 100%);
+        }
+        .special-link { display: block; padding: 14px 16px; text-decoration: none; transition: var(--transition); }
+        .special-link:hover { background: #e8f8ef; }
+        .special-head { display: flex; align-items: center; gap: 10px; }
+        .special-icon { font-size: 1.7rem; line-height: 1; color: #169b62; }
+        .special-title {
+            font-family: 'KaiTi', 'Kaiti SC', 'STKaiti', '楷体', '楷体_GB2312', serif;
+            color: #000000; font-size: 1.2rem; font-weight: 700; letter-spacing: 1px;
+        }
+        .special-go { margin-left: auto; font-size: 0.85rem; color: var(--secondary); }
+        .special-hint {
+            font-family: 'KaiTi', 'Kaiti SC', 'STKaiti', '楷体', '楷体_GB2312', serif;
+            color: #c0392b; font-size: 1rem; margin-top: 6px;
+        }
+        .special-desc {
+            font-family: 'KaiTi', 'Kaiti SC', 'STKaiti', '楷体', '楷体_GB2312', serif;
+            color: #000000; font-size: 0.95rem; line-height: 1.9; margin-top: 8px;
+        }
         .volume-header { background: #f8f9fa; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: var(--transition); }
         .volume-header:hover { background: #e9ecef; }
         .volume-header h3 { font-size: 1.1rem; color: var(--dark); }
@@ -415,7 +438,7 @@
                     <div class="member-card">
                         <div class="member-avatar"><i class="fas fa-user-graduate"></i></div>
                         <div class="member-name-cn">娄同森</div>
-                        <div class="member-name-en">Tanya Lou</div>
+                        <div class="member-name-en">(Name TBD)</div>
                         <div class="member-toggle-hint"><i class="fas fa-chevron-down"></i></div>
                         <div class="member-bio"><p>（简介待补充）</p></div>
                     </div>
@@ -454,7 +477,7 @@
         <!-- ========== 栏目四：教学游戏（原“中文教学游戏资源库”） ========== -->
         <section class="section-card" id="teaching-games">
             <h2 class="section-title"><i class="fas fa-gamepad"></i> 教学游戏</h2>
-            <div class="section-subtitle">Teaching & Learning Games</div>
+            <div class="section-subtitle">Teaching Games</div>
 
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="搜索教材、单元或课程...">
@@ -526,6 +549,38 @@
     </script>
 
     <script>
+        /* ============================================================
+           ★ 特殊条目设置（例如「课本点读版」）★
+
+           想改名称、图标、提示词、介绍或网址，只改下面这一段就行，
+           改完把 index.html 重新上传到 GitHub 即可。
+
+           · book  ：加到哪本教材里（写教材名里的几个关键字即可，如「暨南」）
+           · name  ：显示的名称
+           · icon  ：左边的小图标（这里用手形符号 ☞）
+           · hint  ：名称下面那行提示语
+           · desc  ：再下面的详细介绍
+           · url   ：点击整块后打开的网址
+           ============================================================ */
+        const SPECIAL_VOLUMES = [
+            {
+                book: "暨南",
+                name: "课本点读版",
+                icon: "☞",
+                hint: "请选择《中文》下面对应的册数",
+                desc: "这是课本的点读版，可以听课文朗读并跟读，可以录音课文朗读并收到实时评分，还可以查询字音、笔顺、部首和结构等。",
+                url: "https://global-stu.chinese-learning.cn/ebook/index.html#/ebookList"
+            },
+            {
+                book: "YCT",
+                name: "课本音频",
+                icon: "☞",
+                hint: "请选择《YCT标准教程》下面对应的册数",
+                desc: "可下载所有课文的音频",
+                url: "https://admin.chinesetest.cn/jiaocheng.do"
+            }
+        ];
+
         // ===== 学校成员卡片：点击展开 / 收起简介 =====
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.member-card').forEach(function (card) {
@@ -799,6 +854,34 @@
             return n;
         }
 
+            // 生成「课本点读版」这类特殊条目（内容在页面顶部的 SPECIAL_VOLUMES 里设置）
+            function getSpecialHtml(textbook) {
+                var list = (typeof SPECIAL_VOLUMES === 'undefined') ? [] : SPECIAL_VOLUMES;
+                var input = document.getElementById('searchInput');
+                var term = (input && input.value) ? input.value.trim().toLowerCase() : '';
+
+                return list.filter(function (sp) {
+                    if (!sp || !sp.book || textbook.name.indexOf(sp.book) === -1) return false;
+                    if (!term) return true;
+                    var hay = [sp.name, sp.hint, sp.desc].join(' ').toLowerCase();
+                    return hay.indexOf(term) > -1;
+                }).map(function (sp) {
+                    return `
+                        <div class="volume-item special-volume">
+                            <a class="special-link" href="${sp.url}" target="_blank" rel="noopener">
+                                <div class="special-head">
+                                    <span class="special-icon">${sp.icon || '☞'}</span>
+                                    <span class="special-title">${sp.name}</span>
+                                    <span class="special-go"><i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                                ${sp.hint ? `<div class="special-hint">${sp.hint}</div>` : ''}
+                                ${sp.desc ? `<div class="special-desc">${sp.desc}</div>` : ''}
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+            }
+
             // 渲染教材卡片
             function renderTextbooks(data) {
                 const container = document.getElementById('textbooksContainer');
@@ -824,6 +907,7 @@
                                 <i class="${textbook.icon} textbook-icon"></i>
                             </div>
                             <div class="volumes-container">
+                                ${getSpecialHtml(textbook)}
                                 ${textbook.volumes.map(volume => {
                                     return `
                                         <div class="volume-item">
