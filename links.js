@@ -12,7 +12,7 @@
    · 以 // 开头的行是说明文字，会被忽略。
 
    本网站目前的教材：
-       · 中文（小学·暨南大学版）（92 条链接）
+       · 中文（小学·暨南大学版）（101 条链接）
        · YCT标准教程（116 条链接）
        · 幼儿汉语（26 条链接）
        · 汉语拼音（0 条链接）
@@ -24,7 +24,7 @@
 const LINK_DATA = `
 
 // ---------------------------------------------------------
-// 中文（小学·暨南大学版）（92 条）
+// 中文（小学·暨南大学版）（101 条）
 // ---------------------------------------------------------
 中文（小学·暨南大学版）|第一册|第一单元|第一课|@主题|识字（一）
 中文（小学·暨南大学版）|第一册|第一单元|第一课|词语学习|Quizlet|https://quizlet.com/ie/1185045722/%E4%B8%801%E8%AF%86%E5%AD%97%E4%B8%80%E8%8B%B1%E8%AF%AD%E8%A7%A3%E9%87%8A-flash-cards/?i=3vrcho&x=1jqt
@@ -53,7 +53,14 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第一册|第二单元|第五课|词语学习|Quizlet|https://quizlet.com/ie/1220065839/%E4%B8%805%E8%AF%86%E5%AD%97%E4%BA%94-flash-cards/?i=3vrcho&x=1qqt
 中文（小学·暨南大学版）|第一册|第二单元|第五课|字词理解|Wordwall|https://wordwall.net/resource/120972853
 中文（小学·暨南大学版）|第一册|第二单元|第五课|听力练习|Wordwall|https://wordwall.net/resource/120975612
+中文（小学·暨南大学版）|第一册|第二单元|第五课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ad2630acdd3f849c1fc446e
 中文（小学·暨南大学版）|第一册|第二单元|第五课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ac8cdf21aa80a64f337a33d
+中文（小学·暨南大学版）|第一册|第二单元|第六课|@主题|识字（六）
+中文（小学·暨南大学版）|第一册|第二单元|第六课|词语学习|Quizlet|https://quizlet.com/ie/1223123323/%E4%B8%806%E8%AF%86%E5%AD%97%E5%85%AD-flash-cards/?i=3vrcho&x=1qqt
+中文（小学·暨南大学版）|第一册|第二单元|第六课|综合练习1|Wordwall|https://wordwall.net/resource/121559505
+中文（小学·暨南大学版）|第一册|第二单元|第六课|综合练习2|Wordwall|https://wordwall.net/resource/121559880
+中文（小学·暨南大学版）|第一册|第二单元|第六课|听力练习|Wordwall|https://wordwall.net/resource/121560542
+中文（小学·暨南大学版）|第一册|第二单元|第六课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ad1f6cbdfb1eab536c2eb73
 中文（小学·暨南大学版）|第二册|第一单元|第一课|@主题|在中文学校
 中文（小学·暨南大学版）|第二册|第一单元|第一课|字词学习|Quizlet|https://quizlet.com/ie/1203330992/%E4%BA%8C1%E5%9C%A8%E4%B8%AD%E6%96%87%E5%AD%A6%E6%A0%A1-flash-cards/?i=3vrcho&x=1qqt
 中文（小学·暨南大学版）|第二册|第一单元|第一课|字词理解|Wordwall|https://wordwall.net/resource/118167210
@@ -71,9 +78,12 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第二册|第一单元|第二课|综合练习2|Wordwall|https://wordwall.net/resource/119043622
 中文（小学·暨南大学版）|第二册|第一单元|第二课|打字练习|Blooket|https://play.blooket.com/play?hwId=6a9ee710063bf4cb9792bd24
 中文（小学·暨南大学版）|第二册|第一单元|第三课|@主题|开心的一天
-中文（小学·暨南大学版）|第二册|第一单元|第三课|字词学习|Quizlet|https://quizlet.com/ie/1207639096/%E4%BA%8C3%E5%BC%80%E5%BF%83%E7%9A%84%E4%B8%80%E5%A4%A9-%E8%8B%B1%E8%AF%AD-flash-cards/?i=3vrcho&x=1jqt
+中文（小学·暨南大学版）|第二册|第一单元|第三课|字词学习|Quizlet|https://quizlet.com/ie/1207636629/%E4%BA%8C3%E5%BC%80%E5%BF%83%E7%9A%84%E4%B8%80%E5%A4%A9-flash-cards/?i=3vrcho&x=1jqt
 中文（小学·暨南大学版）|第二册|第一单元|第三课|字词理解|Wordwall|https://wordwall.net/resource/120620291
+中文（小学·暨南大学版）|第二册|第一单元|第三课|听力练习|Wordwall|https://wordwall.net/resource/121562355
+中文（小学·暨南大学版）|第二册|第一单元|第三课|句子练习|Wordwall|https://wordwall.net/resource/121562875
 中文（小学·暨南大学版）|第二册|第一单元|第三课|打字练习|Blooket|https://play.blooket.com/play?hwId=6aa81e8fe6f51eb00881f746
+中文（小学·暨南大学版）|第二册|第一单元|第三课|字词学习|Quizlet|https://quizlet.com/ie/1207639096/%E4%BA%8C3%E5%BC%80%E5%BF%83%E7%9A%84%E4%B8%80%E5%A4%A9-%E8%8B%B1%E8%AF%AD-flash-cards/?i=3vrcho&x=1jqt
 中文（小学·暨南大学版）|第三册|第一单元|第一课|@主题|上餐馆
 中文（小学·暨南大学版）|第三册|第一单元|第一课|字词学习|Quizlet|https://quizlet.com/ie/1211718304/%E4%B8%891%E4%B8%8A%E9%A4%90%E9%A6%86-flash-cards/?i=3vrcho&x=1jqt
 中文（小学·暨南大学版）|第四册|第一单元|第一课|词语学习|Quizlet|https://quizlet.com/ie/1104475463/%E5%9B%9B1%E7%BB%99%E7%88%B7%E7%88%B7%E7%9A%84%E4%BF%A1-flash-cards/?i=3vrcho&x=1jqt
