@@ -12,8 +12,8 @@
    · 以 // 开头的行是说明文字，会被忽略。
 
    本网站目前的教材：
-       · 中文（小学·暨南大学版）（112 条链接）
-       · YCT标准教程（117 条链接）
+       · 中文（小学·暨南大学版）（118 条链接）
+       · YCT标准教程（118 条链接）
        · 幼儿汉语（26 条链接）
        · 汉语拼音（0 条链接）
 
@@ -24,7 +24,7 @@
 const LINK_DATA = `
 
 // ---------------------------------------------------------
-// 中文（小学·暨南大学版）（112 条）
+// 中文（小学·暨南大学版）（118 条）
 // ---------------------------------------------------------
 中文（小学·暨南大学版）|第一册|第一单元|第一课|@主题|识字（一）
 中文（小学·暨南大学版）|第一册|第一单元|第一课|字词学习|Quizlet|https://quizlet.com/ie/1185045722/%E4%B8%801%E8%AF%86%E5%AD%97%E4%B8%80%E8%8B%B1%E8%AF%AD%E8%A7%A3%E9%87%8A-flash-cards/?i=3vrcho&x=1jqt
@@ -92,12 +92,18 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第二册|第一单元|第三课|字词学习|Quizlet|https://quizlet.com/ie/1207639096/%E4%BA%8C3%E5%BC%80%E5%BF%83%E7%9A%84%E4%B8%80%E5%A4%A9-%E8%8B%B1%E8%AF%AD-flash-cards/?i=3vrcho&x=1jqt
 中文（小学·暨南大学版）|第三册|第一单元|第一课|@主题|上餐馆
 中文（小学·暨南大学版）|第三册|第一单元|第一课|字词学习|Quizlet|https://quizlet.com/ie/1211718304/%E4%B8%891%E4%B8%8A%E9%A4%90%E9%A6%86-flash-cards/?i=3vrcho&x=1jqt
+中文（小学·暨南大学版）|第三册|第一单元|第一课|汉字拼拼|其他|https://hanzi-radical-game.app.workbuddy.host/practice.html?room=7BRKM
 中文（小学·暨南大学版）|第三册|第一单元|第一课|字词理解|Wordwall|https://wordwall.net/resource/122363167
 中文（小学·暨南大学版）|第三册|第一单元|第一课|听力练习|Wordwall|https://wordwall.net/resource/122344129
 中文（小学·暨南大学版）|第三册|第一单元|第一课|句子练习|Wordwall|https://wordwall.net/resource/122344722
 中文（小学·暨南大学版）|第三册|第一单元|第一课|打字练习|Blooket|https://play.blooket.com/play?hwId=6adf4ab4cf309b037072c728
 中文（小学·暨南大学版）|第三册|第一单元|第二课|@主题|我教大卫吃中餐
 中文（小学·暨南大学版）|第三册|第一单元|第二课|字词学习|Quizlet|https://quizlet.com/ie/1227342785/%E4%B8%892%E6%88%91%E6%95%99%E5%A4%A7%E5%8D%AB%E5%90%83%E4%B8%AD%E9%A4%90-flash-cards/?i=3vrcho&x=1jqt
+中文（小学·暨南大学版）|第三册|第一单元|第二课|汉字拼拼|其他|https://hanzi-radical-game.app.workbuddy.host/practice.html?room=REHSJ
+中文（小学·暨南大学版）|第三册|第一单元|第二课|字词理解|Wordwall|https://wordwall.net/resource/122427893
+中文（小学·暨南大学版）|第三册|第一单元|第二课|短语理解|Wordwall|https://wordwall.net/resource/122426496
+中文（小学·暨南大学版）|第三册|第一单元|第二课|听力练习|Wordwall|https://wordwall.net/resource/122469607
+中文（小学·暨南大学版）|第三册|第一单元|第二课|句子练习|Wordwall|https://wordwall.net/resource/122434024
 中文（小学·暨南大学版）|第三册|第一单元|第二课|打字练习|Blooket|https://play.blooket.com/play?hwId=6adf84057ad6553ee3db63aa
 中文（小学·暨南大学版）|第四册|第一单元|第一课|字词学习|Quizlet|https://quizlet.com/ie/1104475463/%E5%9B%9B1%E7%BB%99%E7%88%B7%E7%88%B7%E7%9A%84%E4%BF%A1-flash-cards/?i=3vrcho&x=1jqt
 中文（小学·暨南大学版）|第四册|第一单元|第一课|听力练习1|Wordwall|https://wordwall.net/resource/101512747
@@ -159,7 +165,7 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第五册|第一单元|第二课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ac516160e77297cabe5325b
 
 // ---------------------------------------------------------
-// YCT标准教程（117 条）
+// YCT标准教程（118 条）
 // ---------------------------------------------------------
 YCT标准教程|第一册|全册12课|第一课|字词学习|Quizlet|https://quizlet.com/ie/1112022676/%E4%B8%801%E4%BD%A0%E5%A5%BD%E6%8B%BC%E9%9F%B3-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第一课|听力练习|Wordwall|https://wordwall.net/resource/86361339
@@ -291,6 +297,8 @@ YCT标准教程|第三册|全册12课|第六课|综合练习2|Wordwall|https://w
 YCT标准教程|第三册|全册12课|第六课|听力练习|Wordwall|https://wordwall.net/resource/120872982
 YCT标准教程|第三册|全册12课|第六课|句子练习|Wordwall|https://wordwall.net/resource/120874969
 YCT标准教程|第三册|全册12课|第六课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ac682d50a6e7b12c23db464
+YCT标准教程|第三册|全册12课|第七课|@主题|生日快乐
+YCT标准教程|第三册|全册12课|第七课|字词学习|Quizlet|https://quizlet.com/ie/1228790181/%E4%B8%897%E7%94%9F%E6%97%A5%E5%BF%AB%E4%B9%90-flash-cards/?i=3vrcho&x=1qqt
 
 // ---------------------------------------------------------
 // 幼儿汉语（26 条）
