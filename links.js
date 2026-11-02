@@ -13,7 +13,7 @@
 
    本网站目前的教材：
        · 中文（小学·暨南大学版）（118 条链接）
-       · YCT标准教程（118 条链接）
+       · YCT标准教程（123 条链接）
        · 幼儿汉语（26 条链接）
        · 汉语拼音（0 条链接）
 
@@ -165,7 +165,7 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第五册|第一单元|第二课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ac516160e77297cabe5325b
 
 // ---------------------------------------------------------
-// YCT标准教程（118 条）
+// YCT标准教程（123 条）
 // ---------------------------------------------------------
 YCT标准教程|第一册|全册12课|第一课|字词学习|Quizlet|https://quizlet.com/ie/1112022676/%E4%B8%801%E4%BD%A0%E5%A5%BD%E6%8B%BC%E9%9F%B3-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第一课|听力练习|Wordwall|https://wordwall.net/resource/86361339
@@ -299,6 +299,11 @@ YCT标准教程|第三册|全册12课|第六课|句子练习|Wordwall|https://wo
 YCT标准教程|第三册|全册12课|第六课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ac682d50a6e7b12c23db464
 YCT标准教程|第三册|全册12课|第七课|@主题|生日快乐
 YCT标准教程|第三册|全册12课|第七课|字词学习|Quizlet|https://quizlet.com/ie/1228790181/%E4%B8%897%E7%94%9F%E6%97%A5%E5%BF%AB%E4%B9%90-flash-cards/?i=3vrcho&x=1qqt
+YCT标准教程|第三册|全册12课|第七课|汉字拼拼|其他|https://hanzi-radical-game.app.workbuddy.host/practice.html?room=QPDSY
+YCT标准教程|第三册|全册12课|第七课|字词理解|Wordwall|https://wordwall.net/resource/122740195
+YCT标准教程|第三册|全册12课|第七课|听力练习|Wordwall|https://wordwall.net/resource/122739924
+YCT标准教程|第三册|全册12课|第七课|句子练习|Wordwall|https://wordwall.net/resource/122753982
+YCT标准教程|第三册|全册12课|第七课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ae611a32412fb3b434daa88
 
 // ---------------------------------------------------------
 // 幼儿汉语（26 条）
