@@ -13,7 +13,7 @@
 
    本网站目前的教材：
        · 中文（小学·暨南大学版）（118 条链接）
-       · YCT标准教程（123 条链接）
+       · YCT标准教程（128 条链接）
        · 幼儿汉语（26 条链接）
        · 汉语拼音（0 条链接）
 
@@ -114,15 +114,15 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第四册|第一单元|第一课|句子练习|Wordwall|https://wordwall.net/resource/82280042
 中文（小学·暨南大学版）|第四册|第一单元|第二课|字词学习|Quizlet|https://quizlet.com/ie/1105562236/%E5%9B%9B2%E9%A2%90%E5%92%8C%E5%9B%AD-flash-cards/?i=3vrcho&x=1jqt
 中文（小学·暨南大学版）|第四册|第一单元|第二课|听力练习|Wordwall|https://wordwall.net/resource/83438411
-中文（小学·暨南大学版）|第四册|第一单元|第二课|词语理解|Wordwall|https://wordwall.net/resource/83454721
+中文（小学·暨南大学版）|第四册|第一单元|第二课|字词理解|Wordwall|https://wordwall.net/resource/83454721
 中文（小学·暨南大学版）|第四册|第一单元|第二课|打字练习|Blooket|https://play.blooket.com/play?hwId=6931f4cc0a7f5dfd859eb967
 中文（小学·暨南大学版）|第四册|第一单元|第二课|句子练习|Wordwall|https://wordwall.net/resource/83925389
 中文（小学·暨南大学版）|第四册|第一单元|第三课|@主题|凡尔赛宫
 中文（小学·暨南大学版）|第四册|第一单元|第三课|字词学习|Quizlet|https://quizlet.com/ie/1131275598/%E5%9B%9B3%E5%87%A1%E5%B0%94%E8%B5%9B%E5%AE%AB-flash-cards/?i=3vrcho&x=1jqt
 中文（小学·暨南大学版）|第四册|第一单元|第三课|听力练习|Wordwall|https://wordwall.net/resource/84808032
 中文（小学·暨南大学版）|第四册|第一单元|第三课|句子练习|Wordwall|https://wordwall.net/resource/85942329
-中文（小学·暨南大学版）|第四册|第一单元|第三课|词语理解1|Wordwall|https://wordwall.net/resource/84810537
-中文（小学·暨南大学版）|第四册|第一单元|第三课|词语理解2|Wordwall|https://wordwall.net/resource/106352011
+中文（小学·暨南大学版）|第四册|第一单元|第三课|字词理解1|Wordwall|https://wordwall.net/resource/84810537
+中文（小学·暨南大学版）|第四册|第一单元|第三课|字词理解2|Wordwall|https://wordwall.net/resource/106352011
 中文（小学·暨南大学版）|第四册|第二单元|第四课|@主题|晒太阳
 中文（小学·暨南大学版）|第四册|第二单元|第四课|字词理解|Wordwall|https://wordwall.net/resource/86307345
 中文（小学·暨南大学版）|第四册|第二单元|第四课|听力练习|Wordwall|https://wordwall.net/resource/86823421
@@ -165,7 +165,7 @@ const LINK_DATA = `
 中文（小学·暨南大学版）|第五册|第一单元|第二课|打字练习|Blooket|https://play.blooket.com/play?hwId=6ac516160e77297cabe5325b
 
 // ---------------------------------------------------------
-// YCT标准教程（123 条）
+// YCT标准教程（128 条）
 // ---------------------------------------------------------
 YCT标准教程|第一册|全册12课|第一课|字词学习|Quizlet|https://quizlet.com/ie/1112022676/%E4%B8%801%E4%BD%A0%E5%A5%BD%E6%8B%BC%E9%9F%B3-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第一课|听力练习|Wordwall|https://wordwall.net/resource/86361339
@@ -175,30 +175,36 @@ YCT标准教程|第一册|全册12课|第一课|句子搭配|Wordwall|https://wo
 YCT标准教程|第一册|全册12课|第一课|字词理解|Blooket|https://play.blooket.com/play?hwId=6921e8b503dd86384d43c403
 YCT标准教程|第一册|全册12课|第一课|打字练习|Blooket|https://play.blooket.com/play?hwId=6acbcc2ba9d525a300b990e6
 YCT标准教程|第一册|全册12课|第二课|字词学习|Quizlet|https://quizlet.com/ie/1129311034/%E4%B8%802%E4%BD%A0%E5%8F%AB%E4%BB%80%E4%B9%88-flash-cards/?i=3vrcho&x=1jqt
-YCT标准教程|第一册|全册12课|第二课|词语理解|Wordwall|https://wordwall.net/resource/87636444
+YCT标准教程|第一册|全册12课|第二课|字词理解|Wordwall|https://wordwall.net/resource/87636444
 YCT标准教程|第一册|全册12课|第二课|听力训练|Wordwall|https://wordwall.net/resource/87636407
 YCT标准教程|第一册|全册12课|第二课|句子顺序|Wordwall|https://wordwall.net/resource/87636931
 YCT标准教程|第一册|全册12课|第二课|打字练习|Blooket|https://play.blooket.com/play?hwId=6963bc7682e84ce8e9d4edf7
 YCT标准教程|第一册|全册12课|第三课|@主题|他是谁？
 YCT标准教程|第一册|全册12课|第三课|字词学习|Quizlet|https://quizlet.com/ie/1149107135/%E4%B8%803%E4%BB%96%E6%98%AF%E8%B0%81-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第三课|听力练习|Wordwall|https://wordwall.net/resource/87638392
-YCT标准教程|第一册|全册12课|第三课|词语理解|Wordwall|https://wordwall.net/resource/108316816
+YCT标准教程|第一册|全册12课|第三课|字词理解|Wordwall|https://wordwall.net/resource/108316816
 YCT标准教程|第一册|全册12课|第三课|句子练习|Wordwall|https://wordwall.net/resource/108316973
 YCT标准教程|第一册|全册12课|第三课|打字练习|Blooket|https://play.blooket.com/play?hwId=6acbc95e1d71b8b6b4fc887c
 YCT标准教程|第一册|全册12课|第四课|@主题|我家有四口人
 YCT标准教程|第一册|全册12课|第四课|字词学习|Quizlet|https://quizlet.com/ie/1167235341/%E4%B8%804%E6%88%91%E5%AE%B6%E6%9C%89%E5%9B%9B%E5%8F%A3%E4%BA%BA-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第四课|Chinese Monopoly|Wordwall|https://wordwall.net/resource/86715156
-YCT标准教程|第一册|全册12课|第四课|词语理解|Wordwall|https://wordwall.net/resource/86716060
+YCT标准教程|第一册|全册12课|第四课|字词理解|Wordwall|https://wordwall.net/resource/86716060
 YCT标准教程|第一册|全册12课|第四课|Card Game|Wordwall|https://wordwall.net/resource/86715270
 YCT标准教程|第一册|全册12课|第四课|句子练习|Wordwall|https://wordwall.net/resource/111188351
 YCT标准教程|第一册|全册12课|第四课|打字练习|Blooket|https://play.blooket.com/play?hwId=6acbcae7cabc428223a0c884
 YCT标准教程|第一册|全册12课|第五课|@主题|我6岁
 YCT标准教程|第一册|全册12课|第五课|字词学习|Quizlet|https://quizlet.com/ie/1166737446/%E4%B8%805%E6%88%916%E5%B2%81-flash-cards/?i=3vrcho&x=1jqt
-YCT标准教程|第一册|全册12课|第五课|词语理解1|Wordwall|https://wordwall.net/resource/111186407
-YCT标准教程|第一册|全册12课|第五课|词语理解2|Wordwall|https://wordwall.net/resource/111186069
+YCT标准教程|第一册|全册12课|第五课|字词理解1|Wordwall|https://wordwall.net/resource/111186407
+YCT标准教程|第一册|全册12课|第五课|字词理解2|Wordwall|https://wordwall.net/resource/111186069
 YCT标准教程|第一册|全册12课|第五课|听力练习|Wordwall|https://wordwall.net/resource/111187279
 YCT标准教程|第一册|全册12课|第五课|句子练习|Wordwall|https://wordwall.net/resource/111188204
 YCT标准教程|第一册|全册12课|第五课|打字练习|Blooket|https://play.blooket.com/play?hwId=6acbe616704a47998ae08bc1
+YCT标准教程|第一册|全册12课|第六课|@主题|你的个子真高
+YCT标准教程|第一册|全册12课|第六课|字词学习|Quizlet|https://quizlet.com/ie/1229519114/%E4%B8%806%E4%BD%A0%E7%9A%84%E4%B8%AA%E5%AD%90%E7%9C%9F%E9%AB%98-flash-cards/?i=3vrcho&x=1qqt
+YCT标准教程|第一册|全册12课|第六课|字词理解1|Wordwall|https://wordwall.net/resource/123642617
+YCT标准教程|第一册|全册12课|第六课|字词理解2|Wordwall|https://wordwall.net/resource/123643552
+YCT标准教程|第一册|全册12课|第六课|听力练习|Wordwall|https://wordwall.net/resource/123652500
+YCT标准教程|第一册|全册12课|第六课|打字练习|Blooket|https://play.blooket.com/play?hwId=6af438b3f9a348bbef1bc7ab
 YCT标准教程|第一册|全册12课|第七课|字词学习|Quizlet|https://quizlet.com/ie/1115899341/%E4%B8%807%E8%BF%99%E6%98%AF%E8%B0%81%E7%9A%84%E7%8B%97-flash-cards/?i=3vrcho&x=1jqt
 YCT标准教程|第一册|全册12课|第七课|字词理解|Wordwall|https://wordwall.net/resource/105314671
 YCT标准教程|第一册|全册12课|第七课|听力练习|Wordwall|https://wordwall.net/resource/105314371
@@ -332,7 +338,7 @@ YCT标准教程|第三册|全册12课|第七课|打字练习|Blooket|https://pla
 幼儿汉语|第二册|全册10课|九|听力练习|Wordwall|https://wordwall.net/resource/87302795
 幼儿汉语|第二册|全册10课|十|听力练习|Wordwall|https://wordwall.net/resource/87854600
 幼儿汉语|第二册|全册10课|十|听力练习2|Wordwall|https://wordwall.net/resource/87854656
-幼儿汉语|第二册|全册10课|十|词语理解|Wordwall|https://wordwall.net/resource/87855317
+幼儿汉语|第二册|全册10课|十|字词理解|Wordwall|https://wordwall.net/resource/87855317
 幼儿汉语|第二册|全册10课|十|句子总复习|Wordwall|https://wordwall.net/resource/88415263
 
 
