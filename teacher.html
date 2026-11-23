@@ -385,6 +385,11 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 .gh-row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:9px}
 .gh-row .f{flex:1;min-width:170px}
 .gh-row .f span{display:block;font-size:11px;color:var(--muted);margin-bottom:4px}
+.gh-pick{margin:2px 0 8px}
+.gh-pick-t{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:7px}
+.gh-pick .up-row{display:flex;gap:10px;flex-wrap:wrap}
+.gh-pick .up-row .f{flex:1;min-width:150px}
+.gh-pick .up-row .f span{display:block;font-size:11px;color:var(--muted);margin-bottom:4px}
 .gh-out{background:#fff;border:1px dashed var(--line);border-radius:8px;padding:8px 11px;font-size:12px;line-height:1.9;margin-top:4px;word-break:break-all}
 .gh-out b{color:var(--ink)}
 .gh-out code{font-family:Consolas,Monaco,monospace;font-size:11.5px;color:#0f6e56;background:#eef8f2;padding:1px 5px;border-radius:4px}
@@ -424,7 +429,8 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
     <div class="sub">LiZhong Teacher's Classroom Kit</div>
     <input id="gatePass" type="password" placeholder="请输入教师共享口令 / Shared passcode" autocomplete="off">
     <button id="gateBtn">进入备课台 &nbsp; Enter</button>
-    <div class="gate-msg" id="gateMsg"></div> 
+    <div class="gate-msg" id="gateMsg"></div>
+    <div class="gate-note">初始口令 <b>lizhong2026</b>，进入后可在「设置」里修改。<br>这是挡外人的简单口令，不是加密保护；课堂游戏内容不涉及学生隐私。<br><span class="small-en">A simple shared passcode to keep the staff area tidy — not security encryption.</span></div>
   </div>
 </div>
 
@@ -680,6 +686,10 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
         <div class="gh-row">
           <label class="f"><span>上传老师 / Teacher（决定你的子目录）</span><input class="in" id="ghAuthor" list="teacherList" placeholder="填你的姓名"></label>
           <label class="f"><span>材料名 / Material（例：Bingo纸、词卡、答案纸）</span><input class="in" id="ghMat" placeholder="例如：Bingo纸"></label>
+        </div>
+        <div class="gh-pick">
+          <div class="gh-pick-t">归档位置 / Where to file it — 在这里选好教材、册、单元、课，下面的「目标目录」和「建议文件名」会自动跟着变。<br><span class="small-en">Pick the textbook, volume, unit and lesson here; the folder and filename below update automatically.</span></div>
+          <div id="ghPicker"></div>
         </div>
         <div class="gh-out" id="ghOut"></div>
         <div class="gh-btns">
@@ -1498,7 +1508,10 @@ function ghClean(s){
 function ghAuthor(){var e=$('#ghAuthor');return (e&&e.value.trim())||getAuthor()||'未署名'}
 function ghLesson(){
   function v(id){var e=$(id);return e?e.value:''}
-  return {book:v('#fBook'),vol:v('#fVol'),unit:v('#fUnit'),lesson:v('#fLesson')};
+  var p={book:v('#ghBook'),vol:v('#ghVol'),unit:v('#ghUnit'),lesson:v('#ghLesson')};
+  /* 自己的选择器还没渲染时，退回设计页的下拉，保证空状态也有值 */
+  if(!p.book)p={book:v('#fBook'),vol:v('#fVol'),unit:v('#fUnit'),lesson:v('#fLesson')};
+  return p;
 }
 function ghDir(){return 'library/'+ghClean(ghAuthor())+'/';}
 function ghUploadURL(){
@@ -1580,7 +1593,11 @@ function loadGitHubLibrary(force){
     })
     .catch(function(e){
       GH_FILES=[];GH_LOADING=false;if(to)clearTimeout(to);
-      ghStatus('暂时读不到 GitHub 资料库：'+esc((e&&e.message)||'网络不可用')+'。本机文件照常可用，点「刷新」重试。',true);
+      var msg=(e&&e.message)||'网络不可用';
+      if(/abort/i.test(msg))msg='读取超时（10 秒内没连上 GitHub API）';
+      else if(e&&e.name==='TypeError')msg='网络被拦截或离线（' + msg + '）';
+      var extra=(location.protocol==='file:')?'　本机双击打开（file://）时读不到是正常的，上线到 GitHub Pages 后可用。':'';
+      ghStatus('暂时读不到 GitHub 资料库：'+esc(msg)+'。本机文件照常可用，点「刷新」重试。'+extra,true);
       renderLibrary();
     });
 }
@@ -2293,7 +2310,13 @@ function boot(){
   /* 全校共享（方案 A）：按当前老师自动填子目录 + 建议文件名 */
   $('#ghAuthor').value=getAuthor()||'';
   ['#ghAuthor','#ghMat'].forEach(function(s){$(s).addEventListener('input',ghSync)});
-  ['#fBook','#fVol','#fUnit','#fLesson'].forEach(function(s){var e=$(s);if(e)e.addEventListener('change',ghSync)});
+  /* 卡片自己的归档位置选择器：初始值取设计页当前选择，之后用户可自由改 */
+  var gp=$('#ghPicker');
+  if(gp){
+    gp.innerHTML=pickerHTML('gh');
+    bindPicker('gh',{book:$('#fBook').value,vol:$('#fVol').value,unit:$('#fUnit').value,lesson:$('#fLesson').value});
+  }
+  ['#ghBook','#ghVol','#ghUnit','#ghLesson','#fBook','#fVol','#fUnit','#fLesson'].forEach(function(s){var e=$(s);if(e)e.addEventListener('change',ghSync)});
   $('#btnGhUpload').addEventListener('click',function(){window.open(ghUploadURL(),'_blank','noopener')});
   $('#btnGhCopy').addEventListener('click',ghCopy);
   ghSync();
@@ -2389,4 +2412,3 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 </body>
 </html>
-
