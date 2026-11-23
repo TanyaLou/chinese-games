@@ -1484,14 +1484,20 @@ function renderHome(){
   var nb={};games.forEach(function(g){nb[g.book]=1});FILES.forEach(function(f){nb[f.book]=1});
   el.textContent=games.length+' 个游戏 · '+FILES.length+' 个文件 · '+Object.keys(nb).length+' 本教材';
 }
-function goView(v){
+function goView(v,fromHash){
+  var el=$('#view-'+v);if(!el)v='home';
   $$('header .tab').forEach(function(x){x.classList.toggle('on',x.dataset.view===v)});
   $$('.view').forEach(function(x){x.classList.add('hidden')});
-  var el=$('#view-'+v);if(el)el.classList.remove('hidden');
+  $('#view-'+v).classList.remove('hidden');
   if(v==='home')renderHome();
   if(v==='library')renderLibrary();
   if(v==='worksheet'){syncWorksheetMeta();syncWorksheetCount();if(!$('#wsStage .ws-a4'))renderWorksheet()}
   window.scrollTo(0,0);
+  /* 把当前板块写进网址 #v=xxx：刷新后仍留在该板块；分享链接 #g= 不覆盖 */
+  if(!fromHash&&location.hash.indexOf('#g=')!==0){
+    var tag='#v='+v;
+    if(location.hash!==tag){try{history.replaceState(null,'',location.pathname+location.search+tag)}catch(e){location.hash=tag}}
+  }
 }
 
 /* ================= v4 · 折叠状态 ================= */
@@ -1520,7 +1526,8 @@ function ghUploadURL(){
 }
 function ghSuggestName(){
   var p=ghLesson(),a=ghClean(ghAuthor()),e=$('#ghMat'),mat=ghClean((e&&e.value)||'材料名');
-  return [ghClean(p.book),ghClean(p.vol),ghClean(p.lesson),mat,a,today()].join('-')+'.pdf';
+  /* 材料名放最后：老师复制后在本地改名时，光标到末尾直接改，前面固定段不用动 */
+  return [ghClean(p.book),ghClean(p.vol),ghClean(p.lesson),a,today(),mat].join('-')+'.pdf';
 }
 function ghSync(){
   var out=$('#ghOut');if(!out)return;
@@ -1528,7 +1535,7 @@ function ghSync(){
   out.innerHTML='目标目录 / Folder：<b>'+esc(ghDir())+'</b>　·　当前归档 / Lesson：<b>'+
     esc([p.book,p.vol,p.lesson].filter(Boolean).join(' / ')||'未选课本')+'</b><br>'+
     '建议文件名 / Suggested name： <code id="ghName">'+esc(ghSuggestName())+'</code>';
-  var hint=$('#ghHint');if(hint)hint.textContent='PPT / 图片请把 .pdf 换成实际后缀';
+  var hint=$('#ghHint');if(hint)hint.textContent='材料名在最后，本地改名直接改末尾即可；PPT / 图片请把 .pdf 换成实际后缀';
 }
 function ghCopy(){
   var t=ghSuggestName(),ok=false;
@@ -1555,11 +1562,22 @@ function parseGhPath(p){
   var seg=String(p||'').replace(/^library\//,'').split('/').filter(Boolean),
       name=seg.pop()||'',teacher=seg.shift()||'',
       o={name:name,author:teacher||'未署名',book:'',vol:'',unit:'',lesson:'',date:'',mat:''},
-      base=name.replace(/\.[^.]+$/,''),m=/^(.*)-(\d{4}-\d{2}-\d{2})$/.exec(base),
-      left=m?m[1]:base,pp=left.split('-');
-  o.date=m?m[2]:'';
-  if(pp.length>=5){o.book=pp[0];o.vol=pp[1];o.lesson=pp[2];o.author=pp[pp.length-1]||o.author;o.mat=pp.slice(3,pp.length-1).join('-')}
-  else{o.mat=base;var r=seg.slice();if(r.length)o.book=r.shift();if(r.length)o.vol=r.shift();if(r.length>1)o.unit=r.shift();if(r.length)o.lesson=r.shift()}
+      base=name.replace(/\.[^.]+$/,''),di=-1,i,
+      /* 日期本身含连字符：先整体换成占位符，再按 - 切分，否则 2026-11-23 会被拆成三段 */
+      dm=/(?:^|-)(\d{4}-\d{2}-\d{2})(?=-|$)/.exec(base),
+      date=dm?dm[1]:'',
+      pp=(dm?base.replace(date,'\u0001'):base).split('-');
+  o.date=date;
+  for(i=0;i<pp.length;i++)if(pp[i]==='\u0001'){di=i;break}
+  var q=[];for(i=0;i<pp.length;i++)if(i!==di)q.push(pp[i]);
+  function fallback(){o.mat=base;var r=seg.slice();if(r.length)o.book=r.shift();if(r.length)o.vol=r.shift();if(r.length>1)o.unit=r.shift();if(r.length)o.lesson=r.shift()}
+  if(di===4&&pp.length>=6){                       /* 新：教材-册-课-作者-日期-材料名 */
+    o.book=q[0];o.vol=q[1];o.lesson=q[2];o.author=q[3]||o.author;o.mat=q.slice(4).join('-');
+  }else if(di===pp.length-1&&q.length>=5){        /* 兼容旧版顺序：材料名在前、日期在末尾 */
+    o.book=q[0];o.vol=q[1];o.lesson=q[2];o.author=q[q.length-1]||o.author;o.mat=q.slice(3,q.length-1).join('-');
+  }else if(di<0&&q.length>=5){                    /* 无日期：按新格式猜 */
+    o.book=q[0];o.vol=q[1];o.lesson=q[2];o.author=q[3]||o.author;o.mat=q.slice(4).join('-');
+  }else fallback();                              /* 名字不规范：退回目录段 */
   return o;
 }
 function ghCacheGet(){try{var c=JSON.parse(sessionStorage.getItem(GH_CACHE_KEY)||'null');if(c&&c.t&&(Date.now()-c.t)<GH_TTL&&Array.isArray(c.files))return c}catch(e){}return null}
@@ -2210,6 +2228,7 @@ function boot(){
   setSelectOptions($('#fBook'),BOOKS.map(function(b){return b.name}));
   syncVol();syncUnit();syncLessonPretty();
   $('#fAuthor').value=getAuthor();
+  if($('#wsAuthor'))$('#wsAuthor').value=getAuthor();
   $('#fTitle').value='';
   $('#fItems').value=SAMPLE_VOCAB;
   markTpl('quiz');updateInputTip();updateCount();loadSharedArchive();renderHelp();renderLibrary();
@@ -2352,12 +2371,9 @@ function boot(){
       fillForm(g);
       if(g.template==='worksheet'&&g.ws){
         loadWorksheet(g);
-        $$('header .tab').forEach(function(x){x.classList.remove('on')});$('header .tab[data-view="worksheet"]').classList.add('on');
-        $$('.view').forEach(function(v){v.classList.add('hidden')});$('#view-worksheet').classList.remove('hidden');
-        renderWorksheet();
+        goView('worksheet');renderWorksheet();
       }else{
-        $$('header .tab').forEach(function(x){x.classList.remove('on')});$('header .tab[data-view="design"]').classList.add('on');
-        $$('.view').forEach(function(v){v.classList.add('hidden')});$('#view-design').classList.remove('hidden');generate();
+        goView('design');generate();
       }
       window.scrollTo(0,0);
     }
@@ -2379,7 +2395,16 @@ function boot(){
       '<div style="font-size:11px;color:var(--muted)">改完点「保存设置」。口令只存在这台电脑的浏览器里。<br><span class="small-en">Stored in this browser only.</span></div>'+
       '<div style="margin-top:14px"><button class="btn primary" id="setSave">保存设置 / Save</button> &nbsp; <button class="btn" id="setWipe">清空全部内容 / Wipe everything</button></div></div>');
     $('#modalCopy').classList.add('hidden');
-    $('#setSave').onclick=function(){localStorage.setItem(PASS_KEY,$('#setPass').value||DEFAULT_PASS);localStorage.setItem(NAME_KEY,$('#setName').value||'');$('#fAuthor').value=$('#setName').value||'';closeModal();toast('设置已保存 / Settings saved')};
+    $('#setSave').onclick=function(){
+      var nm=$('#setName').value||'';
+      localStorage.setItem(PASS_KEY,$('#setPass').value||DEFAULT_PASS);
+      localStorage.setItem(NAME_KEY,nm);
+      /* 默认署名同步到三个板块：设计游戏 / 教材文件夹共享卡片 / 试卷生成器 */
+      ['#fAuthor','#ghAuthor','#wsAuthor'].forEach(function(s){var e=$(s);if(e)e.value=nm});
+      ghSync();
+      if($('#wsStage .ws-a4'))renderWorksheet();
+      closeModal();toast('设置已保存 / Settings saved（三个板块署名已同步）');
+    };
     $('#setWipe').onclick=function(){
       if(confirm('确定清空本机保存的全部游戏与上传文件？建议先「导出分享包」备份。')){
         games=[];persist();FILES.forEach(function(f){fDel(f)});FILES=[];filesPersist();
@@ -2405,6 +2430,14 @@ function boot(){
   if(m){openShared(m[1]);return}
   /* 首次进入给一个可直接演示的舞台 */
   current=readForm();generate();ghSync();
+  /* 刷新 / 手动改地址 / 浏览器后退时，回到对应板块 */
+  window.addEventListener('hashchange',function(){
+    if(location.hash.indexOf('#g=')===0)return;
+    var mm=location.hash.match(/^#v=([a-z]+)$/);
+    goView(mm?mm[1]:'home',true);
+  });
+  var vm=location.hash.match(/^#v=([a-z]+)$/);
+  goView(vm?vm[1]:'home',true);
 }
 
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
