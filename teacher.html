@@ -37,6 +37,8 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;dis
 .tabs{display:flex;gap:4px;background:var(--bg);padding:4px;border-radius:10px}
 .tab{padding:7px 15px;border:0;background:transparent;border-radius:7px;font-size:13px;color:var(--muted);white-space:nowrap}
 .tab.on{background:#fff;color:var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.08);font-weight:600}
+.hbtn-ext{padding:7px 12px;border:1px solid var(--green);background:var(--green-l);border-radius:8px;font-size:12px;color:var(--green);white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:600}
+.hbtn-ext:hover{background:var(--green);color:#fff;border-color:var(--green)}
 .hbtn{padding:7px 12px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:12px;color:var(--muted)}
 .hbtn:hover{border-color:var(--blue);color:var(--blue)}
 
@@ -354,17 +356,44 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 .fold-empty{font-size:12px;color:var(--muted);padding:6px 4px}
 .mini-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
 
-/* ---------- v4 · 上传文件 ---------- */
-.upload-zone{border:2px dashed var(--blue);background:var(--blue-l);border-radius:14px;padding:16px 20px;margin-bottom:14px;text-align:center;transition:.15s}
-.upload-zone.drag{border-color:var(--green);background:var(--green-l)}
-.upload-zone .uz-title{font-size:14px;font-weight:600;margin-bottom:4px}
-.upload-zone .uz-sub{font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:11px}
-.upload-zone .uz-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.up-note{font-size:11px;color:var(--muted);margin-top:9px;line-height:1.7}
+/* ---------- v5 · 教材文件夹：本机 / 全校共享 两个独立部分（上下排列） ---------- */
+.lib-part{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:18px;overflow:hidden}
+.lib-part-hd{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.lib-part.local .lib-part-hd{background:var(--blue-l)}
+.lib-part.shared .lib-part-hd{background:var(--green-l)}
+.lib-part-hd .lp-ico{font-size:18px}
+.lib-part-hd h3{margin:0;font-size:15px;font-weight:700}
+.lp-tag{font-size:10px;font-weight:600;padding:2px 9px;border-radius:10px;background:#fff;color:var(--muted);border:1px solid var(--line)}
+.lp-tag.gh{color:var(--blue);border-color:var(--blue)}
+.lp-cnt{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap}
+.lib-part-desc{font-size:12px;color:var(--muted);line-height:1.85;padding:9px 16px;border-bottom:1px dashed var(--line)}
+.lib-part-desc code{font-family:Consolas,Monaco,monospace;font-size:11px;background:var(--bg);padding:1px 5px;border-radius:4px}
+.lib-part-body{padding:12px 14px}
+.lib-empty{font-size:13px;color:var(--muted);padding:22px 12px;text-align:center;line-height:1.9;background:var(--bg);border-radius:10px}
+
+/* ---------- v6 · 教材文件夹：标题+全页搜索置顶 / 左侧目录 / 上传卡片沉底 ---------- */
+.lib-hero{padding:18px 20px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfdff,#fff)}
+.lib-hero-hd{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.lib-hero-hd h2{margin:0;font-size:19px;font-weight:700;color:var(--ink)}
+.lib-hero .lib-top{margin-bottom:10px}
+.lib-cols{display:grid;grid-template-columns:214px minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}
+.lib-nav{position:sticky;top:76px;display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px;box-shadow:var(--shadow)}
+.lib-nav a{display:block;padding:10px 11px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:600;line-height:1.5;border:1px solid transparent;transition:.15s}
+.lib-nav a small{display:block;font-size:10.5px;font-weight:400;color:var(--muted);margin-top:2px}
+.lib-nav a:hover{background:var(--bg);color:var(--ink)}
+.lib-nav a.on{background:var(--blue-l);border-color:#bcd9f5;color:var(--blue)}
+.lib-nav a.on small{color:var(--blue)}
+.lib-main{min-width:0}
+.lib-main .lib-part,.lib-main .gh-zone{scroll-margin-top:80px}
+.lib-main .gh-zone{margin:18px 0 0}
+@media(max-width:900px){
+  .lib-cols{grid-template-columns:1fr}
+  .lib-nav{position:static;flex-direction:row;overflow-x:auto}
+  .lib-nav a{flex:0 0 auto;white-space:nowrap}
+}
 .lib-sec-title{font-size:13px;font-weight:600;margin:16px 0 8px;display:flex;align-items:center;gap:7px}
 .lib-sec-title .dot{width:7px;height:7px;border-radius:50%;background:var(--amber)}
 .fcard{border:1px solid var(--line);border-radius:11px;padding:12px;background:#fff;display:flex;flex-direction:column;gap:4px}
-.fcard.file{border-left:4px solid var(--amber);background:#fffdf8}
 .fcard .fname{font-size:13px;font-weight:600;word-break:break-all;line-height:1.45}
 .fcard .fmeta{font-size:11px;color:var(--muted);line-height:1.7}
 .fcard .facts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
@@ -375,8 +404,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 .fext.pdf{background:var(--red)}.fext.img{background:var(--green)}.fext.doc{background:var(--blue)}.fext.other{background:var(--muted)}
 .up-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:600px){.up-row{grid-template-columns:1fr}}
-.up-preview{max-width:100%;max-height:340px;border:1px solid var(--line);border-radius:8px;margin:10px 0}
-.up-preview iframe{width:100%;height:340px;border:0;border-radius:8px}
 
 /* ---------- v4.1 · 全校共享（方案 A 动态上传链接） ---------- */
 .gh-zone{border:1.5px solid var(--green);background:linear-gradient(180deg,#f3fbf6,#fff 70%);border-radius:14px;padding:14px 18px;margin-bottom:14px}
@@ -406,7 +433,7 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 /* ---------- print ---------- */
 @media print{
   #view-home,.home-wrap,.upload-zone,.gh-zone,.fold-tools,.no-print{display:none!important}
-  header,.wrap>.lib-top,.card:not(.stage-card),.stage-bar,#controlBar,.no-print,.ctrl-row,.file-tip,.ws-config{display:none!important}
+  header,.wrap>.lib-top,.lib-hero,.lib-nav,.card:not(.stage-card),.stage-bar,#controlBar,.no-print,.ctrl-row,.file-tip,.ws-config{display:none!important}
   body{background:#fff}
   .wrap{padding:0;max-width:none}
   .grid{display:block}
@@ -430,7 +457,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
     <input id="gatePass" type="password" placeholder="请输入教师共享口令 / Shared passcode" autocomplete="off">
     <button id="gateBtn">进入备课台 &nbsp; Enter</button>
     <div class="gate-msg" id="gateMsg"></div>
-    <div class="gate-note">初始口令 <b>lizhong2026</b>，进入后可在「设置」里修改。<br>这是挡外人的简单口令，不是加密保护；课堂游戏内容不涉及学生隐私。<br><span class="small-en">A simple shared passcode to keep the staff area tidy — not security encryption.</span></div>
   </div>
 </div>
 
@@ -447,6 +473,7 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
       <button class="tab" data-view="worksheet">试卷生成器 <span class="small-en">Worksheet</span></button>
       <button class="tab" data-view="help">使用说明 <span class="small-en">Help</span></button>
     </div>
+    <a class="hbtn-ext" href="https://www.ilovepdf.com/zh-cn" target="_blank" rel="noopener noreferrer" title="PDF 合并 / 拆分 / 压缩 / 转 Word 等在线工具（外部网站，新窗口打开）">PDF实用转换工具I&#10084;PDF</a>
     <button class="hbtn" id="btnSettings">&#9881; 设置</button>
   </header>
 
@@ -485,7 +512,7 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
             </div>
             <h2>教材文件夹</h2>
             <div class="en">Library &nbsp;·&nbsp; 教材 / 册 / 课</div>
-            <div class="desc">按教材归档的课堂游戏、试卷和<b>老师自己上传的线下游戏文件</b>。可查看、下载、改名、改归档、删除，也能上传新文件。<br><span class="small-en">Browse, download, edit, delete — and upload your own offline game files.</span></div>
+            <div class="desc">上下<b>两个独立部分</b>：本机设计的游戏 / 试卷、全校共享资料库（只读）。都按「教材 → 册 → 课」折叠展示。<br><span class="small-en">Two stacked sections: your own games/worksheets and the read-only school library.</span></div>
             <div class="foot"><span class="stat" id="homeStatLib">—</span><span class="go">进入文件夹 &rarr;</span></div>
           </div>
 
@@ -542,13 +569,13 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
         </div>
 
         <div class="home-tip">
-          所有内容默认存在<b>这台电脑的这个浏览器</b>里；进入备课台的老师可用「导出分享包 / 导入」互相传递。免费的全校即时共享方案见页面底部「使用说明」。<br>
+          所有内容默认存在<b>这台电脑的这个浏览器</b>里；进入备课台的老师可用「导出游戏包 / 导入」互相传递。免费的全校即时共享方案见页面底部「使用说明」。<br>
           <span class="small-en">This prototype stores data in this browser. Teachers can exchange files via Export / Import; see Help for free school-wide sharing options.</span>
         </div>
         <div class="home-mini">
           <button data-goto="help">&#128214; 使用说明 / Help</button>
           <button id="homeGoLib">&#128193; 打开教材文件夹</button>
-          <button id="homeExport">&#8595; 导出分享包</button>
+          <button id="homeExport">&#8595; 导出游戏包</button>
           <button id="homeSettings">&#9881; 设置</button>
         </div>
       </div>
@@ -665,24 +692,44 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
       </div>
     </div>
 
-    <!-- ============ LIBRARY (v4 · 折叠菜单 + 上传文件) ============ -->
+    <!-- ============ LIBRARY (v5 · 本机 / 全校共享 两个独立部分) ============ -->
     <div class="view hidden" id="view-library">
 
-      <div class="upload-zone" id="uploadZone">
-        <div class="uz-title">&#11093; 上传本地文件 / Upload your own files</div>
-        <div class="uz-sub">老师自己设计好的线下游戏、打印纸、PPT、图片、PDF……都能传进来，按「教材 / 册 / 单元 / 课」归档，供全校老师查看、下载、改名、改归档或删除。<br><span class="small-en">Offline games, printables, slides, images, PDFs — filed by textbook and lesson, then shared with the whole staff.</span></div>
-        <div class="uz-btns">
-          <button class="btn primary" id="btnUpload">&#128193; 选择本地文件 / Choose files</button>
-          <button class="btn" id="btnUploadFolder">&#128194; 选一个文件夹 / Choose a folder</button>
+      <!-- 标题 + 全页搜索：正文上方，横跨整页 -->
+      <div class="lib-hero">
+        <div class="lib-hero-hd">
+          <h2>&#128193; 教材文件夹 / Textbook Library</h2>
+          <span class="small-en">按教材归档，本机与共享分开管理 · Local games &amp; shared materials, filed by textbook</span>
         </div>
-        <div class="up-note">支持 PDF / Word / PPT / Excel / 图片 / 文本 / HTML / A4 打印版，可一次选多个；也可以把文件直接拖到这块虚线框里。上传后会让你选归档位置。<br><span class="small-en">Multi-select or drag &amp; drop. You will be asked which textbook / lesson to file them under.</span> &nbsp;·&nbsp; <span id="storeMode">存储检测中…</span></div>
-        <input type="file" id="uploadInput" multiple class="hidden">
-        <input type="file" id="uploadFolderInput" webkitdirectory directory multiple class="hidden" style="display:none">
+        <div class="lib-top">
+          <input class="in" id="libSearch" placeholder="&#128269; 全页搜索：名称、词语、文件名 / Search all" style="min-width:220px">
+          <select class="in" id="libBook"><option value="">全部教材 / All textbooks</option></select>
+          <select class="in" id="libVol"><option value="">全部册 / All volumes</option></select>
+          <button class="btn" id="btnExportAll">&#8595; 导出游戏包 / Export games</button>
+          <button class="btn" id="btnImport">&#8593; 导入游戏包 / Import</button>
+          <span class="lib-stat" id="libStat"></span>
+        </div>
+        <div class="fold-tools">
+          <button class="btn" id="btnFoldAll">&#9776; 全部收起 / Collapse all</button>
+          <button class="btn" id="btnUnfoldAll">&#9776; 全部展开 / Expand all</button>
+          <span class="small-en" style="margin-left:6px">两块各自折叠；点标题栏展开 / 收起 · Two sections, each collapsible</span>
+          <span class="sp"></span>
+          <span class="small-en" id="foldStat"></span>
+        </div>
       </div>
 
+      <!-- 左侧目录 + 右侧正文 -->
+      <div class="lib-cols">
+        <nav class="lib-nav" id="libNav">
+          <a href="#libSecLocal" data-sec="libSecLocal" class="on">&#128187; 我设计的游戏与试卷 <small>仅本机 / This computer</small></a>
+          <a href="#libSecShared" data-sec="libSecShared">&#127760; 全校共享资料库 <small>只读 / Read-only</small></a>
+          <a href="#ghZone" data-sec="ghZone">&#127760; 传到全校资料库 <small>Share with the whole staff</small></a>
+        </nav>
+        <div class="lib-main">
+          <div id="libList"></div>
       <div class="gh-zone" id="ghZone">
         <div class="gh-title">&#127760; 传到全校资料库 / Share with the whole staff</div>
-        <div class="gh-sub">上面的「选择本地文件」只存在这台电脑。要让全校老师都看到，请把文件上传到 GitHub 仓库：下面会按<b>你的名字</b>和<b>当前选的教材 / 课</b>自动生成上传入口与建议文件名。<br><span class="small-en">Files above stay on this computer. Upload to the shared repository so every teacher can see them — the link and suggested filename are filled in for you.</span></div>
+        <div class="gh-sub">本地材料<b>直接放自己电脑上即可，不用再传进这个网页</b>（传进来别的老师也看不到）。要让全校老师都看到，请上传到 GitHub 仓库：下面会按<b>你的名字</b>和<b>当前选的教材 / 课</b>自动生成上传入口与建议文件名。<br><span class="small-en">Keep your own files on your computer — no need to re-upload here. To share school-wide, upload to the GitHub repository; the link and suggested filename are filled in for you.</span></div>
         <div class="gh-row">
           <label class="f"><span>上传老师 / Teacher（决定你的子目录）</span><input class="in" id="ghAuthor" list="teacherList" placeholder="填你的姓名"></label>
           <label class="f"><span>材料名 / Material（例：Bingo纸、词卡、答案纸）</span><input class="in" id="ghMat" placeholder="例如：Bingo纸"></label>
@@ -701,26 +748,9 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
         <div class="gh-status" id="ghStatus">全校资料库：等待读取…</div>
         <div class="gh-note">需已登录 GitHub 且被加为协作者；提交后约 1 分钟全校可见。只放教学材料，不要放学生个人信息。<br><span class="small-en">Requires a GitHub account with write access. Allow ~1 minute for the site to publish. Teaching materials only — no pupil data.</span></div>
       </div>
-
-      <div class="lib-top">
-        <select class="in" id="libBook"><option value="">全部教材 / All textbooks</option></select>
-        <select class="in" id="libVol"><option value="">全部册 / All volumes</option></select>
-        <input class="in" id="libSearch" placeholder="搜索名称、词语或文件名 / Search" style="min-width:200px">
-        <button class="btn" id="btnImport">&#8593; 导入 / Import</button>
-        <button class="btn" id="btnExportAll">&#8595; 导出分享包 / Export</button>
-        <span class="lib-stat" id="libStat"></span>
+          <input type="file" id="fileInput" accept=".json,application/json" class="hidden">
+        </div>
       </div>
-
-      <div class="fold-tools">
-        <button class="btn" id="btnFoldAll">&#9776; 全部收起 / Collapse all</button>
-        <button class="btn" id="btnUnfoldAll">&#9776; 全部展开 / Expand all</button>
-        <span class="small-en" style="margin-left:6px">点标题栏即可展开 / 收起，节省页面空间 · Click a heading to toggle</span>
-        <span class="sp"></span>
-        <span class="small-en" id="foldStat"></span>
-      </div>
-
-      <div id="libList"></div>
-      <input type="file" id="fileInput" accept=".json,application/json" class="hidden">
     </div>
 
     <!-- ============ HELP ============ -->
@@ -1407,82 +1437,16 @@ function download(name,text,mime){
   setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);
 }
 
-/* ================= v4 · 上传文件存储层 ================= */
-var FILES_KEY='lz_teacher_files_v1',FILES=[];
-try{FILES=JSON.parse(localStorage.getItem(FILES_KEY))||[]}catch(e){FILES=[]}
-if(!Array.isArray(FILES))FILES=[];
-function filesPersist(){try{localStorage.setItem(FILES_KEY,JSON.stringify(FILES))}catch(e){toast('文件清单写入失败 / Cannot save file list')}}
-var FS_DB=null,FS_MODE='ls';
-function updateStoreMode(){
-  var el=$('#storeMode');if(!el)return;
-  el.innerHTML=FS_MODE==='idb'
-    ? '当前：浏览器数据库，可存较大文件 · <b>Browser database</b>'
-    : '当前：本机存储，单文件建议 ≤ 1.5 MB · <b>Local storage</b>（上线后自动升级）';
-}
-function initFileStore(){
-  try{
-    if(!window.indexedDB){FS_MODE='ls';updateStoreMode();return}
-    var req=indexedDB.open('lz_teacher_files',1);
-    req.onupgradeneeded=function(e){var db=e.target.result;if(!db.objectStoreNames.contains('blobs'))db.createObjectStore('blobs')};
-    req.onsuccess=function(e){FS_DB=e.target.result;FS_MODE='idb';updateStoreMode()};
-    req.onerror=function(){FS_MODE='ls';updateStoreMode()};
-    /* file:// 下部分浏览器不回调，超时后明确降级，绝不卡住上传 */
-    setTimeout(function(){if(!FS_DB){FS_MODE='ls';updateStoreMode()}},1500);
-  }catch(e){FS_MODE='ls';updateStoreMode()}
-}
-function fPut(id,du,cb){
-  var done=false;
-  function once(v){if(done)return;done=true;cb(v)}
-  if(FS_DB){
-    try{
-      var tx=FS_DB.transaction('blobs','readwrite');
-      tx.objectStore('blobs').put(du,id);
-      tx.oncomplete=function(){once('idb')};
-      tx.onerror=function(){ls()};tx.onabort=function(){ls()};
-      /* 关键守卫：某些环境（隐私模式 / 存储受限 / file://）事务不提交也不报错，
-         若无超时，上传会永久卡住。1.2 秒后自动降级到 localStorage。 */
-      setTimeout(function(){if(!done)ls()},1200);
-      return;
-    }catch(e){}
-  }
-  ls();
-  function ls(){
-    if(done)return;
-    if(du.length>2400000){once(null);return}
-    try{localStorage.setItem('lz_blob_'+id,du);once('ls')}catch(e){once(null)}
-  }
-}
-function fGet(f,cb){
-  if(f.store==='idb'&&FS_DB){
-    try{
-      var tx=FS_DB.transaction('blobs','readonly'),g=tx.objectStore('blobs').get(f.id);
-      g.onsuccess=function(){cb(g.result||null)};g.onerror=function(){cb(null)};return;
-    }catch(e){}
-  }
-  cb(localStorage.getItem('lz_blob_'+f.id));
-}
-function fDel(f,cb){
-  localStorage.removeItem('lz_blob_'+f.id);
-  if(f.store==='idb'&&FS_DB){
-    try{var tx=FS_DB.transaction('blobs','readwrite');tx.objectStore('blobs').delete(f.id);tx.oncomplete=function(){cb&&cb()};return}catch(e){}
-  }
-  cb&&cb();
-}
-function fileExt(n){var m=/\.([a-z0-9]+)$/i.exec(n||'');return m?m[1].toLowerCase():''}
+/* ================= 通用小工具（全校共享文件卡用） ================= */
 function fmtSize(b){b=b||0;if(b<1024)return b+' B';if(b<1048576)return (b/1024).toFixed(1)+' KB';return (b/1048576).toFixed(1)+' MB'}
 function extClass(e){if(/pdf/.test(e))return'pdf';if(/png|jpg|jpeg|gif|webp|bmp|svg/.test(e))return'img';if(/doc|docx|txt|rtf|odt|xls|xlsx|ppt|pptx/.test(e))return'doc';return'other'}
-function findFile(id){for(var i=0;i<FILES.length;i++)if(FILES[i].id===id)return FILES[i];return null}
-function downloadDataURL(name,du){
-  var a=document.createElement('a');a.href=du;a.download=name;document.body.appendChild(a);a.click();
-  setTimeout(function(){a.remove()},400);
-}
 function hideModal(){$('#modal').classList.add('hidden');$('#modalCopy').classList.remove('hidden')}
 
 /* ================= v4 · 主页 ================= */
 function renderHome(){
   var el=$('#homeStatLib');if(!el)return;
-  var nb={};games.forEach(function(g){nb[g.book]=1});FILES.forEach(function(f){nb[f.book]=1});
-  el.textContent=games.length+' 个游戏 · '+FILES.length+' 个文件 · '+Object.keys(nb).length+' 本教材';
+  var nb={};games.forEach(function(g){nb[g.book]=1});
+  el.textContent=games.length+' 个游戏/试卷 · 全校 '+GH_FILES.length+' 份共享文件 · '+Object.keys(nb).length+' 本教材';
 }
 function goView(v,fromHash){
   var el=$('#view-'+v);if(!el)v='home';
@@ -1597,7 +1561,7 @@ function loadGitHubLibrary(force){
   if(GH_LOADING)return;
   var c=!force&&ghCacheGet();
   if(c){GH_FILES=c.files;ghStatus('已同步 <b>'+GH_FILES.length+'</b> 个全校文件（缓存 10 分钟）· 点「刷新」立即更新');return}
-  if(typeof fetch!=='function'){ghStatus('当前环境不支持自动读取；请用上方按钮到 GitHub 查看。',true);return}
+  if(typeof fetch!=='function'){ghStatus('当前环境不支持自动读取；请用页面下方「传到全校资料库」卡片里的按钮到 GitHub 查看。',true);return}
   GH_LOADING=true;ghStatus('正在读取全校资料库…');
   var api='https://api.github.com/repos/'+GH_REPO+'/git/trees/'+encodeURIComponent(GH_BRANCH)+'?recursive=1',
       ctrl=typeof AbortController!=='undefined'?new AbortController():null,
@@ -1615,7 +1579,7 @@ function loadGitHubLibrary(force){
       if(/abort/i.test(msg))msg='读取超时（10 秒内没连上 GitHub API）';
       else if(e&&e.name==='TypeError')msg='网络被拦截或离线（' + msg + '）';
       var extra=(location.protocol==='file:')?'　本机双击打开（file://）时读不到是正常的，上线到 GitHub Pages 后可用。':'';
-      ghStatus('暂时读不到 GitHub 资料库：'+esc(msg)+'。本机文件照常可用，点「刷新」重试。'+extra,true);
+      ghStatus('暂时读不到 GitHub 资料库：'+esc(msg)+'。本机游戏照常可用，点「刷新」重试。'+extra,true);
       renderLibrary();
     });
 }
@@ -1627,10 +1591,22 @@ function ghFileCardHTML(f){
     '<div class="facts"><button data-gh="'+esc(f.id)+'" data-a="open">&#128065; 预览 / 打开</button>'+
     '<button data-gh="'+esc(f.id)+'" data-a="dl">&#8595; 下载 / GitHub</button></div></div>';
 }
+function ghDownload(f){
+  /* raw.githubusercontent.com 允许跨域；拉成 blob 再触发「另存为」，
+     避免 PDF / 图片被浏览器内嵌查看器打开而不下载。失败时退回直接打开原文件。 */
+  if(typeof fetch!=='function'||typeof URL.createObjectURL!=='function'){window.open(f.raw,'_blank','noopener');return}
+  fetch(f.raw).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.blob()})
+    .then(function(b){
+      var u=URL.createObjectURL(b),a=document.createElement('a');
+      a.href=u;a.download=f.name||'download';document.body.appendChild(a);a.click();
+      setTimeout(function(){URL.revokeObjectURL(u);a.remove()},3000);
+    })
+    .catch(function(){window.open(f.raw,'_blank','noopener')});
+}
 function actGhFile(id,a){
   for(var i=0;i<GH_FILES.length;i++)if(GH_FILES[i].id===id){var f=GH_FILES[i];
-    if(a==='open')window.open(f.raw,'_blank','noopener');
-    else if(a==='dl')window.open(f.web,'_blank','noopener');
+    if(a==='open')window.open(f.web,'_blank','noopener'); /* GitHub 文件页：可预览 PDF / 图片 / 文本 */
+    else if(a==='dl')ghDownload(f);                       /* 原文件：真正下载 */
     return}
 }
 
@@ -1662,200 +1638,57 @@ function bindPicker(p,cur){
 function readPicker(p){
   return {book:$('#'+p+'Book').value,vol:$('#'+p+'Vol').value,unit:$('#'+p+'Unit').value,lesson:$('#'+p+'Lesson').value};
 }
-var UP_QUEUE=[];
-function handleUpload(list){
-  var arr=Array.prototype.slice.call(list||[]).filter(function(f){return f&&f.name&&f.size!==undefined});
-  if(!arr.length){toast('没有读到文件 / No files found');return}
-  UP_QUEUE=arr;openUploadDialog();
-}
-function openUploadDialog(){
-  var cur={book:$('#fBook').value,vol:$('#fVol').value,unit:$('#fUnit').value,lesson:$('#fLesson').value};
-  var names=UP_QUEUE.map(function(f){return '<li>'+esc(f.name)+' <span class="small-en">'+fmtSize(f.size)+'</span></li>'}).join('');
-  var html='<div style="font-size:13px;line-height:1.9">'+
-    '<p>将上传 <b>'+UP_QUEUE.length+'</b> 个文件，请选择归档位置（同一批归到同一课）。<br><span class="small-en">Choose where to file this batch.</span></p>'+
-    '<ul style="max-height:120px;overflow:auto;background:var(--bg);border-radius:8px;padding:10px 10px 10px 28px;margin:8px 0 14px;font-size:12px">'+names+'</ul>'+
-    pickerHTML('up')+
-    '<label class="f"><span>上传老师 / Teacher</span><input class="in" id="upAuthor" list="teacherList" value="'+esc(getAuthor())+'"></label>'+
-    '<label class="f"><span>备注 / Note（可留空）</span><input class="in" id="upNote" placeholder="例如：打印后剪开，两人一组"></label>'+
-    '<div class="btns" style="margin-top:10px"><button class="btn primary" id="upConfirm">&#11093; 确认上传 / Upload</button><button class="btn" id="upCancel">取消</button></div>'+
-    '<div id="upProg" class="status" style="display:none;margin-top:10px"></div></div>';
-  showModal('上传本地文件 / Upload files','',html);
-  $('#modalCopy').classList.add('hidden');
-  bindPicker('up',cur);
-  $('#upCancel').onclick=hideModal;
-  $('#upConfirm').onclick=runUpload;
-}
-function runUpload(){
-  var pos=readPicker('up'),author=($('#upAuthor').value||'').trim()||'未署名',note=($('#upNote').value||'').trim();
-  $('#upConfirm').disabled=true;
-  var i=0,ok=0,fail=0;
-  function next(){
-    if(i>=UP_QUEUE.length){
-      filesPersist();renderLibrary();renderHome();hideModal();
-      toast('已上传 '+ok+' 个文件'+(fail?'，'+fail+' 个失败（过大或存储已满）':'')+' / Uploaded');return;
-    }
-    var f=UP_QUEUE[i++],id='f'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
-    var pr=$('#upProg');if(pr){pr.style.display='block';pr.textContent='正在处理 '+i+' / '+UP_QUEUE.length+'：'+f.name}
-    var rd=new FileReader();
-    rd.onload=function(){
-      fPut(id,rd.result,function(store){
-        if(!store){fail++;next();return}
-        FILES.push({id:id,name:f.name,size:f.size,type:f.type||'',ext:fileExt(f.name),
-          book:pos.book,vol:pos.vol,unit:pos.unit,lesson:pos.lesson,
-          author:author,note:note,date:today(),store:store});
-        ok++;filesPersist();next();
-      });
-    };
-    rd.onerror=function(){fail++;next()};
-    rd.readAsDataURL(f);
-  }
-  next();
-}
-function fileRow(f){return [f.book,f.vol,f.unit,f.lesson,f.name,f.ext,f.author,f.date,f.note].join('|')}
-function openEditFile(f){
-  var html='<div style="font-size:13px;line-height:1.9">'+
-    '<label class="f"><span>文件名 / File name</span><input class="in" id="edName" value="'+esc(f.name)+'"></label>'+
-    pickerHTML('ed')+
-    '<label class="f"><span>上传老师 / Teacher</span><input class="in" id="edAuthor" list="teacherList" value="'+esc(f.author||'')+'"></label>'+
-    '<label class="f"><span>备注 / Note</span><input class="in" id="edNote" value="'+esc(f.note||'')+'"></label>'+
-    '<div class="btns" style="margin-top:10px"><button class="btn primary" id="edSave">&#128190; 保存修改 / Save</button><button class="btn" id="edCancel">取消</button></div></div>';
-  showModal('修改文件信息 / Edit file','',html);
-  $('#modalCopy').classList.add('hidden');
-  bindPicker('ed',f);
-  $('#edCancel').onclick=hideModal;
-  $('#edSave').onclick=function(){
-    f.name=($('#edName').value||'').trim()||f.name;
-    var p=readPicker('ed');f.book=p.book;f.vol=p.vol;f.unit=p.unit;f.lesson=p.lesson;f.ext=fileExt(f.name);
-    f.author=($('#edAuthor').value||'').trim();f.note=($('#edNote').value||'').trim();
-    filesPersist();renderLibrary();renderHome();hideModal();toast('已保存修改 / Saved');
-  };
-}
-function actFile(id,a){
-  var f=findFile(id);if(!f)return;
-  if(a==='open'||a==='dl'){
-    fGet(f,function(du){
-      if(!du){toast('文件内容已丢失，请重新上传 / File content missing');return}
-      if(a==='dl'){downloadDataURL(f.name,du);toast('已下载 / Downloaded');return}
-      var e=f.ext,body;
-      if(/png|jpg|jpeg|gif|webp|bmp|svg/.test(e))body='<img class="up-preview" src="'+du+'" alt="">';
-      else if(/pdf|html|htm|txt/.test(e))body='<iframe class="up-preview" src="'+du+'"></iframe>';
-      else body='<div class="hint" style="font-size:13px">此格式浏览器不能直接预览，请点「下载」后用 Word / PowerPoint 等打开。<br><span class="small-en">Preview unavailable — please download and open it in Word / PowerPoint.</span></div>';
-      showModal('预览 · '+f.name,'',body+'<div class="btns" style="margin-top:12px"><button class="btn primary" id="pvDl">&#8595; 下载这个文件</button></div>');
-      $('#modalCopy').classList.add('hidden');
-      $('#pvDl').onclick=function(){downloadDataURL(f.name,du);toast('已下载 / Downloaded')};
-    });
-    return;
-  }
-  if(a==='edit'){openEditFile(f);return}
-  if(a==='row'){showModal('文件信息行 / File record — 可登记到清单',fileRow(f));return}
-  if(a==='del'){
-    if(confirm('确定删除文件「'+f.name+'」？此操作不可撤销。')){
-      fDel(f,function(){FILES=FILES.filter(function(x){return x.id!==id});filesPersist();renderLibrary();renderHome();toast('已删除 / Deleted')});
-    }
-    return;
-  }
-}
-/* 分享包：游戏 + 上传文件一起导出，供同事导入（本地原型下的共享通道） */
+/* 游戏包：只打包本机设计的游戏/试卷，供同事导入；全校共享文件走 GitHub，不进游戏包 */
 function exportSharePack(){
-  var out={kind:'lizhong-kit',version:4,date:today(),games:games.slice(),files:[]},i=0;
-  function next(){
-    if(i>=FILES.length){download('lizhong-share-pack-'+today()+'.json',JSON.stringify(out));toast('分享包已导出（含 '+out.files.length+' 个文件）');return}
-    var f=FILES[i++];fGet(f,function(du){out.files.push({meta:f,data:du||''});next()});
-  }
-  next();
+  var out={kind:'lizhong-kit',version:5,date:today(),games:games.slice()};
+  download('lizhong-games-pack-'+today()+'.json',JSON.stringify(out));
+  toast('已导出 '+out.games.length+' 个游戏 / Exported');
 }
 function importSharePack(text){
   var o;try{o=JSON.parse(text)}catch(e){toast('文件解析失败 / Invalid JSON');return}
-  var addedG=0,addedF=0,isArr=Array.isArray(o);
-  var ng=isArr?o:(o&&Array.isArray(o.games)?o.games:null);
-  if(ng){ng.forEach(function(g){if(!g||!g.items)return;var ex=-1;for(var i=0;i<games.length;i++)if(games[i].id===g.id)ex=i;if(ex>=0)games[ex]=g;else{g.id=g.id||uid();games.push(g)}addedG++});if(addedG)persist()}
-  var nf=(!isArr&&o&&Array.isArray(o.files))?o.files:null,i2=0;
-  function finish(){renderLibrary();renderHome();toast('已导入 '+addedG+' 个游戏、'+addedF+' 个文件 / Imported')}
-  function next(){
-    if(i2>=nf.length){finish();return}
-    var it=nf[i2++],m=it.meta||it,d=it.data||'';
-    if(!m||!m.name||!d){next();return}
-    m.id=m.id||('f'+Date.now().toString(36)+Math.random().toString(36).slice(2,6));
-    fPut(m.id,d,function(s){
-      if(!s){next();return}
-      m.store=s;var ex=-1;for(var j=0;j<FILES.length;j++)if(FILES[j].id===m.id)ex=j;
-      if(ex>=0)FILES[ex]=m;else FILES.push(m);
-      addedF++;filesPersist();next();
-    });
-  }
-  if(nf&&nf.length)next();else finish();
+  var ng=Array.isArray(o)?o:(o&&Array.isArray(o.games)?o.games:null);
+  if(!ng){toast('这不是游戏包 / Not a games pack');return}
+  var added=0;
+  ng.forEach(function(g){if(!g||!g.items)return;var ex=-1;for(var i=0;i<games.length;i++)if(games[i].id===g.id)ex=i;if(ex>=0)games[ex]=g;else{g.id=g.id||uid();games.push(g)}added++});
+  if(added)persist();
+  renderLibrary();renderHome();
+  toast('已导入 '+added+' 个游戏 / Imported');
 }
-
-/* ================= 教材文件夹视图（v4 · 三级折叠 + 文件混排） ================= */
+/* ================= 教材文件夹视图（v5 · 本机 / 全校共享 上下两个独立部分） ================= */
 function gameCardHTML(g){
   return '<div class="gcard"><h4>'+esc(g.title)+'</h4><div class="meta"><span class="badge">'+esc(tpl(g.template).name)+'</span>'+g.items.length+' 条 · '+esc(g.author)+' · '+esc(g.updatedAt||'')+'</div>'+
     '<div class="acts"><button data-g="'+g.id+'" data-a="open">&#9654; 打开</button><button data-g="'+g.id+'" data-a="share">&#128279; 分享链接</button><button data-g="'+g.id+'" data-a="row">&#128203; 归档行</button><button data-g="'+g.id+'" data-a="json">&#8595; JSON</button><button data-g="'+g.id+'" data-a="del" class="del">删除</button></div></div>';
 }
-function fileCardHTML(f){
-  return '<div class="fcard file"><div class="fname"><span class="fext '+extClass(f.ext)+'">'+esc((f.ext||'file').toUpperCase())+'</span>'+esc(f.name)+'</div>'+
-    '<div class="fmeta">'+fmtSize(f.size)+' · '+esc(f.author||'未署名')+' · '+esc(f.date||'')+(f.note?'<br>&#128221; '+esc(f.note):'')+'</div>'+
-    '<div class="facts"><button data-f="'+f.id+'" data-a="open">&#128065; 预览</button><button data-f="'+f.id+'" data-a="dl">&#8595; 下载</button><button data-f="'+f.id+'" data-a="edit">&#9998; 修改</button><button data-f="'+f.id+'" data-a="row">&#128203; 信息行</button><button data-f="'+f.id+'" data-a="del" class="del">删除</button></div></div>';
-}
-function renderLibrary(){
-  var fb=$('#libBook'),fv=$('#libVol');
-  if(!fb.options.length||fb.options.length===1){fb.innerHTML='<option value="">全部教材 / All textbooks</option>'+BOOKS.map(function(b){return '<option>'+esc(b.name)+'</option>'}).join('')}
-  var bk=fb.value,oldVol=fv.value;
-  if(bk){var b=null;for(var i=0;i<BOOKS.length;i++)if(BOOKS[i].name===bk)b=BOOKS[i];fv.innerHTML='<option value="">全部册 / All volumes</option>'+(b?b.volumes.map(function(v){return '<option>'+esc(v.name)+'</option>'}).join(''):'');if(oldVol&&Array.prototype.some.call(fv.options,function(o){return o.value===oldVol}))fv.value=oldVol}
-  else fv.innerHTML='<option value="">全部册 / All volumes</option>';
-  var vol=fv.value,q=($('#libSearch').value||'').trim().toLowerCase();
-  /* 有搜索或筛选时自动展开，避免结果藏在折叠里 */
-  var autoOpen=!!(bk||vol||q);
-  var list=games.filter(function(g){
-    if(bk&&g.book!==bk)return false;
-    if(vol&&g.vol!==vol)return false;
-    if(q){var hay=(g.title+' '+g.lesson+' '+g.author+' '+g.items.map(function(x){return x.front+' '+displayBack(x)}).join(' ')).toLowerCase();if(hay.indexOf(q)<0)return false}
-    return true;
-  });
-  function fileMatch(f){
-    if(bk&&f.book!==bk)return false;
-    if(vol&&f.vol!==vol)return false;
-    if(q){var hay=(f.name+' '+(f.note||'')+' '+(f.author||'')+' '+(f.lesson||'')+' '+(f.path||'')).toLowerCase();if(hay.indexOf(q)<0)return false}
-    return true;
-  }
-  var flist=FILES.filter(fileMatch),glist=GH_FILES.filter(fileMatch);
-  var shown=list.length+flist.length+glist.length;
-  $('#libStat').textContent='共 '+games.length+' 个游戏 + '+FILES.length+' 个本机文件 + '+GH_FILES.length+' 个全校文件 · 当前显示 '+shown+' 项';
-  /* 三级树：教材 → 册/版本 → 课 */
+/* 通用三级折叠树：items = [{card,book,vol,unit,lesson}]；scope 隔离两个部分的折叠状态 */
+function foldTreeHTML(items,scope,autoOpen,unit){
   var tree={};
-  function slot(b,v,l){tree[b]=tree[b]||{};tree[b][v]=tree[b][v]||{};tree[b][v][l]=tree[b][v][l]||{g:[],f:[]};return tree[b][v][l]}
-  list.forEach(function(g){slot(g.book||'未归档',g.vol||'未分册',(g.unit?g.unit+' · ':'')+(g.lesson||'未分课')).g.push(g)});
-  flist.forEach(function(f){slot(f.book||'未归档',f.vol||'未分册',(f.unit?f.unit+' · ':'')+(f.lesson||'未分课')).f.push(f)});
-  glist.forEach(function(f){slot(f.book||'未归档',f.vol||'未分册',(f.unit?f.unit+' · ':'')+(f.lesson||'未分课')).f.push(f)});
+  function slot(b,v,l){tree[b]=tree[b]||{};tree[b][v]=tree[b][v]||{};tree[b][v][l]=tree[b][v][l]||[];return tree[b][v][l]}
+  items.forEach(function(x){slot(x.book||'未归档',x.vol||'未分册',(x.unit?x.unit+' · ':'')+(x.lesson||'未分课')).push(x)});
   var books=Object.keys(tree),nb=books.length,nv=0,nl=0;
   books.forEach(function(b){Object.keys(tree[b]).forEach(function(v){nv++;nl+=Object.keys(tree[b][v]).length})});
-  if(!books.length){
-    $('#libList').innerHTML='<div class="card empty-lib"><p style="font-size:32px;margin-bottom:10px">&#128193;</p><h3>这里还没有内容</h3><p>到「设计游戏」做游戏、在上方「上传本地文件」传材料，都会按教材 / 册 / 课出现在这里。<br><span class="small-en">Design a game or upload a file, and it will appear here by textbook and lesson.</span></p></div>';
-    $('#foldStat').textContent='';return;
-  }
+  if(!books.length)return {html:'',nb:0,nv:0,nl:0};
   var html='';
   books.forEach(function(bname){
     var vols=tree[bname],bCount=0;
-    Object.keys(vols).forEach(function(v){Object.keys(vols[v]).forEach(function(l){bCount+=vols[v][l].g.length+vols[v][l].f.length})});
-    var k1=fkey('b',[bname]),o1=autoOpen||isOpen(k1);
-    html+='<div class="fold-lv1"><button class="fold-h'+(o1?' open':'')+'" data-fold="'+esc(k1)+'"><span class="caret">&#9654;</span>&#128218; '+esc(bname)+'<span class="cnt">'+Object.keys(vols).length+' 个版本 · '+bCount+' 项</span></button>';
+    Object.keys(vols).forEach(function(v){Object.keys(vols[v]).forEach(function(l){bCount+=vols[v][l].length})});
+    var k1=fkey('b',[scope,bname]),o1=autoOpen||isOpen(k1);
+    html+='<div class="fold-lv1"><button class="fold-h'+(o1?' open':'')+'" data-fold="'+esc(k1)+'"><span class="caret">&#9654;</span>&#128218; '+esc(bname)+'<span class="cnt">'+Object.keys(vols).length+' 个版本 · '+bCount+' '+unit+'</span></button>';
     if(o1){
       html+='<div class="fold-body">';
       Object.keys(vols).forEach(function(vname){
         var lessons=vols[vname],vCount=0;
-        Object.keys(lessons).forEach(function(l){vCount+=lessons[l].g.length+lessons[l].f.length});
-        var k2=fkey('v',[bname,vname]),o2=autoOpen||isOpen(k2);
-        html+='<div class="fold-lv2"><button class="fold-h'+(o2?' open':'')+'" data-fold="'+esc(k2)+'"><span class="caret">&#9654;</span>&#128214; '+esc(vname)+'<span class="cnt">'+Object.keys(lessons).length+' 课 · '+vCount+' 项</span></button>';
+        Object.keys(lessons).forEach(function(l){vCount+=lessons[l].length});
+        var k2=fkey('v',[scope,bname,vname]),o2=autoOpen||isOpen(k2);
+        html+='<div class="fold-lv2"><button class="fold-h'+(o2?' open':'')+'" data-fold="'+esc(k2)+'"><span class="caret">&#9654;</span>&#128214; '+esc(vname)+'<span class="cnt">'+Object.keys(lessons).length+' 课 · '+vCount+' '+unit+'</span></button>';
         if(o2){
           html+='<div class="fold-body">';
           Object.keys(lessons).forEach(function(lname){
-            var cell=lessons[lname],total=cell.g.length+cell.f.length;
-            var k3=fkey('l',[bname,vname,lname]),o3=autoOpen||isOpen(k3);
-            html+='<div class="fold-lv3"><button class="fold-h'+(o3?' open':'')+'" data-fold="'+esc(k3)+'"><span class="caret">&#9654;</span>&#128220; '+esc(lname)+'<span class="cnt">'+cell.g.length+' 游戏 · '+cell.f.length+' 文件 · '+total+' 项</span></button>';
+            var cell=lessons[lname];
+            var k3=fkey('l',[scope,bname,vname,lname]),o3=autoOpen||isOpen(k3);
+            html+='<div class="fold-lv3"><button class="fold-h'+(o3?' open':'')+'" data-fold="'+esc(k3)+'"><span class="caret">&#9654;</span>&#128220; '+esc(lname)+'<span class="cnt">'+cell.length+' '+unit+'</span></button>';
             if(o3){
               html+='<div class="fold-body"><div class="mini-grid">';
-              cell.g.forEach(function(g){html+=gameCardHTML(g)});
-              cell.f.forEach(function(f){html+=f.gh?ghFileCardHTML(f):fileCardHTML(f)});
-              if(!total)html+='<div class="fold-empty">这一课还没有内容。</div>';
+              cell.forEach(function(x){html+=x.card});
               html+='</div></div>';
             }
             html+='</div>';
@@ -1868,8 +1701,45 @@ function renderLibrary(){
     }
     html+='</div>';
   });
+  return {html:html,nb:nb,nv:nv,nl:nl};
+}
+function renderLibrary(){
+  var fb=$('#libBook'),fv=$('#libVol');
+  if(!fb.options.length||fb.options.length===1){fb.innerHTML='<option value="">全部教材 / All textbooks</option>'+BOOKS.map(function(b){return '<option>'+esc(b.name)+'</option>'}).join('')}
+  var bk=fb.value,oldVol=fv.value;
+  if(bk){var b=null;for(var i=0;i<BOOKS.length;i++)if(BOOKS[i].name===bk)b=BOOKS[i];fv.innerHTML='<option value="">全部册 / All volumes</option>'+(b?b.volumes.map(function(v){return '<option>'+esc(v.name)+'</option>'}).join(''):'');if(oldVol&&Array.prototype.some.call(fv.options,function(o){return o.value===oldVol}))fv.value=oldVol}
+  else fv.innerHTML='<option value="">全部册 / All volumes</option>';
+  var vol=fv.value,q=($('#libSearch').value||'').trim().toLowerCase();
+  /* 筛选变化时的「默认全展开」已由 change 事件里的 FOLD_ALL=true 播种。
+     这里绝不能再强制 autoOpen，否则会盖掉「全部收起」和标题栏点击的收起状态。*/
+  var autoOpen=false;
+  var glist=games.filter(function(g){
+    if(bk&&g.book!==bk)return false;
+    if(vol&&g.vol!==vol)return false;
+    if(q){var hay=(g.title+' '+g.lesson+' '+g.author+' '+g.items.map(function(x){return x.front+' '+displayBack(x)}).join(' ')).toLowerCase();if(hay.indexOf(q)<0)return false}
+    return true;
+  });
+  function fileMatch(f){
+    if(bk&&f.book!==bk)return false;
+    if(vol&&f.vol!==vol)return false;
+    if(q){var hay=(f.name+' '+(f.note||'')+' '+(f.author||'')+' '+(f.lesson||'')+' '+(f.path||'')).toLowerCase();if(hay.indexOf(q)<0)return false}
+    return true;
+  }
+  var slist=GH_FILES.filter(fileMatch);
+  $('#libStat').textContent='本机 '+games.length+' 个游戏/试卷 · 全校 '+GH_FILES.length+' 份共享文件 · 当前显示 '+(glist.length+slist.length)+' 项';
+  var A=foldTreeHTML(glist.map(function(g){return {card:gameCardHTML(g),book:g.book,vol:g.vol,unit:g.unit,lesson:g.lesson}}),'local',autoOpen,'项');
+  var B=foldTreeHTML(slist.map(function(f){return {card:ghFileCardHTML(f),book:f.book,vol:f.vol,unit:f.unit,lesson:f.lesson}}),'shared',autoOpen,'份');
+  var emptyA='<div class="lib-empty">还没有设计过游戏或试卷。到「设计游戏」或「试卷生成器」做一个，就会按教材 / 册 / 课出现在这里。<br><span class="small-en">Nothing yet — design a game or a worksheet first.</span></div>';
+  var emptyB='<div class="lib-empty">'+(GH_LOADING?'正在读取全校资料库…':'暂时没有共享文件，或还没读取到 GitHub 仓库（离线 / 本机双击打开时读不到是正常的）。用页面下方「传到全校资料库」上传后，约 1 分钟刷新即可见。')+'<br><span class="small-en">No shared files yet — upload via the panel below, then refresh.</span></div>';
+  var html='';
+  html+='<section class="lib-part local" id="libSecLocal"><div class="lib-part-hd"><span class="lp-ico">&#128187;</span><h3>我设计的游戏与试卷</h3><span class="lp-tag">仅本机 / This computer</span><span class="lp-cnt">'+glist.length+' 项 · '+A.nb+' 本教材 · '+A.nl+' 课</span></div>'+
+    '<div class="lib-part-desc">存在这台电脑的这个浏览器里，可打开、修改、删除、生成分享链接。<b>别的老师看不到</b> —— 要全校共享请用页面下方「传到全校资料库」。<br><span class="small-en">Saved in this browser only. To share school-wide, use the green panel below.</span></div>'+
+    '<div class="lib-part-body">'+(A.html||emptyA)+'</div></section>';
+  html+='<section class="lib-part shared" id="libSecShared"><div class="lib-part-hd"><span class="lp-ico">&#127760;</span><h3>全校共享资料库</h3><span class="lp-tag gh">只读 / Read-only</span><span class="lp-cnt">'+slist.length+' 份 · '+B.nb+' 本教材 · '+B.nl+' 课</span></div>'+
+    '<div class="lib-part-desc">来自 GitHub 仓库 <code>library/</code>，全校老师都能看到；可<b>预览、下载</b>，但不能在网页里改名或删除（改动请到 GitHub，每次都有记录可回退）。<br><span class="small-en">From the school GitHub library/ — preview and download only.</span></div>'+
+    '<div class="lib-part-body">'+(B.html||emptyB)+'</div></section>';
   $('#libList').innerHTML=html;
-  $('#foldStat').textContent=nb+' 本教材 · '+nv+' 个版本 · '+nl+' 课';
+  $('#foldStat').textContent=(A.nb+B.nb)+' 本教材 · '+(A.nv+B.nv)+' 个版本 · '+(A.nl+B.nl)+' 课';
 }
 function findGame(id){for(var i=0;i<games.length;i++)if(games[i].id===id)return games[i];return null}
 
@@ -1933,18 +1803,18 @@ function renderHelp(){
    '<h3>v4 新增 / What is new in v4</h3><ul>'+
    '<li><b>主页三个卡通入口</b>：进入备课台先看到「教材文件夹 / 设计游戏 / 试卷生成器」三个大按钮，教材文件夹排第一。顶部标签随时切换。</li>'+
    '<li><b>教材文件夹折叠菜单</b>：按「教材 → 册 / 版本 → 课」三级折叠，默认收起，点标题栏展开或收起，也有「全部展开 / 全部收起」；搜索或筛选时自动展开结果。不同版本、不同课不再挤满一整页。</li>'+
-   '<li><b>上传本地文件</b>：老师把自己做好的线下游戏、打印纸、PPT、图片、PDF 传到文件夹，按教材归档；每张文件卡可<b>预览、下载、修改（改名 / 改归档 / 改备注）、删除</b>，并生成「信息行」用于登记清单。支持多选、选整个文件夹、拖拽上传。</li>'+
-   '<li><b>导出分享包</b>：把游戏 + 上传文件打成一个 JSON，发到教师微信群，同事「导入」即可合并到自己的电脑 —— 这是本地原型下最简单的共享方式。</li></ul>'+
-   '<p class="en">Home buttons, three-level collapsible folders, local file uploads with preview / download / edit / delete, and an exportable share pack.</p>'+
+   '<li><b>v5 两个独立部分</b>：教材文件夹改成上下两块 —— <b>「我设计的游戏与试卷」（仅本机）</b> 和 <b>「全校共享资料库」（只读）</b>，各自独立折叠。本地做的线下材料<b>直接放自己电脑上即可</b>，不用再传进网页（传进来别的老师也看不到）。</li>'+
+   '<li><b>导出游戏包</b>：把本机设计的游戏 / 试卷打成一个 JSON，发到教师微信群，同事「导入」即可合并到自己的电脑。全校共享文件走 GitHub，不进游戏包。</li></ul>'+
+   '<p class="en">Home buttons, two stacked sections (local games vs read-only school library), three-level collapsible folders, and an exportable games pack.</p>'+
    '<h3>文件到底存在哪 / Where your files actually live</h3>'+
-   '<p><b>游戏和试卷</b>存在 <code>localStorage</code>（约 5 MB，本机本浏览器）；<b>上传的文件</b>优先存浏览器数据库 IndexedDB（容量大，上线到 GitHub Pages 后可用），本地双击打开 <code>file://</code> 时自动降级到 localStorage（单文件建议不超过 1.5 MB）。上传区会显示当前用的是哪种。</p>'+
-   '<p><b>重点</b>：纯静态网页没有服务器，老师在 A 电脑上传的文件，B 电脑<b>不会自动看到</b>。要真正全校即时共享，必须有一个所有人都能读写的公共存放处 —— 目前免费的途径与额度对比，见随附的《文件保存与免费共享方案.md / Free file-storage options》。</p>'+
-   '<p class="en">A static page has no server: a file uploaded on one computer is not visible on another. School-wide sharing needs a shared store — see the companion document for free options and their limits.</p>'+
+   '<p><b>游戏和试卷</b>存在 <code>localStorage</code>（约 5 MB，本机本浏览器）。<b>本地做的线下材料</b>请直接放在自己电脑的文件夹里，不用传进网页；<b>全校共享文件</b>存在 GitHub 仓库 <code>library/</code>，网页只读地列出来。</p>'+
+   '<p><b>重点</b>：纯静态网页没有服务器，A 电脑上的东西 B 电脑<b>不会自动看到</b>。所以要共享，就把文件传进 GitHub 仓库 <code>library/</code>（约 1 分钟后全校刷新可见）。免费途径与额度对比见随附的《文件保存与免费共享方案.md》。</p>'+
+   '<p class="en">A static page has no server. To share school-wide, upload files to the GitHub library/ folder; see the companion document for free options and limits.</p>'+
    '<h3>口令 / Passcode</h3><p>初始 <code>lizhong2026</code>，在「设置」里可改。它只是把教师区和学生区隔开，不是加密；请不要在这里放学生个人信息。</p>'+
    '<p class="en">Default passcode: lizhong2026. Change it in Settings. It separates the staff area from the student area, it is not encryption — please keep pupil data out of here.</p>'+
    '<h3>全校资料库（GitHub）/ Shared staff library（v4.2）</h3>'+
-   '<p>上传到 GitHub 仓库 <code>library/</code> 的材料，会被本页自动列进「教材文件夹」，和本机文件一起按「教材 → 册 → 课」折叠显示，标着<b>「全校共享 · 只读」</b>蓝框。这类文件可以<b>预览、下载</b>，但不能在网页里改名或删除 —— 要改请到 GitHub 网页操作（每次改动都有记录，可回退）。</p>'+
-   '<p>读取用 GitHub 公开 API，<b>不用登录、不用密钥</b>；结果缓存 10 分钟，点「↻ 刷新全校资料库」可立即重读。别人提交后约 1 分钟 Pages 重新构建，<b>刷新页面</b>才看得到。离线、用 <code>file://</code> 双击打开、或 API 达到每小时 60 次上限时，上传区下方会显示提示，本机文件照常可用。</p>'+
+   '<p>上传到 GitHub 仓库 <code>library/</code> 的材料，会被本页自动列进教材文件夹下半部分<b>「全校共享资料库」</b>，单独按「教材 → 册 → 课」折叠显示，标着<b>「全校共享 · 只读」</b>蓝框。这类文件可以<b>预览、下载</b>，但不能在网页里改名或删除 —— 要改请到 GitHub 网页操作（每次改动都有记录，可回退）。</p>'+
+   '<p>读取用 GitHub 公开 API，<b>不用登录、不用密钥</b>；结果缓存 10 分钟，点「↻ 刷新全校资料库」可立即重读。别人提交后约 1 分钟 Pages 重新构建，<b>刷新页面</b>才看得到。离线、用 <code>file://</code> 双击打开、或 API 达到每小时 60 次上限时，共享区会显示提示，本机游戏照常可用。</p>'+
    '<p class="en">Files in the repository library/ folder are listed here automatically, read-only, via the public GitHub API — no login or token. Cached for 10 minutes; use Refresh to re-read. Allow ~1 minute for GitHub Pages to rebuild.</p>';
 }
 
@@ -2232,7 +2102,7 @@ function boot(){
   $('#fTitle').value='';
   $('#fItems').value=SAMPLE_VOCAB;
   markTpl('quiz');updateInputTip();updateCount();loadSharedArchive();renderHelp();renderLibrary();
-  initFileStore();renderHome();loadGitHubLibrary();
+  renderHome();loadGitHubLibrary();
 
   $('#fBook').addEventListener('change',function(){syncVol();syncUnit();syncLessonPretty();scheduleRegen();syncWorksheetMeta()});
   $('#fVol').addEventListener('change',function(){syncUnit();syncLessonPretty();scheduleRegen();syncWorksheetMeta()});
@@ -2326,6 +2196,18 @@ function boot(){
   $('#btnFoldAll').addEventListener('click',function(){FOLD_ALL=false;FOLD={};renderLibrary()});
   $('#btnUnfoldAll').addEventListener('click',function(){FOLD_ALL=true;FOLD={};renderLibrary()});
 
+  /* v6 左侧目录：点击定位到对应区块并高亮 */
+  var libNavLinks=$$('#libNav a[data-sec]');
+  libNavLinks.forEach(function(link){
+    link.addEventListener('click',function(e){
+      e.preventDefault();
+      var target=document.getElementById(link.getAttribute('data-sec'));
+      if(!target)return;
+      libNavLinks.forEach(function(x){x.classList.toggle('on',x===link)});
+      if(target.scrollIntoView)target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
   /* 全校共享（方案 A）：按当前老师自动填子目录 + 建议文件名 */
   $('#ghAuthor').value=getAuthor()||'';
   ['#ghAuthor','#ghMat'].forEach(function(s){$(s).addEventListener('input',ghSync)});
@@ -2341,26 +2223,11 @@ function boot(){
   ghSync();
   $('#btnGhRefresh').addEventListener('click',function(){loadGitHubLibrary(true)});
 
-  $('#btnUpload').addEventListener('click',function(){$('#uploadInput').click()});
-  $('#btnUploadFolder').addEventListener('click',function(){$('#uploadFolderInput').click()});
-  $('#uploadInput').addEventListener('change',function(e){handleUpload(e.target.files);e.target.value=''});
-  $('#uploadFolderInput').addEventListener('change',function(e){handleUpload(e.target.files);e.target.value=''});
-  var uz=$('#uploadZone');
-  ['dragenter','dragover'].forEach(function(ev){uz.addEventListener(ev,function(e){e.preventDefault();uz.classList.add('drag')})});
-  ['dragleave','drop'].forEach(function(ev){uz.addEventListener(ev,function(e){e.preventDefault();uz.classList.remove('drag')})});
-  uz.addEventListener('drop',function(e){
-    var fs=e.dataTransfer&&e.dataTransfer.files;
-    if(fs&&fs.length)handleUpload(fs);
-  });
-
   $('#libList').addEventListener('click',function(e){
     /* 折叠标题优先 */
     var h=e.target.closest('.fold-h');
     if(h){var k=h.dataset.fold;FOLD[k]=!isOpen(k);renderLibrary();return}
-    /* 上传文件的操作 */
-    var fb=e.target.closest('button[data-f]');
-    if(fb){actFile(fb.dataset.f,fb.dataset.a);return}
-    /* 全校共享文件（只读）：独立分支，绝不进 actFile，避免误删/改名 */
+    /* 全校共享文件（只读）：独立分支，只有预览 / 下载，不能在网页里改名或删除 */
     var gb=e.target.closest('button[data-gh]');
     if(gb){actGhFile(gb.dataset.gh,gb.dataset.a);return}
     /* 游戏的操作 */
@@ -2406,8 +2273,8 @@ function boot(){
       closeModal();toast('设置已保存 / Settings saved（三个板块署名已同步）');
     };
     $('#setWipe').onclick=function(){
-      if(confirm('确定清空本机保存的全部游戏与上传文件？建议先「导出分享包」备份。')){
-        games=[];persist();FILES.forEach(function(f){fDel(f)});FILES=[];filesPersist();
+      if(confirm('确定清空本机保存的全部游戏与试卷？建议先「导出游戏包」备份。')){
+        games=[];persist();
         renderLibrary();renderHome();closeModal();toast('已清空 / Everything removed');
       }
     };
