@@ -27,6 +27,8 @@ button{cursor:pointer}
 .gate-box input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:9px;text-align:center;letter-spacing:2px;margin-bottom:12px}
 .gate-box button{width:100%;padding:12px;background:var(--blue);color:#fff;border:0;border-radius:9px;font-size:15px}
 .gate-msg{font-size:12px;color:var(--red);min-height:20px;margin-top:10px}
+.gate-home{display:block;width:100%;margin-top:14px;padding:9px;border:1px solid var(--line);border-radius:9px;text-align:center;text-decoration:none;color:var(--muted);font-size:13px;transition:all .2s}
+.gate-home:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-l)}
 .gate-note{font-size:11px;color:var(--muted);margin-top:18px;line-height:1.7}
 
 /* ---------- header ---------- */
@@ -39,8 +41,11 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:10px 20px;dis
 .tab.on{background:#fff;color:var(--blue);box-shadow:0 1px 4px rgba(0,0,0,.08);font-weight:600}
 .hbtn-ext{padding:7px 12px;border:1px solid var(--green);background:var(--green-l);border-radius:8px;font-size:12px;color:var(--green);white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:600}
 .hbtn-ext:hover{background:var(--green);color:#fff;border-color:var(--green)}
-.hbtn{padding:7px 12px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:12px;color:var(--muted)}
+.hbtn{padding:7px 12px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:12px;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
 .hbtn:hover{border-color:var(--blue);color:var(--blue)}
+/* 返回学校主页：独立按钮，放在 tabs 内「备课台主页」左边；分享链接只读模式下隐藏 */
+.hbtn-site{padding:7px 13px;border:1px solid var(--green);background:var(--green-l);border-radius:7px;font-size:12px;color:var(--green);white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:600;margin-right:4px}
+.hbtn-site:hover{background:var(--green);color:#fff}
 
 /* ---------- layout ---------- */
 .wrap{max-width:1480px;margin:0 auto;padding:18px 20px 40px}
@@ -307,11 +312,9 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 
 /* ---------- v4 · 主页 home ---------- */
 .home-wrap{max-width:1080px;margin:0 auto}
-.home-hero{text-align:center;padding:24px 16px 8px}
-.home-hello{font-size:13px;color:var(--muted);letter-spacing:.5px}
-.home-hero h1{font-size:27px;font-weight:700;margin:6px 0 8px;letter-spacing:.5px}
-.home-hero h1 span{display:block;font-size:14px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:2px}
-.home-sub{font-size:13px;color:var(--muted);max-width:640px;margin:0 auto;line-height:1.8}
+.home-hero{text-align:center;padding:20px 16px 4px}
+.home-hello{font-size:22px;font-weight:600;color:var(--ink);letter-spacing:.5px}
+.home-hello .small-en{display:block;font-size:13px;font-weight:400;color:var(--muted);margin-top:4px}
 .home-cards{display:grid;grid-template-columns:1.16fr 1fr 1fr;gap:18px;margin:22px 0 8px}
 @media(max-width:880px){.home-cards{grid-template-columns:1fr}}
 .home-card{position:relative;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:16px 18px 20px;box-shadow:var(--shadow);transition:.18s;overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
@@ -331,11 +334,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 .home-card .go{font-size:13px;font-weight:600;color:var(--blue)}
 .card-design .go{color:var(--green)}
 .card-worksheet .go{color:var(--amber)}
-.home-tip{text-align:center;font-size:12px;color:var(--muted);margin:16px 0 4px;line-height:1.9}
-.home-tip b{color:var(--ink)}
-.home-mini{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
-.home-mini button{padding:7px 14px;border:1px solid var(--line);background:#fff;border-radius:20px;font-size:12px;color:var(--muted)}
-.home-mini button:hover{border-color:var(--blue);color:var(--blue)}
 
 /* ---------- v4 · 折叠菜单 ---------- */
 .fold-tools{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
@@ -457,6 +455,7 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
     <input id="gatePass" type="password" placeholder="请输入教师共享口令 / Shared passcode" autocomplete="off">
     <button id="gateBtn">进入备课台 &nbsp; Enter</button>
     <div class="gate-msg" id="gateMsg"></div>
+    <a class="gate-home" href="./index.html">&#127968; 返回学校主页 / School homepage</a>
   </div>
 </div>
 
@@ -467,7 +466,8 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
       <div><b>利中 · 教师备课台</b><span class="small-en">LiZhong Teacher's Classroom Kit</span></div>
     </div>
     <div class="tabs">
-      <button class="tab on" data-view="home">&#127968; 主页 <span class="small-en">Home</span></button>
+      <a class="hbtn-site" href="./index.html" title="回到学校主页 / Back to the school website">&#127968; 学校主页 <span class="small-en">School site</span></a>
+      <button class="tab on" data-view="home">&#127968; 备课台主页 <span class="small-en">Kit Home</span></button>
       <button class="tab" data-view="library">教材文件夹 <span class="small-en">Library</span></button>
       <button class="tab" data-view="design">设计游戏 <span class="small-en">Design</span></button>
       <button class="tab" data-view="worksheet">试卷生成器 <span class="small-en">Worksheet</span></button>
@@ -483,9 +483,7 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
     <div class="view" id="view-home">
       <div class="home-wrap">
         <div class="home-hero">
-          <div class="home-hello">&#127;&#129; 老师好，欢迎回来 / Welcome back</div>
-          <h1>今天先去哪里？<span>Where would you like to start?</span></h1>
-          <p class="home-sub">利中 · 教师备课台。选一个入口开始：先到教材文件夹找现成的材料，或者自己设计课堂游戏、生成试卷。<br><span class="small-en">LiZhong Teacher's Classroom Kit — browse the shared library, design a game, or build a worksheet.</span></p>
+          <div class="home-hello" id="homeHello">&#127;&#129; 老师好，欢迎回来 / Welcome back</div>
         </div>
 
         <div class="home-cards">
@@ -566,17 +564,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
             <div class="foot"><span class="stat">10 种题型 / 10 sections</span><span class="go">去出卷 &rarr;</span></div>
           </div>
 
-        </div>
-
-        <div class="home-tip">
-          所有内容默认存在<b>这台电脑的这个浏览器</b>里；进入备课台的老师可用「导出游戏包 / 导入」互相传递。免费的全校即时共享方案见页面底部「使用说明」。<br>
-          <span class="small-en">This prototype stores data in this browser. Teachers can exchange files via Export / Import; see Help for free school-wide sharing options.</span>
-        </div>
-        <div class="home-mini">
-          <button data-goto="help">&#128214; 使用说明 / Help</button>
-          <button id="homeGoLib">&#128193; 打开教材文件夹</button>
-          <button id="homeExport">&#8595; 导出游戏包</button>
-          <button id="homeSettings">&#9881; 设置</button>
         </div>
       </div>
     </div>
@@ -838,6 +825,13 @@ function b64e(str){return btoa(unescape(encodeURIComponent(str))).replace(/\+/g,
 function b64d(str){str=str.replace(/-/g,'+').replace(/_/g,'/');while(str.length%4)str+='=';return decodeURIComponent(escape(atob(str)))}
 function getPass(){return localStorage.getItem(PASS_KEY)||DEFAULT_PASS}
 function getAuthor(){return localStorage.getItem(NAME_KEY)||''}
+/* 欢迎词随默认署名变化：娄老师→「娄老师好，欢迎回来」，未设署名→「老师好，欢迎回来」 */
+function renderGreeting(){
+  var e=$('#homeHello');if(!e)return;
+  var nm=(getAuthor()||'').trim();
+  var who=nm?(/老师$|先生$|女士$/.test(nm)?nm:nm+'老师'):'老师';
+  e.innerHTML='&#127;&#129; '+esc(who)+'好，欢迎回来 <span class="small-en">/ Welcome back'+(nm?', '+esc(nm):'')+'</span>';
+}
 
 /* ================= 存档 ================= */
 var games=[];
@@ -2077,7 +2071,7 @@ function openShared(payload){
     if(!g||!g.items||!g.items.length)throw new Error('empty');
     g.id='shared';
     $('#gate').classList.add('hidden');$('#app').classList.remove('hidden');
-    $$('header .tabs,#btnSettings').forEach(function(x){x.classList.add('hidden')});
+    $$('header .tabs,#btnSettings,header .hbtn-site').forEach(function(x){x.classList.add('hidden')});
     $$('.view').forEach(function(x){x.classList.add('hidden')});
     $('#view-design').classList.remove('hidden');
     $('#view-design').querySelector('.card').classList.add('hidden');
@@ -2099,6 +2093,7 @@ function boot(){
   syncVol();syncUnit();syncLessonPretty();
   $('#fAuthor').value=getAuthor();
   if($('#wsAuthor'))$('#wsAuthor').value=getAuthor();
+  renderGreeting();
   $('#fTitle').value='';
   $('#fItems').value=SAMPLE_VOCAB;
   markTpl('quiz');updateInputTip();updateCount();loadSharedArchive();renderHelp();renderLibrary();
@@ -2181,9 +2176,6 @@ function boot(){
     b.addEventListener('click',function(){goView(b.dataset.goto)});
     b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();goView(b.dataset.goto)}});
   });
-  $('#homeGoLib').addEventListener('click',function(){goView('library')});
-  $('#homeExport').addEventListener('click',exportSharePack);
-  $('#homeSettings').addEventListener('click',function(){$('#btnSettings').click()});
 
   /* 教材文件夹：筛选、折叠、上传 */
   $('#libBook').addEventListener('change',function(){FOLD_ALL=true;renderLibrary()});
@@ -2268,7 +2260,7 @@ function boot(){
       localStorage.setItem(NAME_KEY,nm);
       /* 默认署名同步到三个板块：设计游戏 / 教材文件夹共享卡片 / 试卷生成器 */
       ['#fAuthor','#ghAuthor','#wsAuthor'].forEach(function(s){var e=$(s);if(e)e.value=nm});
-      ghSync();
+      ghSync();renderGreeting();
       if($('#wsStage .ws-a4'))renderWorksheet();
       closeModal();toast('设置已保存 / Settings saved（三个板块署名已同步）');
     };
