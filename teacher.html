@@ -334,23 +334,23 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 .home-hero{text-align:center;padding:20px 16px 4px}
 .home-hello{font-size:22px;font-weight:600;color:var(--ink);letter-spacing:.5px}
 .home-hello .small-en{display:block;font-size:13px;font-weight:400;color:var(--muted);margin-top:4px}
-.home-cards{display:grid;grid-template-columns:1.16fr 1fr 1fr;gap:18px;margin:22px 0 8px}
-@media(max-width:880px){.home-cards{grid-template-columns:1fr}}
-.home-card{position:relative;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:16px 18px 20px;box-shadow:var(--shadow);transition:.18s;overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
+.home-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 8px}
+@media(max-width:880px){.home-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.home-cards{grid-template-columns:1fr}}
+.home-card{position:relative;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:12px 14px 14px;box-shadow:var(--shadow);transition:.18s;overflow:hidden;display:flex;flex-direction:column;cursor:pointer}
 .home-card:hover,.home-card:focus{transform:translateY(-4px);box-shadow:0 10px 26px rgba(30,60,90,.14);outline:none}
 .home-card:focus{box-shadow:0 0 0 3px var(--blue-l),0 10px 26px rgba(30,60,90,.14)}
 .home-card.card-lib{border-color:var(--blue);border-width:2px;background:linear-gradient(180deg,#f2f8ff,#fff 62%)}
 .home-card.card-design:hover{border-color:var(--green)}
 .home-card.card-worksheet:hover{border-color:var(--amber)}
 .home-card .rec{position:absolute;top:0;right:0;background:var(--blue);color:#fff;font-size:11px;padding:5px 14px;border-radius:0 18px 0 12px;letter-spacing:.5px}
-.home-art{height:148px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
-.home-art svg{height:148px;width:auto;max-width:100%}
-.home-card h2{font-size:19px;font-weight:700;margin-bottom:2px}
-.home-card .en{font-size:12px;color:var(--muted);letter-spacing:.3px;margin-bottom:9px}
-.home-card .desc{font-size:12.5px;color:#5a6b7b;line-height:1.75;flex:1}
-.home-card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
-.home-card .stat{font-size:12px;color:var(--muted)}
-.home-card .go{font-size:13px;font-weight:600;color:var(--blue)}
+.home-art{height:92px;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.home-art svg{height:92px;width:auto;max-width:100%}
+.home-card h2{font-size:16px;font-weight:700;margin-bottom:2px}
+.home-card .en{font-size:11px;color:var(--muted);letter-spacing:.3px;margin-bottom:6px}
+.home-card .foot{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:auto;padding-top:9px;border-top:1px dashed var(--line)}
+.home-card .stat{font-size:11px;color:var(--muted)}
+.home-card .go{font-size:12px;font-weight:600;color:var(--blue);white-space:nowrap}
 .card-design .go{color:var(--green)}
 .card-worksheet .go{color:var(--amber)}
 .card-wordbank{border-color:#7b52ab}
@@ -393,7 +393,7 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 .wb-btn.primary{background:#7b52ab;border-color:#7b52ab;color:#fff}
 .wb-btn.primary:hover{background:#5b3d8a}
 .wb-empty{text-align:center;color:var(--muted);padding:46px 16px;font-size:13px;line-height:1.9}
-.wb-bulk{width:100%;height:150px;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:12.5px;font-family:inherit;resize:vertical}
+.wb-bulk{width:100%;height:76px;min-height:52px;max-height:420px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:12.5px;font-family:inherit;resize:both}
 .wb-row{grid-template-columns:28px 1.05fr 1fr 1fr .75fr .75fr 26px 26px 26px}
 .wb-icon{border:0;background:#f4eff9;color:#6b4a97;font-size:14px;cursor:pointer;border-radius:5px;padding:2px 0;line-height:1.3}
 .wb-icon:hover{background:#e6d8f5}
@@ -621,7 +621,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
 
           <!-- ① 教材文件夹（第一，放大） -->
           <div class="home-card card-lib" role="button" tabindex="0" data-goto="library">
-            <span class="rec">&#9733; 从这里开始 / Start here</span>
             <div class="home-art">
               <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="卡通文件夹与书本">
                 <ellipse cx="100" cy="147" rx="76" ry="8" fill="#dbe6ef"/>
@@ -641,7 +640,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
             </div>
             <h2>教材文件夹</h2>
             <div class="en">Library &nbsp;·&nbsp; 教材 / 册 / 课</div>
-            <div class="desc">上下<b>两个独立部分</b>：本机设计的游戏 / 试卷、全校共享资料库（只读）。都按「教材 → 册 → 课」折叠展示。<br><span class="small-en">Two stacked sections: your own games/worksheets and the read-only school library.</span></div>
             <div class="foot"><span class="stat" id="homeStatLib">—</span><span class="go">进入文件夹 &rarr;</span></div>
           </div>
 
@@ -662,7 +660,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
             </div>
             <h2>设计游戏</h2>
             <div class="en">Design &nbsp;·&nbsp; Game maker</div>
-            <div class="desc">贴一次本课词句，一键切换 <b>12 个游戏模板</b>：抢答、转盘、小组 PK、不插电多人游戏……可投屏、可打印 A4。<br><span class="small-en">Paste words once, switch between 12 games, project or print.</span></div>
             <div class="foot"><span class="stat">12 个模板 / 12 games</span><span class="go">去设计 &rarr;</span></div>
           </div>
 
@@ -691,7 +688,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
             </div>
             <h2>试卷生成器</h2>
             <div class="en">Worksheet &nbsp;·&nbsp; Paper maker</div>
-            <div class="desc">勾选 <b>10 种题型</b>出一份 A4 卷：看拼音写汉字、听写、连线、作文田字格……可下载<b>能在 Word 里改</b>的 .doc 或另存 PDF。<br><span class="small-en">10 section types, editable Word, A4 print / PDF.</span></div>
             <div class="foot"><span class="stat">10 种题型 / 10 sections</span><span class="go">去出卷 &rarr;</span></div>
           </div>
 
@@ -711,7 +707,6 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
             </div>
             <h2>词句库</h2>
             <div class="en">Word bank &nbsp;·&nbsp; Vocabulary</div>
-            <div class="desc">按<b>教材 → 册 → 课</b>建文件夹，一词一行录入<b>汉字 / 拼音 / 英文 / 分类</b>。每个词库可<b>下载备份</b>，也能<b>上传词库文档</b>归档。<br><span class="small-en">Folders by textbook / volume / lesson; one word per row; download & upload banks.</span></div>
             <div class="foot"><span class="stat">生词 / Word bank</span><span class="go">去管理 &rarr;</span></div>
           </div>
 
@@ -741,19 +736,18 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
           <div class="wb-panel-bd">
             <div class="wb-toolbar">
               <button class="wb-btn primary" id="wbAddRow">+ 加一行</button>
-              <button class="wb-btn" id="wbAutoFill" title="只填空的项，不覆盖你已写的内容；未收录的词会联网补英文">&#9889; 补全拼音&amp;英文</button>
               <button class="wb-btn" id="wbBulk">批量粘贴导入</button>
-              <button class="wb-btn" id="wbDownload" title="完整备份，含录音">&#8595; 下载词库（含录音）</button>
-              <button class="wb-btn" id="wbDownloadTxt">&#8595; 词表 TXT</button>
+              <button class="wb-btn" id="wbAutoFill" title="只填空的项，不覆盖你已写的内容；未收录的词会联网补英文">&#9889; 补全拼音&amp;英文</button>
+              <button class="wb-btn" id="wbExport" title="自选字段导出，可直接粘贴到 Quizlet / Wordwall / Blooket">&#8595; 导出词库</button>
               <button class="wb-btn" id="wbExportJobs" title="导出词句清单，交给「一键生成语音」工具">&#9835; 导出语音清单</button>
               <button class="wb-btn" id="wbAudioShare" title="把 audio/ 和 voices.js 上传到 GitHub，让全校老师听到真实声音">&#9729; 上传音频到全校</button>
               <button class="wb-btn" id="wbUploadBtn">&#8593; 上传词库文档</button>
               <input type="file" id="wbUpload" accept=".txt,.csv,.json" class="hidden">
             </div>
-            <div class="wb-meta" id="wbMeta">一词一行：<b>词句 | 拼音 | 英文 | 分类 | 部件</b>；输入词句后<b>拼音和英文会自动生成</b>（生词联网补英文，结果会缓存，下次离线也能用）。右侧 <b>🔊</b>=系统朗读、<b>🎤</b>=自己的录音，两种声音都能带进游戏。<b>分类</b>=语义类别，<b>部件</b>=汉字拆分；都可留空。改完自动保存。</div>
-            <div id="wbBulkBox" class="hidden" style="margin:10px 0">
-              <textarea class="wb-bulk" id="wbBulkText" placeholder="每行一条词句：词句 | 拼音 | 英文 | 分类 | 部件&#10;例：你好 | nǐ hǎo | hello | 问候 |&#10;只填词句也会自动生成拼音与英文"></textarea>
-              <div style="margin-top:8px"><button class="wb-btn primary" id="wbBulkGo">导入到下方列表</button> <button class="wb-btn" id="wbBulkCancel">取消</button></div>
+            <div class="wb-meta" id="wbMeta">一词一行：<b>词句 | 拼音 | 英文 | 分类 | 部件</b>（也可用空格、丨或 - 分隔，兼容 Quizlet / Wordwall / Blooket）；输入词句后<b>拼音和英文会自动生成</b>（生词联网补英文，结果会缓存，下次离线也能用）。右侧 <b>🔊</b>=系统朗读、<b>🎤</b>=自己的录音，两种声音都能带进游戏。<b>分类</b>=语义类别，<b>部件</b>=汉字拆分；都可留空。改完自动保存。</div>
+            <div id="wbBulkBox" style="margin:10px 0">
+              <textarea class="wb-bulk" id="wbBulkText" placeholder="每行一条词句，分隔符任选：空格 / | / 丨 / - / Tab / 逗号&#10;例：你好 nǐ hǎo hello 问候&#10;例：谢谢 | xièxie | thank you | 问候&#10;只填词句也会自动生成拼音与英文；右下角可拖动调整输入框大小"></textarea>
+              <div style="margin-top:8px"><button class="wb-btn primary" id="wbBulkGo">导入到下方列表</button> <button class="wb-btn" id="wbBulkCancel">收起</button></div>
             </div>
             <div class="wb-rows" id="wbRows"></div>
             <div class="wb-actions">
@@ -824,6 +818,37 @@ textarea.in{resize:vertical;min-height:132px;line-height:1.9;font-size:13px}
       <div class="btns" style="justify-content:flex-end;margin-top:12px">
         <button class="btn" id="wbImpCancel">取消 / Cancel</button>
         <button class="btn primary green" id="wbImpGo">导入到本课词句 / Import</button>
+      </div>
+    </div></div>
+
+    <!-- 导出词库浮层 -->
+    <div id="wbExportBox" class="wb-overlay hidden"><div class="wb-import-box">
+      <h3>&#8595; 导出词库 / Export word bank</h3>
+      <p class="wb-media-note">勾选要导出的字段，选择分隔方式。下方文本可<b>整段复制</b>，直接粘贴到 Quizlet / Wordwall / Blooket 等网站；也能下载成 TXT、CSV 表格或完整备份。</p>
+      <div class="wb-imp-fields">
+        <b>导出字段 / Fields</b>
+        <label><input type="checkbox" id="wbExHanzi" checked disabled> 词句（必选）</label>
+        <label><input type="checkbox" id="wbExPinyin" checked> 拼音 / Pinyin</label>
+        <label><input type="checkbox" id="wbExEn" checked> 英文 / English</label>
+        <label><input type="checkbox" id="wbExVoice"> 声音 / Voice</label>
+        <label><input type="checkbox" id="wbExGroup"> 分类 / Category</label>
+        <label><input type="checkbox" id="wbExParts"> 部件 / Parts</label>
+      </div>
+      <label class="f" style="display:block;margin:12px 0"><span>分隔方式 / Separator</span>
+        <select class="in" id="wbExSep" style="width:100%;margin-top:5px">
+          <option value="space">空格 · 纯文本，直接粘贴</option>
+          <option value="tab">Tab 制表符 · Quizlet / Wordwall 推荐</option>
+          <option value="pipe">竖线 | · 本系统格式</option>
+          <option value="comma">逗号 , · CSV / Blooket</option>
+        </select>
+      </label>
+      <div class="wb-imp-preview" id="wbExPreviewBox"><textarea class="wb-bulk" id="wbExPreview" style="height:130px" readonly></textarea></div>
+      <div class="btns" style="justify-content:flex-end;margin-top:12px;flex-wrap:wrap">
+        <button class="btn primary green" id="wbExCopy">&#128203; 复制文本</button>
+        <button class="btn" id="wbExTxt">&#8595; TXT</button>
+        <button class="btn" id="wbExCsv">&#8595; CSV 表格</button>
+        <button class="btn" id="wbExJson" title="完整备份，含录音与声音设置">&#8595; 完整备份 JSON</button>
+        <button class="btn" id="wbExClose">关闭</button>
       </div>
     </div></div>
 
@@ -1976,13 +2001,63 @@ function renderWbRows(){
   $('#wbMeta').innerHTML='当前词库：<b>'+esc((wbFolder(WB_CUR)||{}).name||'')+'</b> · '+WB_ITEMS.length+' 词。输入词句后<b>拼音、英文自动生成</b>；一行格式：<b>词句 | 拼音 | 英文 | 分类 | 部件</b>（后几项可留空）。改完自动保存。';
 }
 function wbAutoSave(){if(WB_CUR){wbSave();$('#wbStatus').textContent='已自动保存 '+new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})}}
+/* 判断拉丁词是否像拼音音节：带声调符号必是；否则需是合法无声调音节 */
+function wbIsPinyinToken(s){
+  var t=String(s||'').toLowerCase();
+  if(!/^[a-züāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]+$/.test(t))return false;
+  if(/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü]/.test(t))return true;
+  return /^(zh|ch|sh|[bpmfdtnlgkhjqxzcsryw])(a|o|e|i|u|ai|ei|ui|ao|ou|iu|ie|üe|er|an|en|in|un|ün|ang|eng|ing|ong|ia|iao|ian|iang|iong|ua|uo|uai|uan|uang)$/.test(t);
+}
+/* 纯空格分隔：中文词句 → 连续拼音 → 英文 → 中文分类；兼容只填词句或英文在前的格式 */
+function wbParseSpaced(line){
+  var toks=line.trim().split(/\s+/).filter(Boolean),segs=[];
+  toks.forEach(function(t){
+    var typ=/[\u4e00-\u9fa5]/.test(t)?'zh':'la';
+    if(segs.length&&segs[segs.length-1].typ===typ)segs[segs.length-1].text+=(typ==='zh'?'':' ')+t;
+    else segs.push({typ:typ,text:t});
+  });
+  var o={hanzi:'',pinyin:'',en:'',group:'',parts:''},i=0;
+  if(segs[0]&&segs[0].typ==='zh'){o.hanzi=segs[0].text;i=1}
+  if(segs[i]&&segs[i].typ==='la'){
+    var py=[],en=[],inPy=true;
+    segs[i].text.split(/\s+/).forEach(function(w){
+      if(inPy&&wbIsPinyinToken(w))py.push(w);else{inPy=false;en.push(w)}
+    });
+    o.pinyin=py.join(' ');o.en=en.join(' ');i++;
+  }
+  var rest=[];for(;i<segs.length;i++)if(segs[i].typ==='zh')rest.push(segs[i].text);
+  if(!o.hanzi&&rest.length)o.hanzi=rest.shift();
+  o.group=rest.join(' ');
+  return o;
+}
 function wbParse(text){
   var out=[];
   String(text||'').split(/\r?\n/).forEach(function(line){
     var raw=line.trim();if(!raw)return;
-    var p=raw.split(/[|｜\t,，]/).map(function(x){return x.trim()});
-    if(!p[0])return;
-    out.push({hanzi:p[0],pinyin:p[1]||'',en:p[2]||'',group:p[3]||'',parts:p[4]||'',img:'',audio:'',tts:''});
+    var o;
+    if(/[|｜丨\t,，]|\s+[-–—]\s+/.test(raw)){
+      var p=raw.split(/[|｜丨\t,，]|\s+[-–—]\s+/).map(function(x){return x.trim()});
+      /* 主流平台的 Term/Definition 两列里中文可能在第二列，自动识别交换 */
+      if(!/[\u4e00-\u9fa5]/.test(p[0])&&/[\u4e00-\u9fa5]/.test(p[1]||'')){
+        var sw=p[0];p[0]=p[1];p[1]=sw;
+      }
+      o={hanzi:p[0]||'',pinyin:'',en:'',group:'',parts:''};
+      if(p[1]){
+        if(p.length===2){if(wbIsPinyinToken(p[1]))o.pinyin=p[1];else o.en=p[1]}
+        else{o.pinyin=p[1];o.en=p[2]||'';o.group=p[3]||'';o.parts=p[4]||''}
+      }
+    }else if(/\s/.test(raw)){
+      o=wbParseSpaced(raw);
+    }else if(/[-–—]/.test(raw)){
+      var q=raw.split(/[-–—]/).map(function(x){return x.trim()});
+      o={hanzi:q[0]||'',pinyin:'',en:'',group:'',parts:''};
+      if(q[1]){if(wbIsPinyinToken(q[1]))o.pinyin=q[1];else o.en=q[1]}
+    }else{
+      o={hanzi:raw,pinyin:'',en:'',group:'',parts:''};
+    }
+    if(!o.hanzi)return;
+    o.img='';o.audio='';o.tts='';
+    out.push(o);
   });
   return out;
 }
@@ -2026,6 +2101,65 @@ function wbDownloadTxt(){
   var safe=String(nm).replace(/[\\/:*?"<>|]/g,'-');
   download(safe+'-词表.txt','\ufeff'+wbToText(WB_ITEMS)+'\n','text/plain;charset=utf-8');
   toast('已下载词表 TXT / Downloaded');
+}
+/* ---- 导出词库：自选字段 + 主流平台格式 ---- */
+function wbExVoice(x){
+  if(x.audio)return '录音';
+  if(x.voice)return x.voice;
+  if(x.tts)return '语音';
+  return '';
+}
+function wbExportRows(){
+  var ids=['wbExHanzi','wbExPinyin','wbExEn','wbExVoice','wbExGroup','wbExParts'];
+  var on=ids.map(function(id){var e=$('#'+id);return !e||e.checked});
+  var sepEl=$('#wbExSep'),keepEmpty=sepEl&&sepEl.value!=='space';
+  return WB_ITEMS.filter(function(x){return x.hanzi}).map(function(x){
+    var vals=[x.hanzi,x.pinyin||'',x.en||'',wbExVoice(x),x.group||'',x.parts||''];
+    return vals.filter(function(v,i){return on[i]&&(keepEmpty||String(v).trim())});
+  });
+}
+function wbExportSep(){
+  var e=$('#wbExSep'),v=e?e.value:'space';
+  return v==='tab'?'\t':v==='pipe'?' | ':v==='comma'?',':' ';
+}
+function wbExportText(){
+  var sep=wbExportSep();
+  return wbExportRows().map(function(r){return r.join(sep)}).join('\n');
+}
+function wbExportRefresh(){
+  var t=$('#wbExPreview');if(t)t.value=wbExportText();
+}
+function wbExportOpen(){
+  if(!WB_CUR||!WB_ITEMS.length){toast('当前词库没有词条 / No words yet');return}
+  wbExportRefresh();$('#wbExportBox').classList.remove('hidden');
+}
+function wbExportCopy(){
+  var t=$('#wbExPreview');if(!t)return;
+  t.focus();t.select();
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t.value).then(
+        function(){toast('已复制到剪贴板 / Copied')},
+        function(){toast('复制失败，请手动全选复制')}
+      );
+    }else{document.execCommand('copy');toast('已复制到剪贴板 / Copied')}
+  }catch(e){toast('复制失败，请手动全选复制')}
+}
+function wbExportFile(kind){
+  if(!WB_CUR||!WB_ITEMS.length){toast('当前词库没有词条 / No words yet');return}
+  var nm=(wbFolder(WB_CUR)||{}).name||'词库';
+  var safe=String(nm).replace(/[\\/:*?"<>|]/g,'-');
+  if(kind==='json'){
+    download(safe+'-词库.json',JSON.stringify({kind:'lizhong-wordbank',version:1,name:nm,items:WB_ITEMS}),'application/json');
+    toast('已下载完整备份 / Downloaded');
+  }else if(kind==='csv'){
+    var rows=wbExportRows().map(function(r){return r.map(function(v){return '"'+String(v).replace(/"/g,'""')+'"'}).join(',')});
+    download(safe+'-词表.csv','\ufeff'+rows.join('\n')+'\n','text/csv;charset=utf-8');
+    toast('已下载 CSV 表格 / Downloaded');
+  }else{
+    download(safe+'-词表.txt','\ufeff'+wbExportText()+'\n','text/plain;charset=utf-8');
+    toast('已下载 TXT 词表 / Downloaded');
+  }
 }
 function wbUpload(file){
   if(!WB_CUR){toast('先打开一个文件夹再上传 / Open a folder first');return}
@@ -2284,6 +2418,8 @@ function wbPlayRec(){
 
 /* ---- v7 · 从词句库导入游戏（字段可选） ---- */
 function wbImportOpen(){
+  /* 设计页可能先于词句库打开：此时 WB 还是空对象，先补一次本机加载 */
+  if(!$('#wbTree').dataset.ready)WB=wbLoad();
   var sel=$('#wbImpFolder'),opts=[],n=0;
   WB.folders.forEach(function(f){
     var cnt=(WB.banks[f.id]||[]).length;if(!cnt)return;n++;
@@ -2366,18 +2502,33 @@ function initWordBank(){
   });
   $('#wbBulk').addEventListener('click',function(){
     if(!WB_CUR){toast('先打开一个文件夹 / Open a folder first');return}
-    $('#wbBulkBox').classList.remove('hidden');$('#wbBulkText').focus();
+    var box=$('#wbBulkBox'),open=!box.classList.contains('hidden');
+    box.classList.toggle('hidden',open);
+    if(!open)$('#wbBulkText').focus();
+    this.textContent=open?'批量粘贴导入':'收起批量导入';
   });
-  $('#wbBulkCancel').addEventListener('click',function(){$('#wbBulkBox').classList.add('hidden')});
+  $('#wbBulkCancel').addEventListener('click',function(){
+    $('#wbBulkBox').classList.add('hidden');$('#wbBulk').textContent='批量粘贴导入';
+  });
   $('#wbBulkGo').addEventListener('click',function(){
     var its=wbParse($('#wbBulkText').value);
     if(!its.length){toast('没读到词条 / No words found');return}
-    WB_ITEMS=WB_ITEMS.concat(its);wbAutoFill(true);renderWbRows();$('#wbBulkText').value='';$('#wbBulkBox').classList.add('hidden');
+    WB_ITEMS=WB_ITEMS.concat(its);wbAutoFill(true);renderWbRows();$('#wbBulkText').value='';
     toast('已导入 '+its.length+' 词，拼音与英文已自动生成 / Imported');
   });
-  $('#wbDownload').addEventListener('click',wbDownload);
-  $('#wbDownloadTxt').addEventListener('click',wbDownloadTxt);
   $('#wbExportJobs').addEventListener('click',wbExportJobs);
+  /* 导出词库（绑定放在 boot，避免依赖词句库页是否打开过） */
+  $('#wbExport').addEventListener('click',wbExportOpen);
+  $('#wbExClose').addEventListener('click',function(){$('#wbExportBox').classList.add('hidden')});
+  $('#wbExportBox').addEventListener('click',function(e){if(e.target===this)this.classList.add('hidden')});
+  ['wbExHanzi','wbExPinyin','wbExEn','wbExVoice','wbExGroup','wbExParts','wbExSep'].forEach(function(id){
+    var el=$('#'+id);if(el)el.addEventListener('change',wbExportRefresh);
+  });
+  $('#wbExCopy').addEventListener('click',wbExportCopy);
+  $('#wbExTxt').addEventListener('click',function(){wbExportFile('txt')});
+  $('#wbExCsv').addEventListener('click',function(){wbExportFile('csv')});
+  $('#wbExJson').addEventListener('click',function(){wbExportFile('json')});
+
   $('#wbAudioShare').addEventListener('click',wbAudioShareOpen);
   $('#wbAudioShareClose').addEventListener('click',function(){$('#wbAudioShareBox').classList.add('hidden')});
   $('#wbAudioShareBox').addEventListener('click',function(e){if(e.target===this)this.classList.add('hidden')});
@@ -2420,13 +2571,6 @@ function initWordBank(){
   $('#wbMediaRec').addEventListener('click',wbToggleRec);
   $('#wbMediaPlay').addEventListener('click',wbPlayRec);
   $('#wbMediaAudClear').addEventListener('click',function(){var it=WB_ITEMS[WB_MEDIA_IDX];if(it){it.audio='';it.useAuto=false;wbMediaSave();wbMediaPreview();toast('录音已清除 / Cleared')}});
-  /* 导入浮层 */
-  $('#btnWbImport').addEventListener('click',wbImportOpen);
-  $('#wbImpCancel').addEventListener('click',function(){$('#wbImport').classList.add('hidden')});
-  $('#wbImport').addEventListener('click',function(e){if(e.target===this)this.classList.add('hidden')});
-  $('#wbImpFolder').addEventListener('change',wbImportPreview);
-  ['wbImpPY','wbImpEN','wbImpAud','wbImpTTS','wbImpParts'].forEach(function(id){$('#'+id).addEventListener('change',wbImportPreview)});
-  $('#wbImpGo').addEventListener('click',wbImportApply);
 }
 function goView(v,fromHash){
   var el=$('#view-'+v);if(!el)v='home';
@@ -3300,6 +3444,14 @@ function boot(){
   function closeModal(){$('#modal').classList.add('hidden');$('#modalCopy').classList.remove('hidden')}
   $('#modalClose').addEventListener('click',closeModal);
   $('#modal').addEventListener('click',function(e){if(e.target===$('#modal'))closeModal()});
+
+  /* 导入浮层 */
+  $('#btnWbImport').addEventListener('click',wbImportOpen);
+  $('#wbImpCancel').addEventListener('click',function(){$('#wbImport').classList.add('hidden')});
+  $('#wbImport').addEventListener('click',function(e){if(e.target===this)this.classList.add('hidden')});
+  $('#wbImpFolder').addEventListener('change',wbImportPreview);
+  ['wbImpPY','wbImpEN','wbImpAud','wbImpTTS','wbImpParts'].forEach(function(id){$('#'+id).addEventListener('change',wbImportPreview)});
+  $('#wbImpGo').addEventListener('click',wbImportApply);
 
   /* 口令门 */
   if(sessionStorage.getItem(AUTH_KEY)==='1'){$('#gate').classList.add('hidden');$('#app').classList.remove('hidden')}
